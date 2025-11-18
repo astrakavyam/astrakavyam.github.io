@@ -6,140 +6,255 @@
     <title>Astra Kavyam – Hindu Mythology Documentaries</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             padding: 0;
-            font-family: 'Times New Roman', serif;
-            background-color: #000;
-            color: #fff;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: radial-gradient(circle at top, #130817 0, #050109 45%, #000 80%);
+            color: #f9fafb;
         }
 
-        /* Navbar */
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* NAVBAR */
         .navbar {
             width: 100%;
-            padding: 20px;
-            background: #111;
+            padding: 18px 20px;
+            background: linear-gradient(to right, #05030f, #12071d);
             text-align: center;
-            font-size: 32px;
-            color: gold;
-            font-weight: bold;
-            letter-spacing: 2px;
-            border-bottom: 2px solid gold;
+            font-size: 26px;
+            color: #fbbf24;
+            font-weight: 700;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.7);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
-        /* Hero Section */
+        .navbar small {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #e5e7eb;
+            margin-top: 3px;
+        }
+
+        /* HERO */
         .hero {
-            background: url('https://images.unsplash.com/photo-1549880338-65ddcdfd017b') center/cover no-repeat;
-            height: 70vh;
+            position: relative;
+            min-height: 70vh;
+            background: url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at top, rgba(249, 115, 22, 0.2), transparent 55%),
+                        linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.97));
+        }
+
+        .hero-inner {
+            position: relative;
+            max-width: 800px;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 60px;
-            color: gold;
-            text-shadow: 0 0 20px #000;
+            font-size: 40px;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fde68a, #fbbf24, #f97316);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
         }
 
+        .hero p {
+            font-size: 18px;
+            color: #e5e7eb;
+            max-width: 640px;
+            margin: 0 auto 25px;
+            text-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 12px 32px;
+            border-radius: 999px;
+            background: radial-gradient(circle at 20% 0, #facc15 0, #b45309 45%, #1f2937 100%);
+            color: #111827;
+            font-weight: 600;
+            font-size: 18px;
+            border: 1px solid rgba(250, 204, 21, 0.85);
+            box-shadow: 0 20px 40px rgba(250, 204, 21, 0.35);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 26px 60px rgba(250, 204, 21, 0.5);
+            filter: brightness(1.05);
+        }
+
+        /* SECTIONS */
         .section {
-            padding: 50px;
+            padding: 40px 18px;
             text-align: center;
+            max-width: 1000px;
+            margin: 35px auto;
+            background: radial-gradient(circle at top, #151321 0, #05030f 55%);
+            border-radius: 22px;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            box-shadow: 0 26px 70px rgba(0, 0, 0, 0.9);
         }
 
         .section h2 {
-            font-size: 45px;
-            color: gold;
-            margin-bottom: 20px;
+            font-size: 28px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            background: linear-gradient(to right, #fef9c3, #facc15, #f97316);
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
+        .section p {
+            font-size: 18px;
+            color: #e5e7eb;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 26px;
+            border-radius: 999px;
+            border: 1px solid #fbbf24;
+            color: #fbbf24;
+            font-size: 16px;
+        }
+
+        .btn-outline:hover {
+            background: rgba(250, 204, 21, 0.1);
+        }
+
+        /* FOOTER */
         .footer {
-            padding: 20px;
-            background: #111;
-            color: #aaa;
+            padding: 20px 16px;
+            background: linear-gradient(to right, #05030f, #12071d);
+            color: #9ca3af;
             text-align: center;
-            border-top: 2px solid gold;
+            border-top: 1px solid rgba(212, 175, 55, 0.5);
+            font-size: 13px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .footer span {
+            color: #fbbf24;
+        }
+
+        @media (min-width: 900px) {
+            .hero h1 {
+                font-size: 52px;
+            }
+            .section h2 {
+                font-size: 32px;
+            }
         }
     </style>
 </head>
-
 <body>
 
-    <!-- ABOUT SECTION -->
+    <!-- NAVBAR -->
+    <div class="navbar">
+        ASTRA KAVYAM
+        <small>DOCUMENTARIES ON HINDU MYTHOLOGY</small>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-inner">
+            <h1>Astra Kavyam</h1>
+            <p>
+                Cinematic documentaries on Hindu mythology – blending ancient scriptures,
+                epic characters and modern storytelling with powerful editing and sound.
+            </p>
+            <a class="hero-btn" href="https://www.youtube.com/@AstraKavyam" target="_blank">
+                Watch on YouTube →
+            </a>
+        </div>
+    </div>
+
+    <!-- ABOUT -->
     <div class="section" id="about">
         <h2>About Astra Kavyam</h2>
-        <p style="font-size: 22px; max-width: 900px; margin: auto;">
-            Astra Kavyam is a Cinematic Mythology Documentary Channel dedicated to
-            bringing ancient Hindu epics to life through storytelling, VFX,
-            narration, and deep research.  
-            <br><br>
-            Our mission is to preserve the spiritual and historical legacy of
-            India in a visually stunning cinematic way.
+        <p>
+            Astra Kavyam is a mythology-focused documentary universe.  
+            Yaha par hum Devraj Indra, Rishi Durvasha, Vishnu, Shiva, Rahu–Ketu, Bali
+            jaise characters ko cinematic, emotional aur research-based style me dikhate hain.
         </p>
     </div>
 
     <!-- DOCUMENTARIES -->
     <div class="section" id="documentaries">
         <h2>Hindu Mythology Documentaries</h2>
-        <p style="font-size: 22px; max-width: 850px; margin: auto;">
-            Explore our mythological stories, ancient texts, celestial weapons
-            (Astras), and divine legends narrated in an emotional,
-            cinematic, and research-based format.
+        <p>
+            Har documentary me detailed voice-over, powerful background music,
+            dramatic visuals aur 8K-style framing ka use kiya jata hai –  
+            taaki audience ko lage ki woh khud kahani ke andar khade hain.
         </p>
-
-        <br>
-        <a class="hero-btn" href="https://www.youtube.com/@AstraKavyam" target="_blank">
-    Watch on YouTube →
-</a>
-
-          <a href="https://www.youtube.com/@AstraKavyam" target="_blank"
-   style="padding: 15px 35px; font-size: 22px; background: gold; color: black; border-radius: 8px; text-decoration: none;">
-    Visit YouTube Channel
-</a>
-
+        <a class="btn-outline" href="https://www.youtube.com/@AstraKavyam" target="_blank">
+            Visit YouTube Channel
+        </a>
     </div>
 
     <!-- PORTFOLIO -->
     <div class="section" id="portfolio">
         <h2>Editing Portfolio</h2>
-        <p style="font-size: 22px; max-width: 850px; margin: auto;">
-            Professional video editing, VFX composites, thumbnails, cinematic
-            grading, AI editing, reels, documentaries, and more.
-        </p>
-    </div>
-
-    <!-- SERVICES -->
-    <div class="section" id="services">
-        <h2>Services</h2>
-        <p style="font-size: 22px; font-weight: bold; max-width: 850px; margin: auto;">
-            • Video Editing <br>
-            • VFX & Cinematic Effects <br>
-            • Thumbnail Designing <br>
-            • Script Writing & Narration <br>
-            • AI Voiceover <br>
-            • YouTube Content Strategy  
+        <p>
+            • Long-form documentaries  
+            • Shorts & Reels  
+            • Trailer cuts  
+            • Cinematic grading  
+            • Mythological character visuals  
         </p>
     </div>
 
     <!-- CONTACT -->
     <div class="section" id="contact">
-        <h2>Contact Me</h2>
-
-        <p style="font-size: 22px;">Email: <b>AstraKavyamStudio@gmail.com</b></p>
-
-       <p style="font-size: 22px;">
-    Instagram: <a href="https://instagram.com/astrakavyam" style="color: gold;" target="_blank">@astrakavyam</a>
-</p>
-
-
-        <p style="font-size: 22px;">
-            WhatsApp: <b>+91 83XXX 57XXX</b>  
+        <h2>Contact & Social</h2>
+        <p>
+            Email: <b>AstraKavyamOfficial@gmail.com</b><br><br>
+            Instagram:
+            <a href="https://instagram.com/astrakavyam" target="_blank" style="color:#fbbf24;">
+                @astrakavyam
+            </a>
         </p>
     </div>
+
     <!-- FOOTER -->
     <div class="footer">
-        © 2025 Astra Kavyam — All Rights Reserved  
+        © <span>Astra Kavyam</span> • Hindu Mythology Documentaries & Editing Portfolio
     </div>
 
 </body>
