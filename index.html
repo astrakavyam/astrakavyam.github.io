@@ -6,9 +6,7 @@
     <title>Astra Kavyam – Hindu Mythology Documentaries</title>
 
     <style>
-        * {
-            box-sizing: border-box;
-        }
+        * { box-sizing: border-box; }
 
         body {
             margin: 0;
@@ -18,56 +16,50 @@
             color: #f9fafb;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; }
 
         /* NAVBAR */
         .navbar {
             width: 100%;
-            padding: 18px 20px;
+            padding: 20px 20px;
             background: linear-gradient(to right, #05030f, #12071d);
             text-align: center;
-            font-size: 26px;
+            font-size: 30px;
             color: #fbbf24;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 0.25em;
             text-transform: uppercase;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.7);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.6);
             box-shadow: 0 18px 45px rgba(0, 0, 0, 0.85);
-            position: sticky;
-            top: 0;
-            z-index: 20;
         }
 
         .navbar small {
             display: block;
-            font-size: 11px;
+            font-size: 12px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
             color: #e5e7eb;
-            margin-top: 3px;
+            margin-top: 4px;
         }
 
         /* HERO */
         .hero {
             position: relative;
             min-height: 70vh;
-            background: url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat fixed;
+            background: url("https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=80")
+                      center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            overflow: hidden;
         }
 
         .hero::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: radial-gradient(circle at top, rgba(249, 115, 22, 0.2), transparent 55%),
-                        linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.97));
+            background: radial-gradient(circle at top, rgba(249,115,22,0.2), transparent 55%),
+                        linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.97));
         }
 
         .hero-inner {
@@ -77,14 +69,13 @@
         }
 
         .hero h1 {
-            font-size: 40px;
+            font-size: 48px;
             margin-bottom: 10px;
             background: linear-gradient(to right, #fde68a, #fbbf24, #f97316);
             -webkit-background-clip: text;
             color: transparent;
             text-transform: uppercase;
             letter-spacing: 0.18em;
-            text-shadow: 0 0 30px rgba(0, 0, 0, 0.9);
         }
 
         .hero p {
@@ -92,7 +83,6 @@
             color: #e5e7eb;
             max-width: 640px;
             margin: 0 auto 25px;
-            text-shadow: 0 0 18px rgba(0, 0, 0, 0.9);
         }
 
         .hero-btn {
@@ -103,15 +93,7 @@
             color: #111827;
             font-weight: 600;
             font-size: 18px;
-            border: 1px solid rgba(250, 204, 21, 0.85);
             box-shadow: 0 20px 40px rgba(250, 204, 21, 0.35);
-            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 26px 60px rgba(250, 204, 21, 0.5);
-            filter: brightness(1.05);
         }
 
         /* SECTIONS */
@@ -129,8 +111,6 @@
         .section h2 {
             font-size: 28px;
             margin-bottom: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.16em;
             background: linear-gradient(to right, #fef9c3, #facc15, #f97316);
             -webkit-background-clip: text;
             color: transparent;
@@ -153,10 +133,6 @@
             font-size: 16px;
         }
 
-        .btn-outline:hover {
-            background: rgba(250, 204, 21, 0.1);
-        }
-
         /* FOOTER */
         .footer {
             padding: 20px 16px;
@@ -164,24 +140,11 @@
             color: #9ca3af;
             text-align: center;
             border-top: 1px solid rgba(212, 175, 55, 0.5);
-            font-size: 13px;
+            font-size: 12px;
             letter-spacing: 0.1em;
-            text-transform: uppercase;
-        }
-
-        .footer span {
-            color: #fbbf24;
-        }
-
-        @media (min-width: 900px) {
-            .hero h1 {
-                font-size: 52px;
-            }
-            .section h2 {
-                font-size: 32px;
-            }
         }
     </style>
+
 </head>
 <body>
 
@@ -195,53 +158,49 @@
     <div class="hero">
         <div class="hero-inner">
             <h1>Astra Kavyam</h1>
-            <p>
-                Cinematic documentaries on Hindu mythology – blending ancient scriptures,
-                epic characters and modern storytelling with powerful editing and sound.
-            </p>
-            <a class="hero-btn" href="https://www.youtube.com/@AstraKavyam" target="_blank">
+            <p>Cinematic documentaries on Hindu mythology with epic visuals & deep storytelling.</p>
+
+            <a class="hero-btn" href="https://www.youtube.com/@astrakavyam" target="_blank">
                 Watch on YouTube →
             </a>
         </div>
     </div>
 
     <!-- ABOUT -->
-    <div class="section" id="about">
+    <div class="section">
         <h2>About Astra Kavyam</h2>
         <p>
-            Astra Kavyam is a mythology-focused documentary universe.  
-            Yaha par hum Devraj Indra, Rishi Durvasha, Vishnu, Shiva, Rahu–Ketu, Bali
-            jaise characters ko cinematic, emotional aur research-based style me dikhate hain.
+            Astra Kavyam brings ancient Hindu mythology to life with modern cinematic visuals,
+            powerful narration, deep research and emotional storytelling.
         </p>
     </div>
 
     <!-- DOCUMENTARIES -->
-    <div class="section" id="documentaries">
-        <h2>Hindu Mythology Documentaries</h2>
+    <div class="section">
+        <h2>Our Documentaries</h2>
         <p>
-            Har documentary me detailed voice-over, powerful background music,
-            dramatic visuals aur 8K-style framing ka use kiya jata hai –  
-            taaki audience ko lage ki woh khud kahani ke andar khade hain.
+            Detailed stories of Devraj Indra, Rishi Durvasha, Shiva, Vishnu, Rahu–Ketu, Asuras
+            and many more mythological legends.
         </p>
-        <a class="btn-outline" href="https://www.youtube.com/@AstraKavyam" target="_blank">
+
+        <a class="btn-outline" href="https://www.youtube.com/@astrakavyam" target="_blank">
             Visit YouTube Channel
         </a>
     </div>
 
     <!-- PORTFOLIO -->
-    <div class="section" id="portfolio">
+    <div class="section">
         <h2>Editing Portfolio</h2>
         <p>
-            • Long-form documentaries  
-            • Shorts & Reels  
-            • Trailer cuts  
-            • Cinematic grading  
-            • Mythological character visuals  
+            • Documentary Editing  
+            • Cinematic Grading  
+            • Mythological Visuals  
+            • Trailers & Shorts  
         </p>
     </div>
 
     <!-- CONTACT -->
-    <div class="section" id="contact">
+    <div class="section">
         <h2>Contact & Social</h2>
         <p>
             Email: <b>AstraKavyamOfficial@gmail.com</b><br><br>
@@ -254,7 +213,7 @@
 
     <!-- FOOTER -->
     <div class="footer">
-        © <span>Astra Kavyam</span> • Hindu Mythology Documentaries & Editing Portfolio
+        © 2025 Astra Kavyam • All Rights Reserved
     </div>
 
 </body>
