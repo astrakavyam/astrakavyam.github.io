@@ -3,36 +3,22 @@
 <head>
   <meta charset="UTF-8" />
 
-  <!-- 🔥 SEO Optimized Title -->
+  <!-- SEO Optimized Title -->
   <title>Astra Kavyam | Hindu Mythology Documentaries & Professional Video Editing Portfolio</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- 🔍 Primary SEO Description -->
   <meta name="description" content="Astra Kavyam presents Hindu Mythology Documentaries, Cinematic Stories, 8K Visuals, VFX Edits and Professional Video Editing Portfolio. Explore Devraj Indra, Shiva, Vishnu, Rahu-Ketu, Asura Bali and more in a modern cinematic documentary universe.">
-
-  <!-- 🔑 Keywords -->
   <meta name="keywords" content="Astra Kavyam, Hindu Mythology, Documentaries, Devraj Indra, Shiva, Vishnu, Rahu, Ketu, Asura Bali, Mythology Universe, Indian Mythology, VFX, Cinematic Editing, 8K Visuals, Portfolio, Storytelling">
-
-  <!-- ✍️ Author -->
   <meta name="author" content="Astra Kavyam">
-
-  <!-- 📣 Open Graph (Social Media Preview) -->
   <meta property="og:title" content="Astra Kavyam – Hindu Mythology Documentaries">
   <meta property="og:description" content="Cinematic Hindu mythology stories, documentary universe & professional video editing portfolio. Follow Devraj Indra, Shiva, Vishnu, Rahu-Ketu and more.">
   <meta property="og:type" content="website">
-  <!-- LIVE hone ke baad yahan apna real URL daalna -->
   <meta property="og:url" content="https://yourusername.github.io/astrakavyam">
-  <!-- Thumbnail image ka URL (baad me replace karna) -->
   <meta property="og:image" content="https://yourimageurl.com/thumbnail.jpg">
-
-  <!-- 🐦 Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Astra Kavyam – Cinematic Hindu Mythology">
   <meta name="twitter:description" content="Explore Hindu mythology documentaries, cinematic visuals and professional editing portfolio.">
   <meta name="twitter:image" content="https://yourimageurl.com/thumbnail.jpg">
-
-  <!-- 🔘 Favicon (optional, baad me change kar sakte ho) -->
   <link rel="icon" href="https://youriconurl.com/favicon.png" />
 
   <style>
@@ -45,571 +31,108 @@
       --muted: #c4c4c4;
       --accent: #3b82f6;
       --border-soft: rgba(212, 175, 55, 0.25);
+      --glass: rgba(15,23,42,0.75);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-
+    * { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       background: radial-gradient(circle at top, #151824 0, #020308 55%);
-      color: var(--white);
-      line-height: 1.6;
-      position: relative;
-      overflow-x: hidden;
+      color:var(--white); line-height:1.6; overflow-x:hidden;
     }
+    a { color:inherit; text-decoration:none; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* Navbar */
+    /* Header */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(14px);
-      background: linear-gradient(
-        to bottom,
-        rgba(0, 0, 0, 0.9),
-        rgba(0, 0, 0, 0.4)
-      );
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.6rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .logo-mark {
-      width: 32px;
-      height: 32px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.8rem;
-      color: var(--gold-soft);
-      background: radial-gradient(circle at 30% 0, #facc15 0, #451a03 55%, #020617 100%);
-      box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-    }
-
-    .logo-text-main {
-      font-family: "Cinzel", Georgia, "Times New Roman", serif;
-      letter-spacing: 0.08em;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-    }
-
-    .logo-text-sub {
-      font-size: 0.68rem;
-      color: var(--muted);
-      margin-top: -2px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      font-size: 0.82rem;
-    }
-
-    .nav-links a {
-      padding: 0.35rem 0.75rem;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--muted);
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      border-color: rgba(212, 175, 55, 0.4);
-      color: var(--gold-soft);
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 70%);
-    }
-
-    /* Layout helpers */
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2.5rem 1rem;
-    }
-
-    section {
-      margin-bottom: 2.5rem;
-      border-radius: 1.5rem;
-      padding: 2rem 1.6rem;
-      background: radial-gradient(circle at top left, #18181b 0, #020617 55%);
-      border: 1px solid var(--border-soft);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
-    }
-
-    @media (min-width: 720px) {
-      section {
-        padding: 2.5rem 2.2rem;
-      }
-    }
-
-    .section-title {
-      font-family: "Cinzel", Georgia, "Times New Roman", serif;
-      font-size: 1.4rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--gold-soft);
-      margin-bottom: 0.6rem;
-    }
-
-    .section-sub {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin-bottom: 1.2rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.7rem;
-      color: #e5e7eb;
-      margin-bottom: 0.75rem;
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .badge span {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 10px rgba(34, 197, 94, 0.9);
-    }
-
-    /* Hero */
-    .hero-grid {
-      display: grid;
-      gap: 1.8rem;
-    }
-
-    @media (min-width: 840px) {
-      .hero-grid {
-        grid-template-columns: 3fr 2fr;
-        align-items: center;
-      }
-    }
-
-    .hero-title {
-      font-family: "Cinzel", Georgia, "Times New Roman", serif;
-      font-size: 2rem;
-      line-height: 1.25;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    @media (min-width: 720px) {
-      .hero-title {
-        font-size: 2.4rem;
-      }
-    }
-
-    .hero-highlight {
-      background: linear-gradient(to right, #facc15, #f97316, #f97316);
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .hero-tagline {
-      font-size: 0.95rem;
-      color: var(--muted);
-      max-width: 32rem;
-      margin-bottom: 1.3rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 0.8rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.4rem;
-    }
-
-    .btn-primary,
-    .btn-outline {
-      padding: 0.6rem 1.1rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      transition: 0.2s ease;
-    }
-
-    .btn-primary {
-      background: radial-gradient(circle at 20% 0, #facc15 0, #b45309 40%, #1f2937 100%);
-      border-color: rgba(250, 204, 21, 0.8);
-      color: #111827;
-      font-weight: 600;
-      box-shadow: 0 15px 40px rgba(250, 204, 21, 0.3);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 50px rgba(250, 204, 21, 0.42);
-    }
-
-    .btn-outline {
-      border-color: rgba(148, 163, 184, 0.7);
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold-soft);
-      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.16), transparent 70%);
-    }
-
-    .hero-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .hero-meta-item span {
-      display: block;
-      font-size: 0.68rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: rgba(209, 213, 219, 0.9);
-    }
-
-    /* Hero Card */
-    .hero-card {
-      border-radius: 1.4rem;
-      padding: 1.4rem;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 65%);
-      border: 1px solid rgba(212, 175, 55, 0.35);
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.8);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card-tag {
-      font-size: 0.7rem;
-      color: var(--gold-soft);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      margin-bottom: 0.4rem;
-    }
-
-    .hero-card-title {
-      font-family: "Cinzel", Georgia, serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-
-    .hero-card-text {
-      font-size: 0.84rem;
-      color: var(--muted);
-      margin-bottom: 0.9rem;
-    }
-
-    .hero-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .chip {
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 0.7rem;
-      padding: 0.2rem 0.6rem;
-      color: #e5e7eb;
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .hero-glow {
-      position: absolute;
-      inset: auto -80px -80px auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(250, 204, 21, 0.45), transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    /* Two-column sections */
-    .two-col {
-      display: grid;
-      gap: 1.4rem;
-    }
-
-    @media (min-width: 840px) {
-      .two-col {
-        grid-template-columns: 1.4fr 1fr;
-      }
-    }
-
-    .pill-header {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: rgba(209, 213, 219, 0.9);
-      margin-bottom: 0.4rem;
-    }
-
-    .list {
-      display: grid;
-      gap: 0.8rem;
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .list strong {
-      color: var(--gold-soft);
-      font-weight: 500;
-    }
-
-    .divider {
-      height: 1px;
-      margin: 1.2rem 0;
-      border-radius: 999px;
-      background: linear-gradient(
-        to right,
-        transparent,
-        rgba(212, 175, 55, 0.4),
-        transparent
-      );
-    }
-
-    /* Cards */
-    .grid-cards {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 720px) {
-      .grid-cards {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-    }
-
-    .card {
-      border-radius: 1.1rem;
-      padding: 1rem;
-      border: 1px solid rgba(148, 163, 184, 0.45);
-      background: radial-gradient(circle at top left, #111827 0, #020617 65%);
-      font-size: 0.85rem;
-      color: var(--muted);
-    }
-
-    .card h4 {
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
-      color: var(--white);
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.4rem;
-      font-size: 0.72rem;
-    }
-
-    .tag {
-      padding: 0.15rem 0.5rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: #e5e7eb;
-    }
-
-    /* Services */
-    .service-grid {
-      display: grid;
-      gap: 1rem;
-    }
-
-    @media (min-width: 840px) {
-      .service-grid {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-    }
-
-    .service {
-      border-radius: 1rem;
-      padding: 0.9rem;
-      border: 1px solid rgba(71, 85, 105, 0.9);
-      background: radial-gradient(circle at top left, #020617 0, #020617 65%);
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .service h4 {
-      font-size: 0.9rem;
-      margin-bottom: 0.3rem;
-      color: var(--white);
-    }
-
-    .service span {
-      display: inline-block;
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: rgba(209, 213, 219, 0.8);
-      margin-bottom: 0.35rem;
-    }
-
-    /* Contact */
-    .contact-layout {
-      display: grid;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 840px) {
-      .contact-layout {
-        grid-template-columns: 1.1fr 1fr;
-      }
-    }
-
-    .contact-form {
-      display: grid;
-      gap: 0.9rem;
-      font-size: 0.85rem;
-    }
-
-    .field label {
-      display: block;
-      margin-bottom: 0.25rem;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .field input,
-    .field textarea {
-      width: 100%;
-      padding: 0.55rem 0.7rem;
-      border-radius: 0.6rem;
-      border: 1px solid rgba(75, 85, 99, 0.9);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--white);
-      font-size: 0.85rem;
-      outline: none;
-    }
-
-    .field input:focus,
-    .field textarea:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.4);
-    }
-
-    .field textarea {
-      min-height: 120px;
-      resize: vertical;
-    }
-
-    .contact-info {
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-
-    .contact-info p {
-      margin-bottom: 0.5rem;
-    }
-
-    .contact-highlight {
-      color: var(--gold-soft);
-    }
-
-    .social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.7rem;
-    }
-
-    .social-pill {
-      padding: 0.3rem 0.7rem;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      font-size: 0.75rem;
-      color: #e5e7eb;
-    }
-
-    /* Footer */
-    footer {
-      padding: 1.5rem 1rem 2.5rem;
-      text-align: center;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    footer span {
-      color: var(--gold-soft);
-    }
-
-    /* 3D-ish animated background glow */
-    .bg-orbit {
-      position: fixed;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(250, 204, 21, 0.22), transparent 55%),
-        radial-gradient(circle at 80% 100%, rgba(59, 130, 246, 0.18), transparent 55%),
-        radial-gradient(circle at 10% 80%, rgba(244, 63, 94, 0.2), transparent 55%);
-      opacity: 0.7;
-      filter: blur(1px);
-      z-index: -1;
-      animation: orbitGlow 40s linear infinite alternate;
-    }
-
-    @keyframes orbitGlow {
-      0% {
-        transform: translate3d(0, 0, 0) scale(1);
-      }
-      50% {
-        transform: translate3d(-40px, 30px, 0) scale(1.08);
-      }
-      100% {
-        transform: translate3d(40px, -20px, 0) scale(1.02);
-      }
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+      border-bottom:1px solid rgba(212,175,55,0.18);
+    }
+    .nav { max-width:1200px; margin:0 auto; padding:0.6rem 1rem; display:flex; align-items:center; justify-content:space-between; gap:1rem;}
+    .logo { display:flex; align-items:center; gap:.6rem; }
+    .logo-mark { width:36px; height:36px; border-radius:999px; border:1px solid var(--gold); display:flex;align-items:center;justify-content:center;color:var(--gold-soft); background: radial-gradient(circle at 30% 0,#facc15 0,#451a03 55%,#020617 100%); box-shadow:0 0 20px rgba(212,175,55,0.5); font-weight:700;}
+    .logo-text-main { font-family:"Cinzel",Georgia,serif; letter-spacing:.08em; font-size:0.95rem; text-transform:uppercase; color:var(--gold-soft);}
+    .logo-text-sub { font-size:0.68rem; color:var(--muted); margin-top:-2px; }
+
+    .nav-links { display:flex; gap:0.6rem; align-items:center; }
+    .nav-links a { padding:.35rem .7rem; border-radius:999px; color:var(--muted); font-size:0.88rem; }
+    .nav-links a:hover { color:var(--gold-soft); background: rgba(212,175,55,0.06); }
+
+    /* Container */
+    .container { max-width:1200px; margin:0 auto; padding:2rem 1rem; }
+
+    /* Hero - Portfolio focus */
+    .hero-portfolio {
+      display:grid; gap:1.4rem; align-items:center;
+      grid-template-columns: 1fr;
+      margin-bottom:2rem;
+    }
+    @media(min-width:900px){ .hero-portfolio { grid-template-columns: 1fr 420px; } }
+
+    .hero-left {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+      padding:1.6rem; border-radius:1.2rem; border:1px solid var(--border-soft);
+      box-shadow:0 30px 60px rgba(0,0,0,0.6);
+    }
+    .hero-title { font-family:"Cinzel",Georgia,serif; font-size:2rem; letter-spacing:0.04em; text-transform:uppercase; color:var(--gold-soft); margin-bottom:0.6rem;}
+    .hero-desc { color:var(--muted); margin-bottom:1rem; max-width:60ch; }
+    .cta-row { display:flex; gap:.8rem; flex-wrap:wrap; margin-bottom:1rem; }
+    .btn { padding:.6rem 1rem; border-radius:999px; border:1px solid transparent; cursor:pointer; font-weight:600; }
+    .btn-primary { background: radial-gradient(circle at 20% 0, #facc15 0,#b45309 40%,#1f2937 100%); color:#111827; box-shadow:0 12px 40px rgba(250,204,21,0.18);}
+    .btn-outline { background:rgba(15,23,42,0.7); color:var(--white); border:1px solid rgba(148,163,184,0.18); }
+
+    .hero-meta { display:flex; gap:1rem; color:var(--muted); font-size:.88rem; flex-wrap:wrap; }
+
+    .hero-right { border-radius:1rem; padding:1rem; background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); border:1px solid rgba(212,175,55,0.16); box-shadow:0 20px 40px rgba(0,0,0,0.6); }
+    .featured-label { font-size:.72rem; color:var(--gold-soft); text-transform:uppercase; letter-spacing:.12em; margin-bottom:.6rem; }
+    .featured-thumb { width:100%; height:220px; object-fit:cover; border-radius:.8rem; display:block; box-shadow:0 20px 40px rgba(0,0,0,0.6); border:1px solid rgba(212,175,55,0.12); }
+
+    /* Portfolio Filters */
+    .filter-row { display:flex; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }
+    .filter-btn { padding:.45rem .8rem; border-radius:999px; background:var(--glass); border:1px solid rgba(148,163,184,0.08); color:var(--muted); cursor:pointer; font-weight:600; }
+    .filter-btn.active { color:var(--gold-soft); border-color:rgba(212,175,55,0.28); background:linear-gradient(180deg, rgba(212,175,55,0.02), transparent); }
+
+    /* Portfolio grid */
+    .portfolio-grid { display:grid; gap:1rem; grid-template-columns: repeat(1, 1fr); }
+    @media(min-width:720px){ .portfolio-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media(min-width:1080px){ .portfolio-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .project-card { border-radius:1rem; overflow:hidden; border:1px solid rgba(148,163,184,0.08); background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent); position:relative; }
+    .project-thumb { width:100%; height:220px; object-fit:cover; display:block; }
+    .project-body { padding:0.9rem; }
+    .project-title { font-weight:700; color:var(--white); margin-bottom:0.35rem; }
+    .project-desc { color:var(--muted); font-size:.9rem; margin-bottom:0.6rem; }
+    .project-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:0.6rem; }
+    .project-tag { padding:0.2rem .45rem; border-radius:999px; border:1px solid rgba(148,163,184,0.08); color:var(--muted); font-size:.78rem; }
+
+    .project-actions { display:flex; gap:.5rem; }
+    .action-btn { padding:.45rem .7rem; border-radius:999px; background:rgba(0,0,0,0.45); border:1px solid rgba(148,163,184,0.06); color:var(--gold-soft); cursor:pointer; font-weight:600; }
+
+    /* Modal preview */
+    .modal { position:fixed; inset:0; background:rgba(0,0,0,0.75); display:flex; align-items:center; justify-content:center; z-index:120; padding:1rem; }
+    .modal-card { width:100%; max-width:1100px; background:#02030a; border-radius:1rem; overflow:auto; border:1px solid rgba(212,175,55,0.12); box-shadow:0 30px 80px rgba(0,0,0,0.9); }
+    .modal-head { display:flex; justify-content:space-between; align-items:center; padding:1rem; border-bottom:1px solid rgba(255,255,255,0.02); }
+    .modal-body { padding:1rem; }
+    .close-btn { background:transparent; border:0; color:var(--muted); font-size:1rem; cursor:pointer; }
+
+    /* Contact (kept similar) */
+    .contact-layout { display:grid; gap:1.5rem; margin-top:1rem; }
+    @media(min-width:840px){ .contact-layout { grid-template-columns: 1.1fr 1fr; } }
+
+    .social-row { display:flex; gap:.6rem; flex-wrap:wrap; margin-top:.6rem; }
+    .social-pill { padding:.35rem .6rem; border-radius:999px; border:1px solid rgba(148,163,184,0.8); background:rgba(15,23,42,0.65); color:var(--muted); }
+
+    footer { padding:1.5rem 1rem; text-align:center; color:var(--muted); font-size:0.8rem; }
+
+    /* small responsive tweaks */
+    @media (max-width:520px){
+      .hero-right { display:none; }
+      .hero-title { font-size:1.6rem; }
     }
   </style>
 </head>
 <body>
-  <!-- Animated background glows -->
-  <div class="bg-orbit"></div>
-
-  <!-- NAVBAR -->
   <header>
     <nav class="nav">
       <div class="logo">
@@ -619,324 +142,174 @@
           <div class="logo-text-sub">Documentaries • Editing • Mythology</div>
         </div>
       </div>
-      <div class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#docs">Documentaries</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#contact">Contact</a>
+
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <div class="nav-links" style="margin-right:0.6rem;">
+          <a href="#home">Home</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <!-- Social quick icons -->
+        <a class="social-pill" href="https://www.youtube.com/@astrakavyam" target="_blank">YouTube</a>
+        <a class="social-pill" href="https://www.instagram.com/astrakavyam" target="_blank">Instagram</a>
+        <!-- Contact visible -->
+        <div style="margin-left:0.6rem; font-size:.9rem; color:var(--muted);">+91-835XX-57XXX</div>
       </div>
     </nav>
   </header>
 
   <main class="container">
-    <!-- HERO -->
-    <section id="home">
-      <div class="badge">
-        <span></span> Available for collaborations & editing work
-      </div>
-      <div class="hero-grid">
-        <div>
-          <h1 class="hero-title">
-            <span class="hero-highlight">Astra Kavyam</span><br />
-            Documentaries on Hindu Mythology & Cinematic Editing
-          </h1>
-          <p class="hero-tagline">
-            Professional documentary-style storytelling on Hindu mythology, combined with
-            high-end video editing, VFX, and thumbnail design for digital platforms.
-          </p>
-          <div class="hero-buttons">
-            <a class="btn-primary" href="https://www.youtube.com/@astrakavyam" target="_blank">
-              Watch on YouTube →
-            </a>
-            <a class="btn-outline" href="#contact">
-              Hire me for editing
-            </a>
+    <!-- HERO / Featured Portfolio -->
+    <section id="home" class="hero-portfolio">
+      <div class="hero-left">
+        <h1 class="hero-title">Featured Portfolio — Astra Kavyam</h1>
+        <p class="hero-desc">Curated cinematic edits, trailers, and mythology documentary scenes. Scroll to explore projects — images, video edits and 3D concept models are all showcased below. Click any project to preview full-screen.</p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="https://www.youtube.com/@astrakavyam" target="_blank">Watch Channel</a>
+          <a class="btn btn-outline" href="#contact">Hire for Editing</a>
+        </div>
+
+        <div style="margin-top:1rem;">
+          <div class="pill-header" style="margin-bottom:.6rem;">Quick Filters</div>
+          <div class="filter-row" id="filterRow">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="video">Videos</button>
+            <button class="filter-btn" data-filter="image">Images</button>
+            <button class="filter-btn" data-filter="3d">3D Models</button>
           </div>
+        </div>
+
+        <div style="margin-top:1rem;">
           <div class="hero-meta">
-            <div class="hero-meta-item">
-              <span>Specialisation</span>
-              Mythology Docs, Reels, Trailers
-            </div>
-            <div class="hero-meta-item">
-              <span>Tools</span>
-              Premiere Pro, After Effects, Photoshop
-            </div>
-            <div class="hero-meta-item">
-              <span>Location</span>
-              India • Available remotely
-            </div>
-          </div>
-        </div>
-
-        <aside class="hero-card">
-          <div class="hero-card-tag">Featured Brand</div>
-          <h3 class="hero-card-title">Cinematic Mythology Universe</h3>
-          <p class="hero-card-text">
-            Astra Kavyam blends ancient Hindu stories with modern cinematic visuals.
-            Designed as a long-term documentary universe with consistent characters,
-            visuals, and voice-over style.
-          </p>
-          <div class="hero-chip-row">
-            <div class="chip">8K Mythology Visuals</div>
-            <div class="chip">Story-driven Narration</div>
-            <div class="chip">Sound Design & BGM</div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section id="about">
-      <h2 class="section-title">About the Creator</h2>
-      <p class="section-sub">
-        Content creator & editor behind Astra Kavyam – building a dedicated mythology
-        documentary universe with cinematic storytelling.
-      </p>
-      <div class="two-col">
-        <div>
-          <div class="pill-header">Introduction</div>
-          <p style="font-size:0.9rem; color:var(--muted); margin-bottom:0.9rem;">
-            Namaste, I am a video editor and content creator focused on Hindu mythology
-            documentaries, reels, and cinematic explainers. My work combines research,
-            scripting, voice-over, and professional editing to make ancient stories feel
-            modern and immersive.
-          </p>
-          <div class="list">
-            <div><strong>Focus:</strong> Hindu mythology, epic characters, cosmic stories.</div>
-            <div><strong>Style:</strong> Cinematic cuts, dramatic pacing, rich sound design.</div>
-            <div><strong>Platforms:</strong> YouTube, Instagram Reels, Shorts.</div>
-          </div>
-        </div>
-        <div>
-          <div class="pill-header">Skills</div>
-          <div class="grid-cards">
-            <div class="card">
-              <h4>Video Editing</h4>
-              Smooth cuts, pacing, storytelling.
-              <div class="tag-row">
-                <span class="tag">Premiere Pro</span>
-                <span class="tag">DaVinci Resolve</span>
-              </div>
-            </div>
-            <div class="card">
-              <h4>VFX & Motion</h4>
-              Basic compositing & motion graphics.
-              <div class="tag-row">
-                <span class="tag">After Effects</span>
-                <span class="tag">Cinematic Titles</span>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Script & Voice</h4>
-              Hindi VO, storytelling, dialogues.
-              <div class="tag-row">
-                <span class="tag">Hindi Narration</span>
-                <span class="tag">Mythology Research</span>
-              </div>
-            </div>
-            <div class="card">
-              <h4>Thumbnail Design</h4>
-              Scroll-stopping visuals for YouTube.
-              <div class="tag-row">
-                <span class="tag">Photoshop</span>
-                <span class="tag">Canva</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DOCUMENTARIES -->
-    <section id="docs">
-      <h2 class="section-title">Documentaries – Astra Kavyam</h2>
-      <p class="section-sub">
-        A growing library of Hindu mythology documentaries with a consistent cinematic
-        universe – Devraj Indra, Rishi Durvasha, Vishnu, Shiva and more.
-      </p>
-
-      <div class="grid-cards">
-        <div class="card">
-          <h4>Indra – The Celestial King</h4>
-          <p>
-            A deep-dive documentary on the most misunderstood king of the Devas, his thunder,
-            pride, falls and redemption.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Mythology</span>
-            <span class="tag">Character Study</span>
-          </div>
-        </div>
-        <div class="card">
-          <h4>Rahu & Ketu – Shadows of the Cosmos</h4>
-          <p>
-            Explaining eclipses, karma and illusion through the cosmic story of Rahu & Ketu.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Cosmic</span>
-            <span class="tag">Symbolism</span>
-          </div>
-        </div>
-        <div class="card">
-          <h4>Asura Raja Bali – The King Who Gave Everything</h4>
-          <p>
-            A tribute to the honour, sacrifice and legacy of Bali, beyond the label of “Asura”.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Epic</span>
-            <span class="tag">Character Arc</span>
-          </div>
-        </div>
-        <div class="card">
-          <h4>Shiva – Dance of Destruction</h4>
-          <p>
-            Visual exploration of Tandav, dissolution and transformation in the Shiva-centric universe.
-          </p>
-          <div class="tag-row">
-            <span class="tag">Philosophy</span>
-            <span class="tag">Cinematic</span>
+            <div><strong style="color:var(--gold-soft);">Specialisation:</strong> Documentary Edits & Trailers</div>
+            <div><strong style="color:var(--gold-soft);">Tools:</strong> Premiere Pro, After Effects</div>
+            <div><strong style="color:var(--gold-soft);">Availability:</strong> Remote • Worldwide</div>
           </div>
         </div>
       </div>
 
-      <div class="divider"></div>
-      <p style="font-size:0.85rem; color:var(--muted);">
-        New documentaries are planned and released episode-by-episode on the Astra Kavyam
-        YouTube channel. You can subscribe to follow the cinematic universe as it grows.
-      </p>
+      <aside class="hero-right">
+        <div class="featured-label">Featured Project</div>
+        <!-- Replace with your own featured thumbnail -->
+        <img src="images/sample-poster.jpg" alt="Featured Project" class="featured-thumb" />
+        <div style="margin-top:0.8rem; color:var(--muted); font-size:.92rem;">
+          <strong style="color:var(--white); display:block; margin-bottom:.35rem;">Indra — The Celestial King (Trailer)</strong>
+          Cinematic trailer cut showcasing 8K visuals, thunder fx, and dramatic narration.
+        </div>
+      </aside>
     </section>
 
-    <!-- EDITING PORTFOLIO (with sample media) -->
+    <!-- PORTFOLIO GRID -->
     <section id="portfolio">
-      <h2 class="section-title">Editing Portfolio</h2>
-      <p class="section-sub">
-        A selection of edits, reels, trailers and documentary segments crafted with a
-        cinematic, mythological and emotional tone.
-      </p>
+      <h2 class="section-title">Portfolio</h2>
+      <p class="section-sub">A showcase of my recent edits, trailers, posters and 3D concept models. Click any thumbnail to preview larger.</p>
 
-      <div class="two-col">
-        <div>
-          <div class="pill-header">Featured Work</div>
-          <div class="list">
-            <div>
-              <strong>Mythology Reels:</strong> Short-form vertical edits with impactful
-              dialogues, fast cuts and dramatic sound design.
+      <div class="portfolio-grid" id="portfolioGrid">
+        <!-- Project 1: Image -->
+        <article class="project-card" data-type="image">
+          <img src="images/sample-poster.jpg" alt="Indra Poster" class="project-thumb" />
+          <div class="project-body">
+            <div class="project-title">Indra — Poster & Frame</div>
+            <div class="project-desc">A high-res cinematic poster and frame composition for the Indra documentary.</div>
+            <div class="project-tags">
+              <span class="project-tag">Poster</span>
+              <span class="project-tag">8K</span>
+              <span class="project-tag">Color Grade</span>
             </div>
-            <div>
-              <strong>Trailer Cuts:</strong> Intense, high-energy trailers for long-form
-              episodes or series.
-            </div>
-            <div>
-              <strong>Character Visuals:</strong> Hyper-realistic 8K styled frames
-              designed for Devraj Indra, Shiva, Vishnu and more.
+            <div class="project-actions">
+              <button class="action-btn" data-type="image" data-src="images/sample-poster.jpg">Preview</button>
             </div>
           </div>
-        </div>
-        <div>
-          <div class="pill-header">Sample Links</div>
-          <p style="font-size:0.86rem; color:var(--muted);">
-            Yaha tum apne real links add kar sakte ho:
-          </p>
-          <ul class="list">
-            <li><strong>YouTube Playlist:</strong> Main documentary edits</li>
-            <li><strong>Reels / Shorts:</strong> Instagram or YouTube Shorts links</li>
-            <li><strong>Drive / Portfolio:</strong> Demo edits for clients</li>
-          </ul>
-        </div>
-      </div>
+        </article>
 
-      <!-- 🔽 SAMPLE POSTER IMAGE -->
-      <div style="margin-top:1.5rem;">
-        <h3 class="pill-header">Sample Poster</h3>
-        <!-- NOTE: images/sample-poster.jpg ko apne actual poster se replace karo -->
-        <img src="images/sample-poster.jpg" alt="Astra Kavyam Cinematic Poster"
-             style="max-width:100%; border-radius:1rem; border:1px solid rgba(212,175,55,0.4); box-shadow:0 20px 40px rgba(0,0,0,0.6);" />
-      </div>
+        <!-- Project 2: YouTube Video -->
+        <article class="project-card" data-type="video">
+          <img src="images/sample-thumb-vid.jpg" alt="Edit Thumbnail" class="project-thumb" />
+          <div class="project-body">
+            <div class="project-title">Indra — Trailer Edit</div>
+            <div class="project-desc">A 1:12 high-energy trailer cut with sound design and titling.</div>
+            <div class="project-tags">
+              <span class="project-tag">Trailer</span>
+              <span class="project-tag">YouTube</span>
+            </div>
+            <div class="project-actions">
+              <!-- Replace VIDEO_ID_HERE -->
+              <button class="action-btn" data-type="video" data-src="https://www.youtube.com/embed/VIDEO_ID_HERE">Play</button>
+            </div>
+          </div>
+        </article>
 
-      <!-- 🔽 SAMPLE YOUTUBE EMBED -->
-      <div style="margin-top:1.5rem;">
-        <h3 class="pill-header">Featured Edit (YouTube)</h3>
-        <div style="border-radius:1rem; overflow:hidden; border:1px solid rgba(212,175,55,0.4);">
-          <!-- NOTE: VIDEO_ID_HERE ko apne YouTube video ke ID se replace karo -->
-          <iframe 
-            width="100%" 
-            height="315" 
-            src="https://www.youtube.com/embed/VIDEO_ID_HERE" 
-            title="Astra Kavyam Edit" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen>
-          </iframe>
-        </div>
-      </div>
+        <!-- Project 3: 3D Model -->
+        <article class="project-card" data-type="3d">
+          <img src="images/sample-3d-thumb.jpg" alt="3D Model Thumb" class="project-thumb" />
+          <div class="project-body">
+            <div class="project-title">Devraj Indra — 3D Concept</div>
+            <div class="project-desc">A concept 3D model preview embedded from Sketchfab for demonstrations.</div>
+            <div class="project-tags">
+              <span class="project-tag">3D</span>
+              <span class="project-tag">Concept</span>
+            </div>
+            <div class="project-actions">
+              <!-- Replace YOUR_MODEL_ID -->
+              <button class="action-btn" data-type="3d" data-src="https://sketchfab.com/models/YOUR_MODEL_ID/embed">View 3D</button>
+            </div>
+          </div>
+        </article>
 
-      <!-- 🔽 SAMPLE 3D MODEL EMBED (Sketchfab ya kisi viewer se) -->
-      <div style="margin-top:1.5rem;">
-        <h3 class="pill-header">3D Concept Model</h3>
-        <div style="border-radius:1rem; overflow:hidden; border:1px solid rgba(148,163,184,0.6);">
-          <!-- NOTE: YOUR_MODEL_ID ko real Sketchfab 3D model embed URL se replace karo -->
-          <iframe 
-            title="3D Model - Astra Concept" 
-            frameborder="0" 
-            allowfullscreen 
-            mozallowfullscreen="true" 
-            webkitallowfullscreen="true" 
-            style="width:100%; height:400px;" 
-            src="https://sketchfab.com/models/YOUR_MODEL_ID/embed">
-          </iframe>
-        </div>
+        <!-- Project 4: Image -->
+        <article class="project-card" data-type="image">
+          <img src="images/sample-portrait.jpg" alt="Character Frame" class="project-thumb" />
+          <div class="project-body">
+            <div class="project-title">Devraj Indra — Character Frame</div>
+            <div class="project-desc">Hyper-realistic frame style for character visuals in 8K cinematic format.</div>
+            <div class="project-tags">
+              <span class="project-tag">Character</span>
+              <span class="project-tag">8K</span>
+            </div>
+            <div class="project-actions">
+              <button class="action-btn" data-type="image" data-src="images/sample-portrait.jpg">Preview</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more project-card blocks similarly... -->
       </div>
     </section>
 
-    <!-- SERVICES -->
+    <!-- SERVICES (kept concise) -->
     <section id="services">
       <h2 class="section-title">Services</h2>
-      <p class="section-sub">
-        Available for collaborations, freelance projects and full-stack content creation
-        around mythology, storytelling and cinematic editing.
-      </p>
-
-      <div class="service-grid">
+      <p class="section-sub">Available for collaborations, freelance projects and full-stack content creation around mythology, storytelling and cinematic editing.</p>
+      <div style="display:grid; gap:1rem; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); margin-top:1rem;">
         <div class="service">
           <span>01</span>
           <h4>Video Editing</h4>
-          <p>
-            Long-form & short-form edits, pacing, transitions and emotional storytelling
-            for YouTube & social media.
-          </p>
+          <p>Long & short form edits, pacing, transitions and storytelling.</p>
         </div>
         <div class="service">
           <span>02</span>
           <h4>Mythology Scripts</h4>
-          <p>
-            Hindi scriptwriting, voice-over lines and documentary structure for mythological content.
-          </p>
+          <p>Hindi scriptwriting, VO lines and documentary structure.</p>
         </div>
         <div class="service">
           <span>03</span>
-          <h4>Thumbnail Design</h4>
-          <p>
-            High-click thumbnails with bold typography, contrast and divine visual elements.
-          </p>
+          <h4>Thumbnails & Posters</h4>
+          <p>High-click thumbnails and cinematic posters for YouTube.</p>
         </div>
         <div class="service">
           <span>04</span>
           <h4>Voice & Sound</h4>
-          <p>
-            Basic sound design, background scores selection and voice-over guidance.
-          </p>
+          <p>Basic sound design, BGM selection & VO guidance.</p>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
+    <!-- CONTACT (unchanged content) -->
     <section id="contact">
       <h2 class="section-title">Contact & Social</h2>
-      <p class="section-sub">
-        For collaborations, editing projects or documentary work, feel free to reach out.
-      </p>
+      <p class="section-sub">For collaborations, editing projects or documentary work, feel free to reach out.</p>
 
       <div class="contact-layout">
         <div class="contact-form">
@@ -952,29 +325,17 @@
             <label>Project Details</label>
             <textarea placeholder="Type your message or project details here..."></textarea>
           </div>
-          <button class="btn-primary" type="button">
-            Send (static demo)
-          </button>
-          <p style="font-size:0.7rem; color:var(--muted);">
-            Note: This is a static portfolio form. For direct contact, use email or social links on the right.
-          </p>
+          <button class="btn btn-primary" type="button">Send (static demo)</button>
+          <p style="font-size:0.7rem; color:var(--muted);">Note: This is a static portfolio form. For direct contact, use email or social links on the right.</p>
         </div>
 
         <div class="contact-info">
-          <p>
-            <span class="contact-highlight">Business email:</span><br />
-            astrakavyam@gmail.com
-          </p>
-          <p>
-            <span class="contact-highlight">WhatsApp / Phone:</span><br />
-            +91-835XX-57XXX
-          </p>
-          <p>
-            <span class="contact-highlight">Social links:</span>
-          </p>
+          <p><span class="contact-highlight">Business email:</span><br/>astrakavyam@gmail.com</p>
+          <p><span class="contact-highlight">WhatsApp / Phone:</span><br/>+91-835XX-57XXX</p>
+          <p><span class="contact-highlight">Social links:</span></p>
           <div class="social-row">
             <a class="social-pill" href="https://www.youtube.com/@astrakavyam" target="_blank">YouTube</a>
-            <a class="social-pill" href="https://www.instagram.com/astrakavyam?igsh=MXIzazd4dGpiYTNtaw==" target="_blank">Instagram</a>
+            <a class="social-pill" href="https://www.instagram.com/astrakavyam" target="_blank">Instagram</a>
             <a class="social-pill" href="#" target="_blank">Facebook</a>
             <a class="social-pill" href="#" target="_blank">X (Twitter)</a>
           </div>
@@ -983,8 +344,67 @@
     </section>
   </main>
 
-  <footer>
-    © <span>Astra Kavyam</span> • Documentaries on Hindu Mythology & Professional Editing Portfolio
-  </footer>
+  <footer>© <span>Astra Kavyam</span> • Documentaries on Hindu Mythology & Professional Editing Portfolio</footer>
+
+  <!-- Modal container (hidden by default) -->
+  <div id="modalRoot" style="display:none;"></div>
+
+  <script>
+    // Simple filter buttons
+    const filterRow = document.getElementById('filterRow');
+    const portfolioGrid = document.getElementById('portfolioGrid');
+    filterRow.addEventListener('click', (e) => {
+      if (!e.target.matches('.filter-btn')) return;
+      document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+      e.target.classList.add('active');
+      const f = e.target.dataset.filter;
+      document.querySelectorAll('.project-card').forEach(card=>{
+        if (f === 'all' || card.dataset.type === f) card.style.display = '';
+        else card.style.display = 'none';
+      });
+    });
+
+    // Modal preview logic (image / video / 3D iframe)
+    const modalRoot = document.getElementById('modalRoot');
+    portfolioGrid.addEventListener('click', (e) => {
+      const btn = e.target.closest('.action-btn');
+      if (!btn) return;
+      const type = btn.dataset.type;
+      const src = btn.dataset.src;
+      openModal(type, src);
+    });
+
+    function openModal(type, src){
+      modalRoot.innerHTML = '';
+      const modal = document.createElement('div');
+      modal.className = 'modal';
+      modal.innerHTML = `
+        <div class="modal-card">
+          <div class="modal-head">
+            <div style="color:var(--gold-soft); font-weight:700;">Preview</div>
+            <button class="close-btn" id="closeModal">Close</button>
+          </div>
+          <div class="modal-body">
+            ${ type === 'image' ? `<img src="${src}" style="width:100%; height:auto; border-radius:.6rem;" alt="Preview">` : 
+               type === 'video' ? `<div style="position:relative;padding-top:56.25%"><iframe src="${src}" style="position:absolute; inset:0; width:100%; height:100%; border:0;" allowfullscreen></iframe></div>` :
+               `<iframe src="${src}" style="width:100%; height:600px; border:0;" allowfullscreen></iframe>`
+            }
+          </div>
+        </div>
+      `;
+      modalRoot.appendChild(modal);
+      modalRoot.style.display = '';
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      modal.addEventListener('click', (ev)=> { if (ev.target === modal) closeModal(); });
+    }
+
+    function closeModal(){
+      modalRoot.innerHTML = '';
+      modalRoot.style.display = 'none';
+    }
+
+    // Accessibility: close modal with Escape
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeModal(); });
+  </script>
 </body>
 </html>
