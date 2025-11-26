@@ -2,528 +2,407 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Astra Kavyam — Cinematic Documentaries & Professional Editing</title>
-  <meta name="description" content="Astra Kavyam — Cinematic documentaries on Hindu Mythology. Professional editing, VFX, thumbnails & voiceover services." />
-  <meta property="og:title" content="Astra Kavyam — Cinematic Documentaries" />
-  <meta property="og:description" content="Cinematic mythological documentaries and professional post-production services." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="banner-sample.jpg" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Astra Kavyam — Cinematic documentaries on Hindu mythology. Professional editing, VFX, thumbnails & voiceover services. Portfolio, showreels and episode previews." />
+  <meta name="keywords" content="Astra Kavyam, Hindu mythology, documentary, video editor, VFX, thumbnails, voiceover, portfolio" />
   <link rel="canonical" href="https://astrakavyam.github.io/">
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Astra Kavyam" />
+  <meta property="og:title" content="Astra Kavyam — Cinematic Documentaries & Editing Portfolio" />
+  <meta property="og:description" content="Cinematic documentaries on Hindu mythology — portfolio, showreels, services & contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://astrakavyam.github.io/" />
+  <meta property="og:image" content="banner-sample.jpg" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Astra Kavyam — Cinematic Documentaries" />
+  <meta name="twitter:description" content="Cinematic documentaries on Hindu mythology — portfolio, showreels & services." />
+  <meta name="twitter:image" content="banner-sample.jpg" />
 
-  <!-- Preconnect fonts for performance -->
+  <!-- Preconnect fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /*
-      Astra Kavyam — Professional UI
-      - Dark + Gold + Clean sections
-      - Responsive, accessible, GitHub Pages ready
-    */
-
     :root{
-      /* Brand Colors */
-      --bg:#030304;
-      --panel:#0e0f10;
-      --muted:#bdbdbd;
-      --white:#ffffff;
-      --gold:#d4af37;
-      --accent:#f7e8b5;
-      --glass: rgba(255,255,255,0.04);
-      --maxw:1200px;
-
-      /* Spacing */
-      --pad:28px;
-      --radius:12px;
-      --shadow-lg: 0 18px 50px rgba(0,0,0,0.65);
-      --ease: cubic-bezier(.16,.84,.32,1);
-      --mono: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --bg:#030304; --panel:#0e0f10; --muted:#bdbdbd; --white:#fff;
+      --gold:#d4af37; --accent:#f6e7b1; --glass: rgba(255,255,255,0.04);
+      --maxw:1200px; --pad:28px; --radius:12px;
+      --shadow: 0 18px 50px rgba(0,0,0,0.6);
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0;font-family:var(--mono);color:var(--muted);background:
-      radial-gradient(800px 300px at 10% 10%, rgba(212,175,55,0.02), transparent 6%),
-      linear-gradient(180deg,#020203 0%, #060607 100%);
-      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-      line-height:1.6;
-      -webkit-touch-callout:none;
+      margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background:linear-gradient(180deg,#050507 0%, #0a0a0b 100%);color:var(--muted);-webkit-font-smoothing:antialiased;
     }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:var(--pad);}
 
-    /* Page container */
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:var(--pad);position:relative;z-index:3}
-
-    /* NAV */
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 0;position:sticky;top:10px;backdrop-filter: blur(6px);z-index:50}
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 0;position:sticky;top:8px;z-index:40;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));backdrop-filter: blur(6px);border-bottom:1px solid rgba(212,175,55,0.06)}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,#111 0%, #0b0b0b 100%);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.06);box-shadow:var(--shadow-lg)}
-    .logo img{width:44px;height:44px;object-fit:contain}
-    .brand-title{display:flex;flex-direction:column}
-    .brand-title h1{font-family:'Cinzel',serif;color:var(--gold);margin:0;font-size:18px;letter-spacing:1px}
-    .brand-title p{margin:0;font-size:12px;color:var(--muted)}
-
+    .logo{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,#111,#0b0b0b);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.06)}
+    .logo img{max-width:48px;max-height:48px}
+    .brand h1{font-family:Cinzel, serif;color:var(--gold);margin:0;font-size:18px}
     nav{display:flex;gap:10px;align-items:center}
-    .nav-link{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;border:1px solid transparent}
-    .nav-link:hover{color:var(--white);background:rgba(255,255,255,0.02);transform:translateY(-3px)}
-    .btn-ghost{border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
-    .btn-primary{background:linear-gradient(90deg,#cfae4a,#f0d87d);color:#070707;padding:10px 14px;border-radius:10px;font-weight:700;border:1px solid rgba(212,175,55,0.18);text-decoration:none}
+    a.navlink{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
+    a.navlink:hover{color:var(--white);background:rgba(255,255,255,0.02)}
 
-    /* HERO */
-    .hero-wrap{position:relative;border-radius:16px;overflow:hidden;margin:18px 0 30px}
-    .hero-media{position:absolute;inset:0;background-image:url('banner-sample.jpg');background-size:cover;background-position:center;filter:brightness(.52) saturate(.9);transform:scale(1.02);}
-    .hero-overlay{position:absolute;inset:0;background: linear-gradient(180deg, rgba(2,2,2,0.25), rgba(2,2,2,0.6));mix-blend-mode:multiply}
-    .hero-glow{position:absolute;inset:0;pointer-events:none;background:
-      radial-gradient(600px 300px at 20% 20%, rgba(212,175,55,0.03), transparent 8%),
-      radial-gradient(500px 240px at 85% 80%, rgba(212,175,55,0.02), transparent 6%);
-      filter: blur(30px);opacity:.95}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
+    @media(max-width:980px){.hero{grid-template-columns:1fr}}
+    .hero-left h2{font-family:Cinzel, serif;color:var(--gold);font-size:36px;margin:0 0 12px}
+    .hero-left p{color:var(--muted);max-width:56ch}
+    .cta-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
+    .btn{padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
+    .btn-primary{background:linear-gradient(90deg,#e2bf56,#f3df9e);color:#060606;border:1px solid rgba(212,175,55,0.12)}
+    .btn-ghost{border:1px solid rgba(255,255,255,0.04);color:var(--muted);background:transparent}
 
-    .hero{display:grid;grid-template-columns:1fr 460px;gap:28px;align-items:center;padding:40px;position:relative;z-index:2}
-    .hero-left{color:var(--muted)}
-    .kicker{display:inline-block;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--gold);font-weight:700;margin-bottom:12px}
-    .hero-left h2{font-family:'Cinzel',serif;color:var(--gold);font-size:42px;margin:0 0 14px;line-height:1.05;text-shadow:0 10px 30px rgba(0,0,0,0.6)}
-    .hero-left p{max-width:60ch;font-size:16px;color:var(--muted);margin:0 0 18px}
+    .hero-right{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .threeD{width:100%;max-width:380px;display:block;margin:0 auto 8px}
+    .poster{width:100%;border-radius:8px;display:block;object-fit:cover}
 
-    .ctas{display:flex;gap:12px;flex-wrap:wrap}
-    .cta-watch{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:800;background:linear-gradient(90deg,#e6c664,#f6e7b3);color:#060607;box-shadow:0 16px 40px rgba(212,175,55,0.08)}
-    .cta-follow{padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);color:var(--muted);text-decoration:none}
+    /* Sections */
+    section{margin-top:28px}
+    .section-head{display:flex;align-items:end;gap:12px}
+    .section-title{font-family:Cinzel, serif;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+    .section-sub{color:var(--muted);margin-top:6px;font-size:0.95rem}
 
-    /* Right column: 3D title + poster */
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;flex-direction:column;align-items:center;justify-content:center}
-    .threeD{width:100%;max-width:760px;height:auto;display:block;border-radius:8px;filter:drop-shadow(0 28px 60px rgba(0,0,0,0.6));transition:transform .6s var(--ease)}
-    .threeD:hover{transform:translateY(-6px) scale(1.01)}
-    .poster{width:100%;border-radius:8px;margin-top:12px;object-fit:cover}
+    /* Portfolio filters + grid */
+    .filters{display:flex;gap:8px;margin:14px 0 12px;flex-wrap:wrap}
+    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);cursor:pointer;font-weight:600}
+    .filter-btn.active{background:linear-gradient(90deg, rgba(212,175,55,0.08), rgba(212,175,55,0.04));color:var(--gold)}
 
-    /* Hero quick stats row */
-    .stats{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .stat{background:rgba(255,255,255,0.02);padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);min-width:120px;text-align:center}
-    .stat strong{display:block;color:var(--gold);font-size:18px}
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    .media-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);transition:transform .25s}
+    .media-card:hover{transform:translateY(-8px)}
+    .media-thumb{width:100%;height:140px;object-fit:cover;border-radius:8px;display:block}
+    .media-meta{margin-top:8px}
+    .media-title{color:var(--white);font-weight:700}
+    .media-desc{color:var(--muted);font-size:0.9rem;margin-top:6px}
+    .media-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+    .tag{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-size:12px;color:var(--muted)}
 
-    /* SECTION common */
-    section{padding:48px 0;border-top:1px solid rgba(255,255,255,0.02)}
-    .container{max-width:1100px;margin:0 auto}
-    .section-title{display:flex;align-items:end;gap:12px}
-    .section-title h3{font-family:'Cinzel',serif;color:var(--gold);margin:0;font-size:22px}
-    .section-sub{color:var(--muted);font-size:14px}
-
-    /* GRID / CARDS */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition:transform .28s var(--ease), box-shadow .28s var(--ease)}
-    .card:hover{transform:translateY(-10px);box-shadow:var(--shadow-lg)}
-    .card img{width:100%;height:160px;object-fit:cover;border-radius:8px;display:block}
-    .card h4{margin:10px 0 6px;color:var(--white);font-size:16px}
-    .card p{margin:0;color:var(--muted);font-size:14px}
-
-    /* Filters */
-    .filters{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
-    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);cursor:pointer}
-    .filter-btn.active{background:linear-gradient(90deg, rgba(212,175,55,0.10), rgba(212,175,55,0.05));color:var(--gold);border-color:rgba(212,175,55,0.12)}
-
-    /* SERVICES */
-    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-    .service{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
-    .service h5{margin:0 0 8px;color:var(--gold);font-family:'Cinzel',serif}
-    .service p{margin:0;color:var(--muted);font-size:14px}
-    .pricing{margin-top:12px;font-weight:700;color:var(--white)}
-
-    /* Testimonials (CSS slider) */
-    .testimonials{position:relative;overflow:hidden;border-radius:12px}
-    .slides{display:flex;transition:transform .6s var(--ease)}
-    .testimonial{min-width:100%;padding:24px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));border-radius:12px}
-    .testimonial p{color:var(--muted);margin:0 0 12px}
-    .testimonial strong{color:var(--gold)}
-
-    /* CONTACT */
-    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
-    .contact-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
-    .phone{font-weight:800;color:var(--gold);font-size:18px}
-    .socials{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
-    .socials a{padding:8px 12px;border-radius:10px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
-
-    /* Footer */
-    footer{padding:30px 0;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Modal lightbox */
-    .modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.75);z-index:999}
+    /* Lightbox modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
     .modal.open{display:flex}
-    .modal .box{width:95%;max-width:1000px;border-radius:12px;background:#080808;padding:12px}
-    .modal .close{float:right;color:var(--muted);cursor:pointer;font-weight:700}
+    .lightbox{width:100%;max-width:1200px;background:#080808;border-radius:10px;padding:12px;position:relative}
+    .lightbox iframe,img{width:100%;height:70vh;border-radius:8px;display:block;object-fit:contain}
+    .lightbox .close{position:absolute;right:12px;top:12px;background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:6px;cursor:pointer}
 
-    /* small screens */
-    @media(max-width:980px){
-      .hero{grid-template-columns:1fr; text-align:center}
-      .hero-right{order:-1}
-      .contact-grid{grid-template-columns:1fr}
-      .threeD{max-width:640px}
-    }
-    @media(max-width:520px){
-      .brand-title h1{font-size:16px}
-      .hero-left h2{font-size:26px}
-      .ctas{justify-content:center}
-      header{padding:8px 0}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+    @media(max-width:980px){.contact-grid{grid-template-columns:1fr}}
+    .contact-card{padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .phone{color:var(--gold);font-weight:800}
+
+    footer{margin-top:40px;padding:22px 0;text-align:center;color:var(--muted);font-size:13px}
+
+    /* Small screens */
+    @media(max-width:600px){
+      .hero-left h2{font-size:24px}
+      .media-thumb{height:120px}
     }
   </style>
 </head>
 <body>
-
-  <!-- JSON-LD structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Astra Kavyam",
-    "url": "https://astrakavyam.github.io",
-    "logo": "https://astrakavyam.github.io/logo.png",
-    "sameAs": [
-      "https://www.youtube.com/@astrakavyam",
-      "https://instagram.com/astrakavyam"
-    ],
-    "contactPoint": [{
-      "@type": "ContactPoint",
-      "telephone": "+91-835XX-57XXX",
-      "contactType": "customer service",
-      "email": "astrakavyam@gmail.com"
-    }]
-  }
-  </script>
-
   <div class="wrap">
 
-    <!-- Header -->
-    <header role="banner" aria-label="Primary header">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <img src="logo.png" alt="Astra Kavyam logo" onerror="this.style.display='none'"/>
-        </div>
-        <div class="brand-title">
-          <h1>Astra Kavyam</h1>
-          <p>Documentaries on Hindu Mythology</p>
-        </div>
+    <!-- HEADER -->
+    <header>
+      <div class="brand" role="banner" aria-label="Astra Kavyam">
+        <div class="logo"><img src="logo.png" alt="Astra Kavyam logo" onerror="this.style.display='none'"/></div>
+        <h1 style="margin-left:8px;font-size:16px;color:var(--gold);font-family:Cinzel,serif;">ASTRA KAVYAM</h1>
       </div>
 
-      <nav role="navigation" aria-label="Main navigation">
-        <a class="nav-link" href="#documentaries">Documentaries</a>
-        <a class="nav-link" href="#portfolio">Portfolio</a>
-        <a class="nav-link" href="#services">Services</a>
-        <a class="nav-link" href="#contact">Contact</a>
-        <a class="btn-primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
+      <nav aria-label="Main navigation">
+        <a class="navlink" href="#home">Home</a>
+        <a class="navlink" href="#about">About</a>
+        <a class="navlink" href="#docs">Documentaries</a>
+        <a class="navlink" href="#portfolio">Portfolio</a>
+        <a class="navlink" href="#contact">Contact</a>
       </nav>
     </header>
 
     <!-- HERO -->
-    <div class="hero-wrap" role="region" aria-label="Hero">
-      <div class="hero-media" aria-hidden="true"></div>
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
-
-      <div class="hero">
-        <div class="hero-left">
-          <div class="kicker">Cinematic Documentaries</div>
-          <h2>Epic Stories • Cinematic Narration • Timeless Wisdom</h2>
-          <p>We craft high-production documentaries on Hindu mythology — research-driven storytelling, cinematic editing, and premium production design for YouTube and clients.</p>
-
-          <div class="ctas">
-            <a id="watchBtn" class="cta-watch" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">▶ Watch on YouTube</a>
-            <a id="instaBtn" class="cta-follow" href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Follow on Instagram</a>
-          </div>
-
-          <div class="stats" aria-hidden="true">
-            <div class="stat"><strong>10+</strong><span style="display:block;color:var(--muted);font-size:12px">Episodes Planned</span></div>
-            <div class="stat"><strong>Production</strong><span style="display:block;color:var(--muted);font-size:12px">Editing & VFX</span></div>
-          </div>
-        </div>
-
-        <aside class="hero-card" aria-hidden="false">
-          <!-- 3D PNG (if present) - fallback to poster -->
-          <img class="threeD" src="3d-text.png" alt="Astra Kavyam 3D Title" loading="lazy" onerror="this.style.display='none'"/>
-          <img class="poster" src="banner-sample.jpg" alt="Astra Kavyam cinematic poster" loading="lazy"/>
-        </aside>
-      </div>
-    </div>
-
-    <!-- Documentaries Section with filters -->
-    <section id="documentaries" class="container" aria-labelledby="docs-title">
-      <div class="section-title">
-        <h3 id="docs-title">Documentaries</h3>
-        <div class="section-sub">Selected episodes & trailers</div>
-      </div>
-
-      <div style="margin-top:18px" class="filters" role="list">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="episodes">Episodes</button>
-        <button class="filter-btn" data-filter="trailers">Trailers</button>
-      </div>
-
-      <div class="grid" id="docGrid">
-        <!-- Each card needs data-type attribute for filtering and video data-video for preview embed -->
-        <article class="card" data-type="episodes">
-          <img src="doc-thumb-1.jpg" alt="Indra — The Celestial King" loading="lazy"/>
-          <h4>Indra — The Celestial King</h4>
-          <p>12 min — duties, myths and truth.</p>
-          <div style="margin-top:10px">
-            <button class="nav-link" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">Preview</button>
-          </div>
-        </article>
-
-        <article class="card" data-type="trailers">
-          <img src="doc-thumb-2.jpg" alt="Shiva — Dance of Destruction" loading="lazy"/>
-          <h4>Shiva — Trailer</h4>
-          <p>Trailer — Tandava: symbolism & science.</p>
-          <div style="margin-top:10px">
-            <button class="nav-link" onclick="openModal('https://www.youtube.com/embed/dQw4w9WgXcQ')">Preview</button>
-          </div>
-        </article>
-
-        <!-- Add more items as needed -->
-      </div>
-    </section>
-
-    <!-- Portfolio -->
-    <section id="portfolio" class="container" aria-labelledby="portfolio-title">
-      <div class="section-title">
-        <h3 id="portfolio-title">Editing Portfolio</h3>
-        <div class="section-sub">Selected client work & demo reels</div>
-      </div>
-
-      <div style="margin-top:18px" class="grid">
-        <article class="card">
-          <img src="work-1.jpg" alt="Trailer edit" loading="lazy"/>
-          <h4>Trailer Edit — Cinematic Cut</h4>
-          <p>Color grading, sound design & VFX compositing.</p>
-        </article>
-
-        <article class="card">
-          <img src="work-2.jpg" alt="Restoration work" loading="lazy"/>
-          <h4>Before/After — Restoration</h4>
-          <p>Frame-by-frame restoration and color restoration.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- Services -->
-    <section id="services" class="container" aria-labelledby="services-title">
-      <div class="section-title">
-        <h3 id="services-title">Services</h3>
-        <div class="section-sub">End-to-end production & post</div>
-      </div>
-
-      <div style="margin-top:18px" class="services">
-        <div class="service">
-          <h5>Documentary Editing</h5>
-          <p>Structure, pacing, emotional arc, color grading.</p>
-          <div class="pricing">Starting ₹5,000 / min (negotiable)</div>
-        </div>
-
-        <div class="service">
-          <h5>VFX & Compositing</h5>
-          <p>Lightning, matte painting, particle FX, 2D/3D comp.</p>
-          <div class="pricing">Project-based</div>
-        </div>
-
-        <div class="service">
-          <h5>Thumbnail Design</h5>
-          <p>High-CTR cinematic thumbnails with brand consistency.</p>
-          <div class="pricing">₹500 / thumbnail</div>
-        </div>
-
-        <div class="service">
-          <h5>Voiceover & Script</h5>
-          <p>Hindi/English narration scripts and VO direction.</p>
-          <div class="pricing">Per script / per minute</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials (simple auto slider) -->
-    <section class="container" aria-labelledby="testi-title">
-      <div class="section-title">
-        <h3 id="testi-title">What Clients Say</h3>
-        <div class="section-sub">Selected feedback</div>
-      </div>
-
-      <div style="margin-top:18px" class="testimonials">
-        <div class="slides" id="slides">
-          <div class="testimonial">
-            <p>"Astra Kavyam delivered cinematic storytelling beyond expectations. Editing quality was superb."</p>
-            <strong>— Client A</strong>
-          </div>
-          <div class="testimonial">
-            <p>"Professional, punctual, and creative — highly recommended for documentary work."</p>
-            <strong>— Client B</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container" aria-labelledby="about-title">
-      <div class="section-title">
-        <h3 id="about-title">About</h3>
-        <div class="section-sub">Who we are</div>
-      </div>
-
-      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-top:18px">
-        <div style="flex:1;min-width:260px">
-          <p style="color:var(--muted)">Astra Kavyam crafts cinematic documentaries exploring Hindu mythology with research-backed storytelling and high-end production. Led by a professional editor & content creator — we deliver episodes, trailers and client projects with studio-standard post-production.</p>
-          <ul style="color:var(--muted);padding-left:18px">
-            <li>Editing • Color Grading • Sound Design</li>
-            <li>VFX • Motion Graphics • Thumbnails</li>
-            <li>Scriptwriting • Voiceover Direction</li>
-          </ul>
-        </div>
-        <div style="width:240px">
-          <img src="about-photo.jpg" alt="About" style="width:100%;border-radius:10px;display:block;object-fit:cover" loading="lazy"/>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact -->
-    <section id="contact" class="container" aria-labelledby="contact-title">
-      <div class="section-title">
-        <h3 id="contact-title">Contact</h3>
-        <div class="section-sub">Business & collaborations</div>
-      </div>
-
-      <div style="margin-top:18px" class="contact-grid">
-        <div class="contact-card">
-          <p>If you want professional editing services, collaborations or documentary inquiries — reach out.</p>
-
-          <div style="margin-top:10px">
-            <div class="phone" id="phoneElm">📞 +91-835XX-57XXX</div>
-            <div style="margin-top:6px;color:var(--muted)">✉️ <a id="emailLink" href="mailto:astrakavyam@gmail.com" style="color:var(--gold);text-decoration:none">astrakavyam@gmail.com</a></div>
-            <p style="margin:8px 0 0;color:var(--muted)">Response time: Usually within 24 hours.</p>
-          </div>
-
-          <div class="socials" aria-label="social links">
-            <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
-            <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://wa.me/91835XXXXXXXX" target="_blank" rel="noopener">WhatsApp</a>
-          </div>
-        </div>
-
-        <div class="contact-card">
-          <!-- Formspree: replace action with your form endpoint (or use mailto) -->
-          <form id="contactForm" action="https://formspree.io/f/FORMSPREE_ENDPOINT" method="POST">
-            <label style="display:block;margin-bottom:6px;color:var(--muted)">Your Name</label>
-            <input name="name" type="text" placeholder="Name" required style="width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:10px">
-
-            <label style="display:block;margin-bottom:6px;color:var(--muted)">Email</label>
-            <input name="_replyto" type="email" placeholder="you@example.com" required style="width:100%;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:10px">
-
-            <label style="display:block;margin-bottom:6px;color:var(--muted)">Message</label>
-            <textarea name="message" required placeholder="Brief message" style="width:100%;min-height:120px;padding:12px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--white);margin-bottom:12px"></textarea>
-
-            <div style="display:flex;gap:10px">
-              <button type="submit" class="btn-primary" style="border:0">Send Message</button>
-              <a class="nav-link" href="mailto:astrakavyam@gmail.com">Or email directly</a>
+    <main>
+      <section id="home" aria-labelledby="home-title">
+        <div class="hero">
+          <div class="hero-left">
+            <h2 id="home-title">Astra Kavyam — <span style="color:var(--gold)">Documentaries</span> & Cinematic Editing</h2>
+            <p>We craft cinematic documentaries on Hindu mythology and provide studio-grade editing, VFX and design services for creators & brands.</p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Watch on YouTube</a>
+              <a class="btn btn-ghost" href="#contact">Hire for editing</a>
             </div>
-            <div id="formNote" style="margin-top:10px;color:var(--muted);font-size:13px"></div>
-          </form>
+            <div style="margin-top:12px;color:var(--muted);font-size:13px">Specialization: Mythology Docs • Trailers • Reels</div>
+          </div>
+
+          <aside class="hero-right" aria-hidden="false">
+            <!-- optional 3D text image (upload later) -->
+            <img src="3d-text.png" alt="Astra Kavyam 3D title" class="threeD" loading="lazy" onerror="this.style.display='none'">
+            <img src="banner-sample.jpg" alt="Astra Kavyam banner" class="poster" loading="lazy">
+          </aside>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Footer -->
+      <!-- ABOUT -->
+      <section id="about" aria-labelledby="about-title">
+        <div class="section-head">
+          <h2 class="section-title" id="about-title">About the Creator</h2>
+        </div>
+        <p class="section-sub">Content creator & editor behind Astra Kavyam — building a cinematic mythology universe with consistent characters, tone and high production value.</p>
+      </section>
+
+      <!-- DOCUMENTARIES -->
+      <section id="docs" aria-labelledby="docs-title">
+        <div class="section-head">
+          <h2 class="section-title" id="docs-title">Documentaries</h2>
+        </div>
+        <p class="section-sub">Selected documentary concepts & episode summaries from the Astra Kavyam universe.</p>
+
+        <div class="portfolio-grid" style="margin-top:12px">
+          <!-- small cards as summary (text-only) -->
+          <div class="media-card">
+            <div class="media-meta">
+              <div class="media-title">Indra — The Celestial King</div>
+              <div class="media-desc">Character study & cosmic duties — 12 min episode.</div>
+              <div class="media-tags"><span class="tag">Episode</span><span class="tag">Character</span></div>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="media-meta">
+              <div class="media-title">Rahu & Ketu — Shadows of the Cosmos</div>
+              <div class="media-desc">Eclipses, karma and mythic symbolism — short doc.</div>
+              <div class="media-tags"><span class="tag">Cosmic</span><span class="tag">Explainer</span></div>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="media-meta">
+              <div class="media-title">Asura Raja Bali — The King Who Gave Everything</div>
+              <div class="media-desc">Honor, sacrifice and legacy beyond labels.</div>
+              <div class="media-tags"><span class="tag">Epic</span><span class="tag">Character Arc</span></div>
+            </div>
+          </div>
+
+          <div class="media-card">
+            <div class="media-meta">
+              <div class="media-title">Shiva — Dance of Destruction</div>
+              <div class="media-desc">Visual exploration of Tandava & transformation.</div>
+              <div class="media-tags"><span class="tag">Philosophy</span><span class="tag">Cinematic</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PORTFOLIO (requested: sample media + filters + lightbox) -->
+      <section id="portfolio" aria-labelledby="portfolio-title">
+        <div class="section-head">
+          <h2 class="section-title" id="portfolio-title">Editing Portfolio</h2>
+        </div>
+        <p class="section-sub">Sample edits, showreels and demo clips. Click any item to preview (YouTube embed or image).</p>
+
+        <!-- filters -->
+        <div class="filters" role="toolbar" aria-label="Filter portfolio">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="reel">Reels</button>
+          <button class="filter-btn" data-filter="trailer">Trailers</button>
+          <button class="filter-btn" data-filter="doc">Documentaries</button>
+        </div>
+
+        <!-- grid -->
+        <div class="portfolio-grid" id="portfolioGrid">
+          <!-- Card 1: YouTube embed preview (sample) -->
+          <article class="media-card" data-type="reel" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Reel 1">
+            <img src="sample-thumb-1.jpg" alt="Reel: Cinematic Mythology Reel" class="media-thumb" loading="lazy">
+            <div class="media-meta">
+              <div class="media-title">Cinematic Mythology Reel</div>
+              <div class="media-desc">Short-form reel — dramatic cuts & sound design.</div>
+              <div class="media-tags"><span class="tag">Reel</span><span class="tag">Sound Design</span></div>
+            </div>
+          </article>
+
+          <!-- Card 2: Trailer (YouTube) -->
+          <article class="media-card" data-type="trailer" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Trailer 1">
+            <img src="sample-thumb-2.jpg" alt="Trailer: Indra Trailer" class="media-thumb" loading="lazy">
+            <div class="media-meta">
+              <div class="media-title">Indra — Trailer</div>
+              <div class="media-desc">High-energy trailer for long-form episode.</div>
+              <div class="media-tags"><span class="tag">Trailer</span><span class="tag">Cinematic</span></div>
+            </div>
+          </article>
+
+          <!-- Card 3: Image preview (before/after) -->
+          <article class="media-card" data-type="doc" data-image="sample-thumb-3.jpg" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Image 1">
+            <img src="sample-thumb-3.jpg" alt="Before/After color grade" class="media-thumb" loading="lazy">
+            <div class="media-meta">
+              <div class="media-title">Before / After — Color Grade</div>
+              <div class="media-desc">Color grading demo: neutral to cinematic 8K look.</div>
+              <div class="media-tags"><span class="tag">Color Grade</span><span class="tag">8K</span></div>
+            </div>
+          </article>
+
+          <!-- Card 4: Trailer 2 -->
+          <article class="media-card" data-type="reel" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Reel 2">
+            <img src="sample-thumb-4.jpg" alt="Character Visuals — Devraj Indra" class="media-thumb" loading="lazy">
+            <div class="media-meta">
+              <div class="media-title">Devraj Indra Visuals</div>
+              <div class="media-desc">Character visuals & VFX integration examples.</div>
+              <div class="media-tags"><span class="tag">Character</span><span class="tag">VFX</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" aria-labelledby="services-title">
+        <div class="section-head">
+          <h2 class="section-title" id="services-title">Services</h2>
+        </div>
+        <p class="section-sub">Editing, VFX, thumbnails, voice-over & consultation.</p>
+
+        <div class="portfolio-grid" style="margin-top:12px">
+          <div class="media-card"><h4 style="color:var(--white)">Video Editing</h4><p style="color:var(--muted)">Long-form & short-form narrative edits.</p></div>
+          <div class="media-card"><h4 style="color:var(--white)">VFX & Compositing</h4><p style="color:var(--muted)">Particles, lightning, 2D/3D comp.</p></div>
+          <div class="media-card"><h4 style="color:var(--white)">Thumbnails</h4><p style="color:var(--muted)">High-CTR cinematic thumbnails.</p></div>
+          <div class="media-card"><h4 style="color:var(--white)">Script & VO</h4><p style="color:var(--muted)">Hindi scripting & voice direction.</p></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" aria-labelledby="contact-title">
+        <div class="section-head">
+          <h2 class="section-title" id="contact-title">Contact & Hire</h2>
+        </div>
+        <p class="section-sub">For collaborations, client work or documentary proposals — reach out.</p>
+
+        <div class="contact-grid" style="margin-top:12px">
+          <div class="contact-card">
+            <form id="contactForm">
+              <div class="field"><label>Your name</label><input name="name" type="text" required></div>
+              <div class="field"><label>Your email</label><input name="email" type="email" required></div>
+              <div class="field"><label>Message</label><textarea name="message" required></textarea></div>
+              <!-- For production use, replace with Formspree action or your server endpoint -->
+              <button class="btn btn-primary" type="submit">Send message</button>
+              <p style="font-size:12px;color:var(--muted);margin-top:8px">Or email: <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold)">astrakavyam@gmail.com</a></p>
+            </form>
+          </div>
+
+          <aside class="contact-card">
+            <div class="phone">+91-835XX-57XXX</div>
+            <p style="color:var(--muted);margin-top:8px">Business email: <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold)">astrakavyam@gmail.com</a></p>
+            <div style="margin-top:10px" class="social-row">
+              <a class="navlink" href="https://www.youtube.com/@astrakavyam" target="_blank">YouTube</a>
+              <a class="navlink" href="https://instagram.com/astrakavyam" target="_blank">Instagram</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+    </main>
+
     <footer>
-      <div style="margin-bottom:8px">© <strong style="color:var(--gold)">Astra Kavyam</strong> — Documentaries & Editing</div>
-      <div style="font-size:12px;color:var(--muted)">Made with cinematic care • Contact: +91-835XX-57XXX • astrakavyam@gmail.com</div>
+      © <strong style="color:var(--gold)">Astra Kavyam</strong> • Cinematic Documentaries & Editing Portfolio
     </footer>
-
   </div>
 
-  <!-- Lightbox modal -->
-  <div id="modal" class="modal" onclick="closeModal(event)">
-    <div class="box" onclick="event.stopPropagation()">
-      <div style="text-align:right"><span class="close" onclick="closeModal(event)">✕</span></div>
-      <div id="modalContent"></div>
+  <!-- LIGHTBOX / MODAL -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Preview">
+    <div class="lightbox" role="document">
+      <button class="close" aria-label="Close preview" onclick="closeModal()">✕</button>
+      <div id="lightboxContent" style="min-height:200px"></div>
     </div>
   </div>
+
+  <!-- Structured data (Organization + sample VideoObject for SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Astra Kavyam",
+    "url":"https://astrakavyam.github.io",
+    "logo":"https://astrakavyam.github.io/logo.png",
+    "sameAs":["https://www.youtube.com/@astrakavyam","https://instagram.com/astrakavyam"],
+    "contactPoint":[{"@type":"ContactPoint","telephone":"+91-835XX-57XXX","contactType":"customer service","email":"astrakavyam@gmail.com"}]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"VideoObject",
+    "name":"Astra Kavyam — Cinematic Mythology Reel (Sample)",
+    "description":"Short-form reel demonstrating cinematic cuts and sound design.",
+    "thumbnailUrl":["https://astrakavyam.github.io/sample-thumb-1.jpg"],
+    "uploadDate":"2025-01-01",
+    "contentUrl":"https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    "embedUrl":"https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "publisher":{"@type":"Organization","name":"Astra Kavyam","logo":{"@type":"ImageObject","url":"https://astrakavyam.github.io/logo.png"}}
+  }
+  </script>
 
   <script>
-    /* ========== Site constants (already set) ========== */
-    const ASTRA_YT = "https://www.youtube.com/@astrakavyam";
-    const ASTRA_IG = "https://instagram.com/astrakavyam";
-    const ASTRA_PHONE = "+91-835XX-57XXX";
-    const ASTRA_EMAIL = "astrakavyam@gmail.com";
-    const THREE_D = "3d-text.png";
-
-    /* ========== DOM wiring ========== */
+    // Portfolio filters + lightbox + small form demo
     document.addEventListener('DOMContentLoaded', () => {
-      // phone / email
-      const ph = document.getElementById('phoneElm'); if(ph) ph.textContent = "📞 " + ASTRA_PHONE;
-      const em = document.getElementById('emailLink'); if(em){ em.href = 'mailto:' + ASTRA_EMAIL; em.textContent = ASTRA_EMAIL; }
-
-      // hero CTAs
-      const watchBtn = document.getElementById('watchBtn'); if(watchBtn) watchBtn.href = ASTRA_YT;
-      const instaBtn = document.getElementById('instaBtn'); if(instaBtn) instaBtn.href = ASTRA_IG;
-
-      // set 3D image if exists
-      const th = document.querySelector('.threeD'); if(th){ th.src = THREE_D; }
-
-      // Basic filter functionality
       const filters = document.querySelectorAll('.filter-btn');
-      const cards = document.querySelectorAll('#docGrid .card');
-      filters.forEach(btn => {
-        btn.addEventListener('click', () => {
+      const cards = Array.from(document.querySelectorAll('.portfolio-grid .media-card'));
+
+      filters.forEach(btn=>{
+        btn.addEventListener('click', ()=>{
           filters.forEach(b=>b.classList.remove('active'));
           btn.classList.add('active');
           const f = btn.dataset.filter;
           cards.forEach(c=>{
-            if(f === 'all' || c.dataset.type === f) c.style.display = '';
-            else c.style.display = 'none';
+            if(f==='all') c.style.display = '';
+            else c.style.display = (c.dataset.type === f) ? '' : 'none';
           });
         });
       });
 
-      // Auto testimonial slider
-      const slides = document.getElementById('slides');
-      if(slides){
-        let idx = 0;
-        setInterval(()=>{
-          idx = (idx+1) % slides.children.length;
-          slides.style.transform = `translateX(-${idx*100}%)`;
-        },4500);
-      }
+      // click / keyboard handler to open lightbox
+      const modal = document.getElementById('modal');
+      const lbContent = document.getElementById('lightboxContent');
 
-      // contact form handling (Formspree feedback)
+      function openModalHTML(html){
+        lbContent.innerHTML = html;
+        modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+        document.body.style.overflow = 'hidden';
+      }
+      window.closeModal = function(){
+        modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+        lbContent.innerHTML = ''; document.body.style.overflow = '';
+      };
+
+      // click card to preview
+      cards.forEach(card=>{
+        card.addEventListener('click', ()=>{
+          if(card.dataset.video){
+            openModalHTML(`<iframe src="${card.dataset.video}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:70vh;border-radius:8px"></iframe>`);
+          } else if(card.dataset.image){
+            openModalHTML(`<img src="${card.dataset.image}" alt="Preview" style="width:100%;height:auto;border-radius:8px">`);
+          }
+        });
+        // keyboard support (Enter)
+        card.addEventListener('keydown', (e)=>{ if(e.key==='Enter') card.click(); });
+      });
+
+      // close modal on Esc
+      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') window.closeModal(); });
+      // click outside closes
+      modal.addEventListener('click', (ev)=>{ if(ev.target===modal) window.closeModal(); });
+
+      // simple contact form demo (no backend)
       const form = document.getElementById('contactForm');
       if(form){
-        form.addEventListener('submit', async (e) => {
+        form.addEventListener('submit', (e)=>{
           e.preventDefault();
-          const note = document.getElementById('formNote');
-          note.textContent = 'Sending...';
-          // Simple fetch to Formspree - replace FORMSPREE_ENDPOINT in HTML with yours
-          try{
-            const formData = new FormData(form);
-            const res = await fetch(form.action, {method:'POST', body: formData, headers:{'Accept':'application/json'}});
-            if(res.ok){ note.textContent = 'Thanks — message sent! We will reply soon.'; form.reset(); }
-            else { note.textContent = 'Could not send. Use direct email: ' + ASTRA_EMAIL; }
-          }catch(err){ note.textContent = 'Network error. Try emailing: ' + ASTRA_EMAIL; }
+          alert('This demo form is static. For real contact configure Formspree or server endpoint.');
+          form.reset();
         });
       }
-
-      // progressive reveal for cards
-      document.querySelectorAll('.card').forEach((c,i)=>{
-        c.style.opacity = 0; c.style.transform = 'translateY(12px)';
-        setTimeout(()=>{ c.style.transition='opacity .5s ease, transform .5s ease'; c.style.opacity=1; c.style.transform='translateY(0)'; }, 150 + i*80);
-      });
-    });
-
-    /* ========== Modal preview ========== */
-    function openModal(embedUrl){
-      const m = document.getElementById('modal'), c = document.getElementById('modalContent');
-      c.innerHTML = `<div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:8px;">
-        <iframe src="${embedUrl}" style="position:absolute;left:0;top:0;width:100%;height:100%;border:0" allowfullscreen></iframe></div>`;
-      m.classList.add('open'); document.body.style.overflow='hidden';
-    }
-    function closeModal(e){ const m=document.getElementById('modal'), c=document.getElementById('modalContent'); m.classList.remove('open'); c.innerHTML=''; document.body.style.overflow=''; }
-
-    /* ========== Utility: smooth scroll for nav links ========== */
-    document.querySelectorAll('a.nav-link[href^="#"]').forEach(a=>{
-      a.addEventListener('click', (e)=>{
-        e.preventDefault(); const id = a.getAttribute('href'); document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
-      });
     });
   </script>
 </body>
