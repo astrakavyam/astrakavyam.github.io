@@ -9,102 +9,164 @@
   <meta property="og:description" content="Cinematic mythological documentaries and professional editing services." />
   <meta property="og:type" content="website" />
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b0b0c;
+      --bg:#060607;
       --card:#0f1113;
-      --muted:#c2c2c2;
+      --muted:#bfc1c4;
       --gold:#d4af37;
       --accent:#f6e7b1;
       --white:#ffffff;
       --glass: rgba(255,255,255,0.04);
-      --max-width:1180px;
+      --soft-glow: 0 10px 40px rgba(212,175,55,0.07);
+      --max-width:1200px;
+      --container-padding:32px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
       margin:0;
       font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: linear-gradient(180deg,#060606 0%, #0b0b0c 100%);
+      background:
+        radial-gradient(circle at 10% 10%, rgba(212,175,55,0.02), transparent 10%),
+        radial-gradient(circle at 90% 80%, rgba(212,175,55,0.02), transparent 12%),
+        linear-gradient(180deg,#050506 0%, #0b0b0c 100%);
       color:var(--muted);
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
       line-height:1.6;
+      overflow-x:hidden;
     }
-    .wrap{max-width:var(--max-width);margin:0 auto;padding:28px;}
 
-    header{display:flex;align-items:center;justify-content:space-between;gap:18px; padding:6px 0;}
-    .brand{display:flex;align-items:center;gap:14px;}
-    .logo{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#222 0%, #111 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 30px rgba(0,0,0,.5);border:1px solid rgba(212,175,55,0.06)}
+    /* Layout container */
+    .wrap{max-width:var(--max-width);margin:0 auto;padding:var(--container-padding);position:relative;z-index:2}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:6px 0;position:relative;z-index:5}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:62px;height:62px;border-radius:10px;background:linear-gradient(135deg,#222 0%, #0e0e0e 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(0,0,0,.6);border:1px solid rgba(212,175,55,0.06)}
     .logo img{max-width:52px;max-height:52px;display:block}
-    .brand h1{font-family:'Cinzel', serif;color:var(--gold);margin:0;font-size:20px;letter-spacing:1px}
+    .brand h1{font-family:'Cinzel',serif;color:var(--gold);margin:0;font-size:20px;letter-spacing:1px}
     .brand p{margin:0;font-size:12px;color:var(--muted)}
 
-    nav{display:flex;gap:12px;align-items:center}
-    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 14px;border-radius:10px;color:var(--muted);font-weight:600;text-decoration:none}
-    .btn.primary{background:linear-gradient(90deg, rgba(212,175,55,0.12), rgba(212,175,55,0.07));border:1px solid rgba(212,175,55,0.35);color:var(--gold)}
+    nav{display:flex;gap:10px;align-items:center}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 14px;border-radius:10px;color:var(--muted);font-weight:600;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg, rgba(212,175,55,0.12), rgba(212,175,55,0.06));border:1px solid rgba(212,175,55,0.35);color:var(--gold)}
+    .btn:hover{transform:translateY(-3px);box-shadow:var(--soft-glow)}
 
-    .hero{display:grid;grid-template-columns:1fr 460px;gap:28px;align-items:center;padding:28px 0}
-    .hero-left h2{font-family:'Cinzel', serif;color:var(--gold);font-size:36px;margin:0 0 12px}
-    .hero-left p{color:var(--muted);margin:0 0 18px}
+    /* Hero with layered backgrounds */
+    .hero-wrap{position:relative;overflow:hidden;border-radius:14px;padding:22px;margin:18px 0 32px}
+    .hero-bg{
+      position:absolute;inset:0;background-image: url('banner-sample.jpg');
+      background-size:cover;background-position:center;
+      filter:grayscale(.02) contrast(0.95) brightness(.75);
+      transform:scale(1.03);
+      transition:transform 8s ease;
+      will-change:transform;
+    }
+    .hero-wrap:hover .hero-bg{transform:scale(1.06) translateY(-8px)}
+    /* subtle animated sheen */
+    .hero-overlay{
+      position:absolute;inset:0;background:
+      linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.5) 100%);
+      pointer-events:none;
+    }
+    /* particle-ish subtle moving gradient */
+    .hero-ambient{
+      position:absolute;inset:0;background:
+      radial-gradient(600px 200px at 10% 20%, rgba(212,175,55,0.03), transparent 6%),
+      radial-gradient(500px 220px at 85% 80%, rgba(212,175,55,0.02), transparent 8%);
+      mix-blend-mode:screen;opacity:.95;filter: blur(20px);
+      animation: drift 18s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes drift{0%{transform:translate(0,0)}50%{transform:translate(-18px,6px)}100%{transform:translate(0,0)}}
+
+    .hero{display:grid;grid-template-columns:1fr 480px;gap:28px;align-items:center;position:relative;z-index:3}
+    .hero-left{position:relative;z-index:6}
+    .hero-left .glass{
+      display:inline-block;padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      backdrop-filter: blur(6px);border:1px solid rgba(255,255,255,0.02);
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+    }
+    .hero-left h2{font-family:'Cinzel',serif;color:var(--gold);font-size:40px;margin:8px 0 14px;text-shadow:0 6px 26px rgba(0,0,0,0.6)}
+    .hero-left p{color:var(--muted);margin:0 0 18px;max-width:60ch}
+
     .ctas{display:flex;gap:12px;flex-wrap:wrap}
-    .watch{background:linear-gradient(90deg,#cfae4a,#e9d17d);color:#0b0b0c;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700}
+    .watch{background:linear-gradient(90deg,#cfae4a,#e9d17d);color:#0b0b0c;padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:700;display:inline-flex;align-items:center;gap:10px;box-shadow:0 8px 30px rgba(212,175,55,0.08)}
     .follow{border:1px solid rgba(255,255,255,0.06);padding:12px 18px;border-radius:12px;color:var(--muted);text-decoration:none;font-weight:600}
+    .watch:hover{transform:translateY(-4px) scale(1.02)}
 
-    .hero-right{background:linear-gradient(180deg, rgba(212,175,55,0.03), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);display:flex;align-items:center;justify-content:center}
-    .hero-right .threeD{width:100%;max-width:820px;display:block;margin:0 auto 12px;transform: perspective(1200px) rotateX(2deg) translateY(-6px);filter: drop-shadow(0 20px 40px rgba(0,0,0,0.55)) saturate(1.05);transition: transform .45s ease, filter .4s ease}
-    .hero-right img.poster{width:100%;border-radius:8px;display:block;object-fit:cover;margin-top:10px}
+    .hero-right{display:flex;align-items:center;justify-content:center;position:relative;padding:18px;border-radius:12px}
+    .threeD{width:100%;max-width:820px;display:block;margin:0 auto;border-radius:8px;filter: drop-shadow(0 28px 60px rgba(0,0,0,0.6));transition:transform .6s ease}
+    .poster{width:100%;border-radius:8px;display:block;object-fit:cover;margin-top:12px;opacity:.98}
 
-    .section{padding:36px 0;border-top:1px solid rgba(255,255,255,0.02)}
-    .section h3{font-family:'Cinzel', serif;color:var(--gold);margin:0 0 16px;font-size:22px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    /* Section styling */
+    .section{padding:48px 0;border-top:1px solid rgba(255,255,255,0.02)}
+    .section h3{font-family:'Cinzel', serif;color:var(--gold);margin:0 0 18px;font-size:24px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
 
-    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition:transform .25s, box-shadow .25s}
-    .card:hover{transform:translateY(-8px);box-shadow:0 18px 40px rgba(0,0,0,.55)}
-    .card img{width:100%;height:140px;object-fit:cover;border-radius:8px;display:block}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.02);transition:transform .25s, box-shadow .25s}
+    .card:hover{transform:translateY(-10px);box-shadow:0 28px 80px rgba(0,0,0,.6)}
+    .card img{width:100%;height:150px;object-fit:cover;border-radius:8px;display:block}
     .card h4{margin:10px 0 6px;color:var(--white);font-size:16px}
     .card p{margin:0;font-size:13px;color:var(--muted)}
 
+    /* Services */
     .services{display:flex;gap:14px;flex-wrap:wrap}
-    .service{flex:1 1 200px;padding:18px;background:var(--card);border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
-    .service h5{margin:0 0 8px;color:var(--gold);font-family:'Cinzel', serif}
+    .service{flex:1 1 220px;padding:20px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .service h5{margin:0 0 10px;color:var(--gold);font-family:'Cinzel',serif}
 
-    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:18px;align-items:start}
-    .contact-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,.02)}
-    .contact-card p{margin:8px 0;color:var(--muted)}
-    .phone{font-weight:700;color:var(--gold);font-size:18px}
-    .social-row{display:flex;gap:10px;align-items:center;margin-top:8px}
-    .social-row a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:var(--glass);text-decoration:none;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:20px;align-items:start}
+    .contact-card{padding:18px;border-radius:12px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+    .phone{font-weight:800;color:var(--gold);font-size:18px}
+    .social-row{display:flex;gap:10px;align-items:center;margin-top:12px}
+    .social-row a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:8px;background:rgba(255,255,255,0.02);text-decoration:none;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
 
-    footer{padding:24px 0;text-align:center;color:var(--muted);font-size:13px}
+    footer{padding:28px 0;text-align:center;color:var(--muted);font-size:13px}
 
+    /* SVG divider */
+    .divider{display:block;width:100%;height:64px;margin-top:-6px;line-height:0}
+
+    /* Modal */
     .modal{position:fixed;inset:0;background:rgba(0,0,0,0.75);display:none;align-items:center;justify-content:center;padding:28px;z-index:999}
     .modal.open{display:flex}
     .modal .box{max-width:1000px;width:100%;background:#070707;padding:18px;border-radius:10px}
     .close{float:right;color:var(--muted);cursor:pointer;font-weight:700}
 
-    @media(max-width:920px){
+    /* small screens */
+    @media(max-width:980px){
       .hero{grid-template-columns:1fr; text-align:center}
       .hero-right{order:-1}
       .contact-grid{grid-template-columns:1fr}
+      .threeD{max-width:640px}
     }
     @media(max-width:520px){
       .brand h1{font-size:18px}
-      .hero-left h2{font-size:28px}
+      .hero-left h2{font-size:26px}
+      .ctas{justify-content:center}
     }
   </style>
 </head>
 <body>
 
+  <!-- Decorative background layer (particles/ambient) -->
+  <div aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none;">
+    <div style="position:absolute;inset:0;background:
+      radial-gradient(circle at 20% 10%, rgba(212,175,55,0.02), transparent 5%),
+      radial-gradient(circle at 80% 85%, rgba(212,175,55,0.02), transparent 6%);filter:blur(30px);"></div>
+  </div>
+
   <div class="wrap">
 
     <!-- Header -->
     <header>
-      <div class="brand">
-        <div class="logo">
+      <div class="brand" role="banner">
+        <div class="logo" aria-hidden="true">
           <img src="logo.png" alt="Astra Kavyam Logo" id="logoImg" onerror="this.style.display='none'"/>
         </div>
         <div>
@@ -113,7 +175,7 @@
         </div>
       </div>
 
-      <nav>
+      <nav role="navigation" aria-label="Primary">
         <a href="#documentaries" class="btn">Documentaries</a>
         <a href="#portfolio" class="btn">Portfolio</a>
         <a href="#services" class="btn">Services</a>
@@ -122,35 +184,48 @@
     </header>
 
     <!-- HERO -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-left">
-        <h2>Epic Stories. Cinematic Narration. Timeless Wisdom.</h2>
-        <p>We craft cinematic documentaries on Hindu mythology — research-driven, visually immersive and crafted for modern audiences. Also offering professional editing & VFX services.</p>
+    <div class="hero-wrap" aria-hidden="false">
+      <div class="hero-bg" role="img" aria-label="Cinematic background image"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-ambient"></div>
 
-        <div class="ctas">
-          <a id="watchBtn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener" class="watch">Watch on YouTube</a>
-          <a id="instaBtn" href="https://instagram.com/astrakavyam" target="_blank" rel="noopener" class="follow">Follow on Instagram</a>
+      <div class="hero">
+        <div class="hero-left">
+          <div class="glass" role="region" aria-label="Intro">
+            <h2>Epic Stories. Cinematic Narration. Timeless Wisdom.</h2>
+            <p>We craft cinematic documentaries on Hindu mythology — research-driven, visually immersive and created for modern audiences. We also provide professional editing, VFX and creative services.</p>
+
+            <div class="ctas">
+              <a id="watchBtn" class="watch" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+              <a id="instaBtn" class="follow" href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Instagram</a>
+            </div>
+
+            <div style="margin-top:14px;color:var(--muted);font-size:13px">
+              <strong>Quick Links:</strong> Episodes • Trailers • Services
+            </div>
+          </div>
         </div>
 
-        <div style="margin-top:18px;color:var(--muted);font-size:13px">
-          <strong>Quick Links:</strong> Episodes • Trailers • Services
-        </div>
+        <aside class="hero-right" aria-hidden="false">
+          <!-- 3D text PNG (transparent) - file: 3d-text.png (optional)
+               fallback poster below will show if png is missing -->
+          <img src="3d-text.png" alt="Astra Kavyam 3D Title" class="threeD" loading="lazy" onerror="this.style.display='none'"/>
+          <img src="banner-sample.jpg" alt="Astra Kavyam Banner" class="poster" loading="lazy"/>
+        </aside>
       </div>
+    </div>
 
-      <aside class="hero-right" aria-hidden="false">
-        <!-- 3D text PNG (auto-integrated). If you want to replace, add file named `3d-text.png` in root -->
-        <img src="3d-text.png" alt="Astra Kavyam (3D text)" class="threeD" onerror="this.style.display='none'"/>
-        <!-- fallback poster/banner -->
-        <img src="banner-sample.jpg" alt="Astra Kavyam Banner" class="poster" />
-      </aside>
-    </section>
+    <!-- SVG divider -->
+    <svg class="divider" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,0 C300,100 900,0 1200,80 L1200,120 L0,120 Z" fill="#060607" opacity="0.95"></path>
+    </svg>
 
     <!-- DOCUMENTARIES -->
-    <section id="documentaries" class="section">
-      <h3>Documentaries — Astra Kavyam</h3>
-      <div class="grid">
-        <article class="card">
-          <img src="doc-thumb-1.jpg" alt="Indra — The Celestial King" />
+    <section id="documentaries" class="section" aria-labelledby="doc-heading">
+      <h3 id="doc-heading">Documentaries — Astra Kavyam</h3>
+      <div class="grid" role="list">
+        <article class="card" role="listitem">
+          <img src="doc-thumb-1.jpg" alt="Indra — The Celestial King" loading="lazy"/>
           <h4>Indra — The Celestial King</h4>
           <p>The story of Indra: duties, myths and truth — 12 min documentary.</p>
           <div style="margin-top:10px">
@@ -158,8 +233,8 @@
           </div>
         </article>
 
-        <article class="card">
-          <img src="doc-thumb-2.jpg" alt="Shiva — Dance of Destruction" />
+        <article class="card" role="listitem">
+          <img src="doc-thumb-2.jpg" alt="Shiva — Dance of Destruction" loading="lazy"/>
           <h4>Shiva — Dance of Destruction</h4>
           <p>Cinematic exploration of Tandava and its symbolism — 10 min episode.</p>
           <div style="margin-top:10px">
@@ -167,33 +242,31 @@
           </div>
         </article>
 
-        <!-- Add more documentary cards as needed -->
+        <!-- add more -->
       </div>
     </section>
 
     <!-- EDITING PORTFOLIO -->
-    <section id="portfolio" class="section">
-      <h3>Editing Portfolio</h3>
+    <section id="portfolio" class="section" aria-labelledby="portfolio-heading">
+      <h3 id="portfolio-heading">Editing Portfolio</h3>
       <div class="grid">
         <article class="card">
-          <img src="work-1.jpg" alt="Trailer Edit — Cinematic Cut" />
+          <img src="work-1.jpg" alt="Trailer Edit — Cinematic Cut" loading="lazy"/>
           <h4>Trailer Edit — Cinematic Cut</h4>
           <p>Color grading, sound design, motion VFX.</p>
         </article>
 
         <article class="card">
-          <img src="work-2.jpg" alt="Before/After — Stabilization" />
+          <img src="work-2.jpg" alt="Before/After — Stabilization" loading="lazy"/>
           <h4>Before/After — Stabilization</h4>
           <p>Frame-by-frame repair and color restore.</p>
         </article>
-
-        <!-- Add more works -->
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="section">
-      <h3>Services</h3>
+    <section id="services" class="section" aria-labelledby="services-heading">
+      <h3 id="services-heading">Services</h3>
       <div class="services">
         <div class="service">
           <h5>Video Editing</h5>
@@ -215,12 +288,12 @@
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
-      <h3>About</h3>
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <h3 id="about-heading">About</h3>
       <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
-        <div style="flex:1;min-width:280px">
+        <div style="flex:1;min-width:260px">
           <p style="color:var(--muted)">
-            Astra Kavyam is a cinematic documentary brand dedicated to exploring Hindu mythology with research-backed storytelling and high-end production. Led by a professional editor & creator — we craft trailers, documentaries and editorial content for YouTube audiences and clients.
+            Astra Kavyam is a cinematic documentary brand exploring Hindu mythology with research-backed storytelling and high-end production values. Led by a professional editor & creator — we craft trailers, documentaries and editorial content for YouTube audiences and clients.
           </p>
           <ul style="color:var(--muted);padding-left:18px">
             <li>Editing • Color Grading • Sound Design</li>
@@ -229,25 +302,25 @@
           </ul>
         </div>
         <div style="width:220px">
-          <img src="about-photo.jpg" alt="About" style="width:100%;border-radius:10px;display:block" />
+          <img src="about-photo.jpg" alt="About Photo" style="width:100%;border-radius:10px;display:block" loading="lazy"/>
         </div>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h3>Contact</h3>
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <h3 id="contact-heading">Contact</h3>
       <div class="contact-grid">
         <div class="contact-card">
           <p>If you want professional editing services, collaborations or documentary inquiries — contact below.</p>
 
           <div style="margin-top:10px">
-            <div class="phone">📞 +91-835XX-57XXX</div>
+            <div class="phone" id="phoneElm">📞 +91-835XX-57XXX</div>
             <div style="margin-top:6px;color:var(--muted)">✉️ <a id="emailLink" href="mailto:astrakavyam@gmail.com" style="color:var(--gold);text-decoration:none">astrakavyam@gmail.com</a></div>
             <p style="margin:8px 0 0;color:var(--muted)">Response time: Usually within 24 hours.</p>
           </div>
 
-          <div class="social-row">
+          <div class="social-row" role="navigation" aria-label="social links">
             <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
             <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Instagram</a>
             <a href="#" target="_blank" rel="noopener">WhatsApp</a>
@@ -281,7 +354,7 @@
 
   </div>
 
-  <!-- Modal for preview -->
+  <!-- Modal -->
   <div id="modal" class="modal" onclick="closeModal(event)">
     <div class="box" onclick="event.stopPropagation()">
       <div style="text-align:right"><span class="close" onclick="closeModal(event)">✕</span></div>
@@ -289,35 +362,43 @@
     </div>
   </div>
 
+  <!-- SCRIPT: constants and wiring -->
   <script>
     // === Site constants (already set to your values) ===
     const ASTRA_YT = "https://www.youtube.com/@astrakavyam";
     const ASTRA_INSTAGRAM = "https://instagram.com/astrakavyam";
     const ASTRA_PHONE = "+91-835XX-57XXX";
     const ASTRA_EMAIL = "astrakavyam@gmail.com";
-    const THREE_D_IMG = "3d-text.png";
+    const THREE_D_IMG = "3d-text.png"; // recommended: upload later
 
-    // wire up dynamic elements
     document.addEventListener('DOMContentLoaded', function(){
-      // set phone
-      const ph = document.querySelector('.phone');
+      // phone
+      const ph = document.getElementById('phoneElm');
       if(ph) ph.textContent = "📞 " + ASTRA_PHONE;
 
-      // email link set
+      // email
       const em = document.getElementById('emailLink');
       if(em){ em.href = 'mailto:' + ASTRA_EMAIL; em.textContent = ASTRA_EMAIL; }
 
-      // CTA links
+      // CTAs
       const watch = document.getElementById('watchBtn');
       if(watch) watch.href = ASTRA_YT;
       const insta = document.getElementById('instaBtn');
       if(insta) insta.href = ASTRA_INSTAGRAM;
 
-      // 3D image: if not available, fallback hides via onerror
+      // 3D image set (if exists)
       const three = document.querySelector('.threeD');
       if(three) three.src = THREE_D_IMG;
+
+      // small progressive reveal animation
+      document.querySelectorAll('.card').forEach((c,i)=>{
+        c.style.opacity = 0;
+        c.style.transform = 'translateY(12px)';
+        setTimeout(()=>{ c.style.transition = 'opacity .6s ease, transform .6s ease'; c.style.opacity=1; c.style.transform='translateY(0)'; }, 180 + i*90);
+      });
     });
 
+    // modal open preview
     function openModal(embedUrl) {
       const m = document.getElementById('modal');
       const c = document.getElementById('modalContent');
