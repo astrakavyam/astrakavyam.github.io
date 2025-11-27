@@ -5,29 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Astra Kavyam | Cinematic Content Creators</title>
     <meta name="description" content="Portfolio of Astra Kavyam - Cinematic Content Creator, Video Editor, and Graphic Designer.">
-    
-    <!-- FAVICON & OPEN GRAPH (LOGO) - ADDED -->
-    <link rel="icon" href="assets/logo.png" />
-    <link rel="apple-touch-icon" href="assets/logo-192.png" />
-    <meta property="og:title" content="Astra Kavyam — Cinematic Mythology Documentaries" />
-    <meta property="og:description" content="Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries" />
-    <meta property="og:image" content="https://astrakavyam.github.io/assets/logo-512.png" />
-    <meta property="og:url" content="https://astrakavyam.github.io" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <!-- END LOGO META -->
 
-    <!-- Tailwind CSS (via CDN for instant usage) -->
+    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Cinzel (Mythology/Epic) and Montserrat (Modern) -->
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Icons (Lucide) -->
+
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Custom Styles for Golden Effects -->
     <style>
         :root {
             --gold-light: #FBF5B7;
@@ -36,485 +25,68 @@
             --bg-dark: #050505;
             --bg-card: #0F0F0F;
         }
+        body { background: var(--bg-dark); color: white; font-family: 'Montserrat', sans-serif; }
 
-        body {
-            background-color: var(--bg-dark);
-            color: #ffffff;
-            font-family: 'Montserrat', sans-serif;
-            overflow-x: hidden;
-        }
+        h1, h2, h3, .brand-font { font-family: 'Cinzel', serif; }
 
-        h1, h2, h3, .brand-font {
-            font-family: 'Cinzel', serif;
-        }
-
-        /* Golden Text Gradient */
         .text-gold-gradient {
             background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
             -webkit-background-clip: text;
-            background-clip: text;
             color: transparent;
             background-size: 200% auto;
             animation: shine 4s linear infinite;
         }
-
-        /* Golden Border Gradient */
-        .border-gold {
-            border: 1px solid transparent;
-            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                        linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C) border-box;
-        }
-
-        /* Glowpure Effect */
-        .glow-pure {
-            box-shadow: 0 0 10px rgba(191, 149, 63, 0.1);
-            transition: all 0.4s ease;
-        }
-        .glow-pure:hover {
-            box-shadow: 0 0 25px rgba(191, 149, 63, 0.4), inset 0 0 10px rgba(191, 149, 63, 0.1);
-            transform: translateY(-5px);
-        }
-
-        /* Animation Keyframes */
-        @keyframes shine {
-            to { background-position: 200% center; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #000;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #BF953F;
-            border-radius: 4px;
-        }
-
-        /* Background Particle/Texture Effect */
-        .bg-texture {
-            background-image: radial-gradient(circle at 50% 50%, rgba(191, 149, 63, 0.05) 0%, transparent 50%),
-                              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bf953f' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
+        @keyframes shine { to { background-position: 200% center; } }
     </style>
 </head>
-<body class="antialiased relative">
 
-    <!-- Navbar -->
-    <nav class="fixed w-full z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0">
-                    <!-- LOGO ADDED: replaced text brand with image -->
-                    <a href="#home" class="flex items-center gap-3">
-                        <img src="assets/logo.png" alt="Astra Kavyam Logo" class="w-12 h-12 object-contain" />
-                        <span class="sr-only">Astra Kavyam</span>
-                        <span class="hidden md:inline-block font-bold brand-font text-gold-gradient uppercase tracking-widest">Astra Kavyam</span>
-                    </a>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Home</a>
-                        <a href="#about" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">About Team</a>
-                        <a href="#services" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Services</a>
-                        <a href="#portfolio" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Portfolio</a>
-                        <a href="#contact" class="px-6 py-2 border border-[#BF953F] text-[#BF953F] hover:bg-[#BF953F] hover:text-black transition duration-300 text-sm font-medium uppercase tracking-wider rounded-sm">Contact</a>
-                    </div>
-                </div>
-                <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-[#BF953F] hover:text-white hover:bg-gray-800 focus:outline-none">
-                        <i data-lucide="menu" class="h-8 w-8"></i>
-                    </button>
-                </div>
-            </div>
+<body class="antialiased">
+
+<!-- NAVBAR (LOGO FIXED + RIGHT SIDE) -->
+<nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+
+      <!-- LEFT LINKS -->
+      <div class="hidden md:block">
+        <div class="flex items-baseline space-x-8">
+          <a href="#home" class="text-gray-300 hover:text-[#FCF6BA]">Home</a>
+          <a href="#about" class="text-gray-300 hover:text-[#FCF6BA]">About Team</a>
+          <a href="#services" class="text-gray-300 hover:text-[#FCF6BA]">Services</a>
+          <a href="#portfolio" class="text-gray-300 hover:text-[#FCF6BA]">Portfolio</a>
         </div>
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-[#BF953F]/30 absolute w-full" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
-                <a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">HOME</a>
-                <a href="#about" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">ABOUT</a>
-                <a href="#services" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">SERVICES</a>
-                <a href="#portfolio" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">PORTFOLIO</a>
-                <a href="#contact" onclick="toggleMobileMenu()" class="text-[#BF953F] block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
-            </div>
-        </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-texture">
-        <!-- Background Overlay -->
-        <div class="absolute inset-0 bg-black/60 z-0"></div>
-        
-        <!-- Video/Image Background Placeholder -->
-        <div class="absolute inset-0 z-[-1] overflow-hidden">
-             <!-- Using a high quality dark cinematic placeholder -->
-            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Background" class="w-full h-full object-cover opacity-40">
-        </div>
+      <!-- MOBILE BTN -->
+      <div class="md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-[#BF953F] p-2">
+            <i data-lucide="menu" class="w-7 h-7"></i>
+        </button>
+      </div>
 
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
-            <div class="mb-4 inline-block px-4 py-1 border border-[#BF953F]/50 rounded-full bg-black/50 backdrop-blur-sm animate-float">
-                <span class="text-[#BF953F] text-xs uppercase tracking-[0.2em] font-semibold">We Are Professionals</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 brand-font leading-tight">
-                ASTRA <span class="text-gold-gradient">KAVYAM</span>
-            </h1>
-            
-            <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#BF953F] to-transparent mx-auto mb-8"></div>
+      <!-- RIGHT: CONTACT + LOGO -->
+      <div class="flex items-center gap-6">
 
-            <p class="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 font-light">
-                Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries | Editing Works | Youtuber | Voice Over Artist | Script Writer | Graphic Designer
-            </p>
+        <a href="#contact" class="hidden md:block px-6 py-2 border border-[#BF953F] text-[#BF953F] hover:bg-[#BF953F] hover:text-black">
+            Contact
+        </a>
 
-            <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
-                    View Our Work
-                </a>
-                <a href="#contact" class="px-8 py-3 border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-wider rounded-sm hover:bg-[#BF953F]/10 transition duration-300">
-                    Get In Touch
-                </a>
-            </div>
-        </div>
-        
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[#BF953F]">
-            <i data-lucide="chevron-down" class="w-8 h-8"></i>
-        </div>
-    </section>
+        <!-- LOGO (CORRECT PATH) -->
+        <a href="#home" class="flex items-center gap-2">
+          <img src="assets/assets/logo.png" class="w-12 h-12 object-contain">
+          <span class="hidden md:inline-block brand-font text-gold-gradient text-xl tracking-wider">Astra Kavyam</span>
+        </a>
+      </div>
 
-    <!-- About Section -->
-    <section id="about" class="py-20 md:py-32 relative bg-[#050505]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="relative group">
-                    <!-- Decorative Frame -->
-                    <div class="absolute -inset-4 border border-[#BF953F]/30 rounded-sm transform translate-x-2 translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 transition duration-500"></div>
-                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="Team Astra Kavyam" class="relative rounded-sm shadow-2xl w-full h-[500px] object-cover filter grayscale group-hover:grayscale-0 transition duration-500">
-                </div>
-                
-                <div>
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6 brand-font">
-                        About <span class="text-gold-gradient">The Team</span>
-                    </h2>
-                    <p class="text-[#BF953F] text-lg mb-6 uppercase tracking-widest font-semibold">Creating Myth & Magic</p>
-                    
-                    <p class="text-gray-300 leading-relaxed mb-6 text-justify">
-                        Welcome to the universe of <strong>Astra Kavyam</strong>. We are a passionate collective of professional creators dedicated to the art of visual storytelling. Blending modern cinematic techniques with the profound depth of mythology, we turn raw ideas into golden masterpieces.
-                    </p>
-                    <p class="text-gray-400 leading-relaxed mb-8 text-justify">
-                        Whether it is a high-paced promotional video, a deep-dive documentary, or striking graphic design, we bring a unique "Pure Glow" aesthetic to every frame. Our mission is to elevate your brand with content that is 100% genuine, unique, and visually stunning.
-                    </p>
+    </div>
+  </div>
 
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 border border-[#BF953F]/20 rounded bg-[#0F0F0F]">
-                            <i data-lucide="film" class="text-[#BF953F] mb-2"></i>
-                            <h4 class="font-bold text-white">Cinematography</h4>
-                        </div>
-                        <div class="p-4 border border-[#BF953F]/20 rounded bg-[#0F0F0F]">
-                            <i data-lucide="feather" class="text-[#BF953F] mb-2"></i>
-                            <h4 class="font-bold text-white">Storytelling</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="py-20 bg-texture">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 brand-font text-white">Our <span class="text-gold-gradient">Services</span></h2>
-                <div class="h-1 w-20 bg-[#BF953F] mx-auto"></div>
-                <p class="mt-4 text-gray-400">Professional Solutions for Digital Growth</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service Card Template -->
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="video" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="scissors" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Video Editing</h3>
-                        <p class="text-gray-400 text-sm">Professional cuts, color grading, and transitions for YouTube, Reels, and Documentaries.</p>
-                    </div>
-                </div>
-
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="palette" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="pen-tool" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Graphic Designing</h3>
-                        <p class="text-gray-400 text-sm">Unique logos, branding kits, posters, and social media creative assets.</p>
-                    </div>
-                </div>
-
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="camera" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="aperture" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Photography & Videography</h3>
-                        <p class="text-gray-400 text-sm">High-quality shoots capturing the perfect angle, lighting, and cinematic feel.</p>
-                    </div>
-                </div>
-
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="trending-up" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="share-2" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Social Media Marketing</h3>
-                        <p class="text-gray-400 text-sm">Strategy, growth hacking, and management to boost your digital presence.</p>
-                    </div>
-                </div>
-
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="youtube" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="play-circle" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">YouTube Content</h3>
-                        <p class="text-gray-400 text-sm">Full channel management, thumbnails, SEO, and content strategy.</p>
-                    </div>
-                </div>
-
-                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
-                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
-                        <i data-lucide="file-text" class="w-24 h-24 text-[#BF953F]"></i>
-                    </div>
-                    <div class="relative z-10">
-                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
-                            <i data-lucide="mic" class="text-[#BF953F] w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Script & Voice Over</h3>
-                        <p class="text-gray-400 text-sm">Engaging documentary scripts and professional voice-over services.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Stats/Counter -->
-    <section class="py-10 border-y border-[#BF953F]/20 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <h3 class="text-3xl font-bold text-[#BF953F]">5+</h3>
-                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Years Experience</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-bold text-[#BF953F]">100+</h3>
-                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Projects Done</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-bold text-[#BF953F]">50k+</h3>
-                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Subscribers</p>
-            </div>
-            <div>
-                <h3 class="text-3xl font-bold text-[#BF953F]">100%</h3>
-                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Client Satisfaction</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-[#050505]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4 brand-font text-white">Recent <span class="text-gold-gradient">Works</span></h2>
-                <div class="h-1 w-20 bg-[#BF953F] mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Portfolio Item 1 (YouTube Style) -->
-                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" alt="Mythology Doc" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
-                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Mythology Documentary</h4>
-                        <span class="text-[#BF953F] text-sm uppercase">Video Editing / Script</span>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 2 -->
-                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=800&auto=format&fit=crop" alt="Cinematic Edit" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
-                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Cinematic Vlog</h4>
-                        <span class="text-[#BF953F] text-sm uppercase">Shooting / Editing</span>
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 3 -->
-                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799312c95d?q=80&w=800&auto=format&fit=crop" alt="Branding" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
-                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Channel Branding</h4>
-                        <span class="text-[#BF953F] text-sm uppercase">Graphic Design</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="text-center mt-12">
-                <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white font-bold uppercase tracking-wider rounded-sm hover:bg-red-800 transition duration-300 shadow-lg">
-                    <i data-lucide="youtube"></i> Watch on YouTube
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-texture relative">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-[#0F0F0F]/90 backdrop-blur-md border-gold p-8 md:p-12 rounded-sm shadow-2xl relative">
-                <!-- Golden corner accents -->
-                <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#BF953F]"></div>
-                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#BF953F]"></div>
-
-                <div class="text-center mb-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-2 brand-font text-white">Contact <span class="text-gold-gradient">Astra Kavyam</span></h2>
-                    <p class="text-gray-400">Let's create something legendary together.</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4 group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-[#BF953F]/20 flex items-center justify-center group-hover:bg-[#BF953F] transition duration-300">
-                                <i data-lucide="phone" class="text-[#BF953F] group-hover:text-black w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-wider">Phone</p>
-                                <a href="tel:+918350057000" class="text-white font-medium hover:text-[#BF953F] transition">+91-835XX-57XXX</a>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center space-x-4 group cursor-pointer">
-                            <div class="w-10 h-10 rounded-full bg-[#BF953F]/20 flex items-center justify-center group-hover:bg-[#BF953F] transition duration-300">
-                                <i data-lucide="mail" class="text-[#BF953F] group-hover:text-black w-5 h-5"></i>
-                            </div>
-                            <div>
-                                <p class="text-xs text-gray-500 uppercase tracking-wider">Email</p>
-                                <a href="mailto:astrakavyam@gmail.com" class="text-white font-medium hover:text-[#BF953F] transition">astrakavyam@gmail.com</a>
-                            </div>
-                        </div>
-
-                        <!-- Social Icons Row -->
-                        <div class="pt-6">
-                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Follow Us</p>
-                            <div class="flex space-x-4">
-                                <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition">
-                                    <i data-lucide="youtube" class="w-5 h-5"></i>
-                                </a>
-                                <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
-                                    <i data-lucide="instagram" class="w-5 h-5"></i>
-                                </a>
-                                <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover:border-indigo-500 transition">
-                                    <i data-lucide="gamepad-2" class="w-5 h-5"></i> <!-- Used generic icon for Discord -->
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Simple Form -->
-                    <form onsubmit="event.preventDefault(); alert('Thank you! Team Astra Kavyam will contact you shortly.');" class="space-y-4">
-                        <div>
-                            <input type="text" placeholder="Your Name" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600">
-                        </div>
-                        <div>
-                            <input type="email" placeholder="Your Email" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600">
-                        </div>
-                        <div>
-                            <textarea rows="3" placeholder="Project Details" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-gradient-to-r from-[#BF953F] to-[#AA771C] text-black font-bold uppercase tracking-wider py-3 rounded-sm hover:opacity-90 transition shadow-lg">
-                            Send Message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black border-t border-gray-900 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="brand-font text-2xl text-white mb-2">ASTRA KAVYAM</p>
-            <p class="text-gray-600 text-sm">© 2024 Astra Kavyam. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('bg-black', 'shadow-lg');
-                navbar.classList.remove('bg-black/80');
-            } else {
-                navbar.classList.remove('bg-black', 'shadow-lg');
-                navbar.classList.add('bg-black/80');
-            }
-        });
-
-        // Simple Intersection Observer for Fade-in effects
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('opacity-100', 'translate-y-0');
-                    entry.target.classList.remove('opacity-0', 'translate-y-10');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        // Add animation classes to sections
-        document.querySelectorAll('section > div').forEach((el) => {
-            el.classList.add('transition', 'duration-1000', 'opacity-0', 'translate-y-10');
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+  <!-- MOBILE MENU -->
+  <div id="mobile-menu" class="hidden bg-black/95 text-center py-4 space-y-3">
+    <a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 block">Home</a>
+    <a href="#about" onclick="toggleMobileMenu()" class="text-gray-300 block">About</a>
+    <a href="#services" onclick="toggleMobileMenu()" class="text-gray-300 block">Services</a>
+    <a href="#portfolio" onclick="toggleMobileMenu()" class="text-gray-300 block">Portfolio</a>
+    <a href="#contact" onclick="toggleMobileMenu()" class="text-[#BF953F] block">Contact</a>
+  </div>
+</nav>
