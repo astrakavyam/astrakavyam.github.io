@@ -1,409 +1,606 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>Astra Kavyam — Cinematic Documentaries & Professional Editing</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Astra Kavyam — Cinematic documentaries on Hindu mythology. Professional editing, VFX, thumbnails & voiceover services. Portfolio, showreels and episode previews." />
-  <meta name="keywords" content="Astra Kavyam, Hindu mythology, documentary, video editor, VFX, thumbnails, voiceover, portfolio" />
-  <link rel="canonical" href="https://astrakavyam.github.io/">
-  <!-- Open Graph -->
-  <meta property="og:site_name" content="Astra Kavyam" />
-  <meta property="og:title" content="Astra Kavyam — Cinematic Documentaries & Editing Portfolio" />
-  <meta property="og:description" content="Cinematic documentaries on Hindu mythology — portfolio, showreels, services & contact." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://astrakavyam.github.io/" />
-  <meta property="og:image" content="banner-sample.jpg" />
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Astra Kavyam — Cinematic Documentaries" />
-  <meta name="twitter:description" content="Cinematic documentaries on Hindu mythology — portfolio, showreels & services." />
-  <meta name="twitter:image" content="banner-sample.jpg" />
+import React, { useState, useEffect } from 'react';
+import { 
+  Play, 
+  Image as ImageIcon, 
+  TrendingUp, 
+  Mail, 
+  Instagram, 
+  Youtube, 
+  Linkedin, 
+  Twitter, 
+  Menu,
+  X,
+  ChevronRight,
+  Video,
+  Smartphone,
+  BarChart,
+  Palette,
+  MessageCircle,
+  Star,
+  Send,
+  MapPin,
+  Camera // Added Camera icon
+} from 'lucide-react';
 
-  <!-- Preconnect fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+export default function App() {
+  const [activeTab, setActiveTab] = useState('all');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  <style>
-    :root{
-      --bg:#030304; --panel:#0e0f10; --muted:#bdbdbd; --white:#fff;
-      --gold:#d4af37; --accent:#f6e7b1; --glass: rgba(255,255,255,0.04);
-      --maxw:1200px; --pad:28px; --radius:12px;
-      --shadow: 0 18px 50px rgba(0,0,0,0.6);
+  // --- ⚡️ SYSTEMATIC CONFIGURATION ⚡️ ---
+  const personalDetails = {
+    name: "Astra Kavyam",
+    role: "Professional Video Editor & Content Strategist",
+    email: "astrakavyam@gmail.com",
+    phoneDisplay: "+91-835XX-57XXX", 
+    phoneLink: "91835XX57XXX",       
+    location: "India",
+    
+    // Social Links
+    socials: {
+      youtube: "https://www.youtube.com/@astrakavyam",
+      instagram: "https://instagram.com/astrakavyam", 
+      linkedin: "#",
+      twitter: "#"
+    },
+    
+    // Stats to display in Hero
+    stats: [
+      { label: 'YouTube Subscribers', value: '50K+' }, 
+      { label: 'Views Generated', value: '15M+' },
+      { label: 'Projects Delivered', value: '200+' },
+      { label: 'Client Satisfaction', value: '100%' },
+    ]
+  };
+
+  // Handle scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // MOCK DATA - Portfolio Items
+  const portfolioItems = [
+    {
+      id: 1,
+      type: 'video',
+      category: 'Commercial',
+      title: 'Tech Review Montage',
+      client: 'Gadget Guru',
+      image: 'https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800',
+      description: 'High-retention editing style designed to maximize audience watch time.'
+    },
+    {
+      id: 2,
+      type: 'thumbnails',
+      category: 'Thumbnail Design',
+      title: 'Viral Gaming Thumbnails',
+      client: 'ProGamerX',
+      image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
+      description: 'Click-through rate optimization using color psychology and composition.'
+    },
+    {
+      id: 3,
+      type: 'reels',
+      category: 'Short-Form',
+      title: 'Fashion Week Recap',
+      client: 'StyleIcon',
+      image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&q=80&w=800',
+      description: 'Dynamic typography and beat-sync editing for maximum Instagram reach.'
+    },
+    {
+      id: 4,
+      type: 'graphics',
+      category: 'Brand Identity',
+      title: 'Coffee Shop Rebrand',
+      client: 'Brew & Bean',
+      image: 'https://images.unsplash.com/photo-1626785774573-4b799314346d?auto=format&fit=crop&q=80&w=800',
+      description: 'Full visual identity system including logo, color palette, and packaging.'
+    },
+    {
+      id: 5,
+      type: 'client-work',
+      category: 'Color Grading',
+      title: 'Cinematic Docu-Series',
+      client: 'Indie Film',
+      image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=800',
+      description: 'Professional color grading transforming log footage into cinema-quality visuals.'
+    },
+    {
+      id: 6,
+      type: 'reels',
+      category: 'Fitness Promo',
+      title: '30-Day Challenge',
+      client: 'FitLife',
+      image: 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=800',
+      description: 'High-energy fast cuts designed to convert viewers into subscribers.'
+    },
+    {
+      id: 7,
+      type: 'photo',
+      category: 'Photography',
+      title: 'Luxury Product Shoot',
+      client: 'Velvet & Gold',
+      image: 'https://images.unsplash.com/photo-1542038784456-1ea8e935640e?auto=format&fit=crop&q=80&w=800',
+      description: 'High-end product photography for a luxury lifestyle brand.'
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background:linear-gradient(180deg,#050507 0%, #0a0a0b 100%);color:var(--muted);-webkit-font-smoothing:antialiased;
+  ];
+
+  // SERVICES DATA
+  const services = [
+    {
+      title: "Premium Video Editing",
+      icon: Video,
+      description: "Documentaries, Vlogs, Commercials, and Cinematic Storytelling."
+    },
+    {
+      title: "Photography & Video",
+      icon: Camera,
+      description: "Professional product shoots, events, and 4K cinematic videography."
+    },
+    {
+      title: "Thumbnail Strategy",
+      icon: ImageIcon,
+      description: "Psychology-backed designs that increase CTR and viral potential."
+    },
+    {
+      title: "Short-Form Content",
+      icon: Smartphone,
+      description: "Reels, Shorts & TikToks engineered for algorithm growth."
+    },
+    {
+      title: "Social Growth",
+      icon: BarChart,
+      description: "Content strategy, analytics analysis, and channel management."
+    },
+    {
+      title: "Visual Branding",
+      icon: Palette,
+      description: "Logo design, channel art, and cohesive brand identity systems."
     }
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:var(--pad);}
+  ];
 
-    /* Header */
-    header{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:8px 0;position:sticky;top:8px;z-index:40;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.2));backdrop-filter: blur(6px);border-bottom:1px solid rgba(212,175,55,0.06)}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{width:54px;height:54px;border-radius:10px;background:linear-gradient(135deg,#111,#0b0b0b);display:flex;align-items:center;justify-content:center;border:1px solid rgba(212,175,55,0.06)}
-    .logo img{max-width:48px;max-height:48px}
-    .brand h1{font-family:Cinzel, serif;color:var(--gold);margin:0;font-size:18px}
-    nav{display:flex;gap:10px;align-items:center}
-    a.navlink{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600}
-    a.navlink:hover{color:var(--white);background:rgba(255,255,255,0.02)}
+  const filteredItems = activeTab === 'all' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.type === activeTab);
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;margin-top:18px}
-    @media(max-width:980px){.hero{grid-template-columns:1fr}}
-    .hero-left h2{font-family:Cinzel, serif;color:var(--gold);font-size:36px;margin:0 0 12px}
-    .hero-left p{color:var(--muted);max-width:56ch}
-    .cta-row{display:flex;gap:12px;margin-top:14px;flex-wrap:wrap}
-    .btn{padding:10px 16px;border-radius:10px;text-decoration:none;font-weight:700}
-    .btn-primary{background:linear-gradient(90deg,#e2bf56,#f3df9e);color:#060606;border:1px solid rgba(212,175,55,0.12)}
-    .btn-ghost{border:1px solid rgba(255,255,255,0.04);color:var(--muted);background:transparent}
-
-    .hero-right{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .threeD{width:100%;max-width:380px;display:block;margin:0 auto 8px}
-    .poster{width:100%;border-radius:8px;display:block;object-fit:cover}
-
-    /* Sections */
-    section{margin-top:28px}
-    .section-head{display:flex;align-items:end;gap:12px}
-    .section-title{font-family:Cinzel, serif;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
-    .section-sub{color:var(--muted);margin-top:6px;font-size:0.95rem}
-
-    /* Portfolio filters + grid */
-    .filters{display:flex;gap:8px;margin:14px 0 12px;flex-wrap:wrap}
-    .filter-btn{padding:8px 12px;border-radius:999px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted);cursor:pointer;font-weight:600}
-    .filter-btn.active{background:linear-gradient(90deg, rgba(212,175,55,0.08), rgba(212,175,55,0.04));color:var(--gold)}
-
-    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-    .media-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);box-shadow:var(--shadow);transition:transform .25s}
-    .media-card:hover{transform:translateY(-8px)}
-    .media-thumb{width:100%;height:140px;object-fit:cover;border-radius:8px;display:block}
-    .media-meta{margin-top:8px}
-    .media-title{color:var(--white);font-weight:700}
-    .media-desc{color:var(--muted);font-size:0.9rem;margin-top:6px}
-    .media-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
-    .tag{padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);font-size:12px;color:var(--muted)}
-
-    /* Lightbox modal */
-    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
-    .modal.open{display:flex}
-    .lightbox{width:100%;max-width:1200px;background:#080808;border-radius:10px;padding:12px;position:relative}
-    .lightbox iframe,img{width:100%;height:70vh;border-radius:8px;display:block;object-fit:contain}
-    .lightbox .close{position:absolute;right:12px;top:12px;background:rgba(255,255,255,0.04);padding:6px 8px;border-radius:6px;cursor:pointer}
-
-    /* Contact */
-    .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-    @media(max-width:980px){.contact-grid{grid-template-columns:1fr}}
-    .contact-card{padding:16px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
-    .phone{color:var(--gold);font-weight:800}
-
-    footer{margin-top:40px;padding:22px 0;text-align:center;color:var(--muted);font-size:13px}
-
-    /* Small screens */
-    @media(max-width:600px){
-      .hero-left h2{font-size:24px}
-      .media-thumb{height:120px}
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
-  </style>
-</head>
-<body>
-  <div class="wrap">
+    setIsMenuOpen(false);
+  };
 
-    <!-- HEADER -->
-    <header>
-      <div class="brand" role="banner" aria-label="Astra Kavyam">
-        <div class="logo"><img src="logo.png" alt="Astra Kavyam logo" onerror="this.style.display='none'"/></div>
-        <h1 style="margin-left:8px;font-size:16px;color:var(--gold);font-family:Cinzel,serif;">ASTRA KAVYAM</h1>
+  return (
+    <div className="min-h-screen bg-black text-white font-sans selection:bg-indigo-500 selection:text-white overflow-x-hidden">
+      
+      {/* Background Ambience - Added Golden Glow for Logo Match */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-indigo-900/20 rounded-full blur-[120px] opacity-40 animate-pulse"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[800px] h-[800px] bg-yellow-600/10 rounded-full blur-[120px] opacity-30 animate-pulse delay-1000"></div>
       </div>
 
-      <nav aria-label="Main navigation">
-        <a class="navlink" href="#home">Home</a>
-        <a class="navlink" href="#about">About</a>
-        <a class="navlink" href="#docs">Documentaries</a>
-        <a class="navlink" href="#portfolio">Portfolio</a>
-        <a class="navlink" href="#contact">Contact</a>
+      {/* Navigation */}
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/90 backdrop-blur-xl border-b border-white/10' : 'bg-transparent'}`}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-24"> {/* Increased height slightly for logo */}
+            <div className="flex-shrink-0 flex items-center gap-4 cursor-pointer group" onClick={() => scrollToSection('hero')}>
+              {/* LOGO IMAGE - In a side-rounded shape container */}
+              {/* IMPORTANT: Ensure 'Whisk.jpeg' is inside your PUBLIC folder */}
+              <div className="p-1.5 bg-gradient-to-br from-gray-900 to-black rounded-xl border border-white/10 group-hover:from-yellow-900 group-hover:to-amber-900 transition-all shadow-lg group-hover:shadow-yellow-500/20 overflow-hidden">
+                <img 
+                  src="Whisk.jpeg" 
+                  alt="Astra Kavyam Logo" 
+                  className="h-10 w-auto object-cover rounded-lg"
+                  onError={(e) => {
+                    // Fallback if image is not found
+                    e.target.onerror = null; 
+                    e.target.src = 'https://via.placeholder.com/50/000000/FFD700?text=AK';
+                  }}
+                />
+              </div>
+              
+              {/* Golden Text in a unique font */}
+              <div className="flex flex-col">
+                <span className="font-bold text-2xl tracking-tight leading-none font-serif text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-500 to-amber-600 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+                  Astra Kavyam
+                </span>
+              </div>
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
+              {['Services', 'Work', 'Testimonials'].map((item) => (
+                <button 
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase() === 'work' ? 'portfolio' : item.toLowerCase())}
+                  className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide hover:scale-105 transform"
+                >
+                  {item}
+                </button>
+              ))}
+              <button 
+                onClick={() => scrollToSection('contact')}
+                className="px-6 py-2.5 bg-white text-black rounded-full font-bold text-sm hover:bg-indigo-50 transition-all hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] transform hover:-translate-y-0.5"
+              >
+                Let's Talk
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center">
+              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-gray-300 hover:text-white p-2">
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="md:hidden bg-black/95 border-b border-white/10 backdrop-blur-xl">
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              {['Services', 'Portfolio', 'Testimonials', 'Contact'].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => scrollToSection(item.toLowerCase())}
+                  className="block w-full text-left px-4 py-3 rounded-xl text-lg font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
-    </header>
 
-    <!-- HERO -->
-    <main>
-      <section id="home" aria-labelledby="home-title">
-        <div class="hero">
-          <div class="hero-left">
-            <h2 id="home-title">Astra Kavyam — <span style="color:var(--gold)">Documentaries</span> & Cinematic Editing</h2>
-            <p>We craft cinematic documentaries on Hindu mythology and provide studio-grade editing, VFX and design services for creators & brands.</p>
-            <div class="cta-row">
-              <a class="btn btn-primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Watch on YouTube</a>
-              <a class="btn btn-ghost" href="#contact">Hire for editing</a>
-            </div>
-            <div style="margin-top:12px;color:var(--muted);font-size:13px">Specialization: Mythology Docs • Trailers • Reels</div>
+      {/* Hero Section */}
+      <section id="hero" className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-md mb-8 hover:border-yellow-500/50 transition-colors animate-fade-in-up">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+            </span>
+            <span className="text-sm font-medium text-gray-300">Available for Projects</span>
           </div>
 
-          <aside class="hero-right" aria-hidden="false">
-            <!-- optional 3D text image (upload later) -->
-            <img src="3d-text.png" alt="Astra Kavyam 3D title" class="threeD" loading="lazy" onerror="this.style.display='none'">
-            <img src="banner-sample.jpg" alt="Astra Kavyam banner" class="poster" loading="lazy">
-          </aside>
-        </div>
-      </section>
-
-      <!-- ABOUT -->
-      <section id="about" aria-labelledby="about-title">
-        <div class="section-head">
-          <h2 class="section-title" id="about-title">About the Creator</h2>
-        </div>
-        <p class="section-sub">Content creator & editor behind Astra Kavyam — building a cinematic mythology universe with consistent characters, tone and high production value.</p>
-      </section>
-
-      <!-- DOCUMENTARIES -->
-      <section id="docs" aria-labelledby="docs-title">
-        <div class="section-head">
-          <h2 class="section-title" id="docs-title">Documentaries</h2>
-        </div>
-        <p class="section-sub">Selected documentary concepts & episode summaries from the Astra Kavyam universe.</p>
-
-        <div class="portfolio-grid" style="margin-top:12px">
-          <!-- small cards as summary (text-only) -->
-          <div class="media-card">
-            <div class="media-meta">
-              <div class="media-title">Indra — The Celestial King</div>
-              <div class="media-desc">Character study & cosmic duties — 12 min episode.</div>
-              <div class="media-tags"><span class="tag">Episode</span><span class="tag">Character</span></div>
-            </div>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 text-white leading-tight">
+            Crafting Visuals That <br/>
+            {/* Updated Gradient to include GOLD */}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 via-yellow-500 to-amber-600 drop-shadow-[0_0_30px_rgba(234,179,8,0.3)]">
+              Build Empires.
+            </span>
+          </h1>
+          
+          <p className="mt-6 max-w-2xl mx-auto text-xl text-gray-400 leading-relaxed font-light">
+            We are <span className="text-white font-semibold">Team Astra Kavyam</span>. <br/>
+            Your strategic partners in digital dominance. We fuse high-end video production, photography, and viral psychology to build unstoppable brand empires.
+          </p>
+          
+          <div className="mt-12 flex flex-col sm:flex-row justify-center gap-5">
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="px-10 py-4 rounded-full bg-gradient-to-r from-yellow-600 to-amber-700 text-white font-bold text-lg transition-all transform hover:scale-105 hover:shadow-[0_0_40px_rgba(217,119,6,0.5)] flex items-center justify-center gap-2"
+            >
+              Start A Project <ChevronRight size={20} />
+            </button>
+            <a 
+              href={personalDetails.socials.youtube}
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-10 py-4 rounded-full bg-white/5 hover:bg-white/10 text-white font-medium text-lg border border-white/10 backdrop-blur-md transition-all flex items-center justify-center gap-2 group"
+            >
+              <Youtube size={20} className="text-red-500 group-hover:scale-110 transition-transform" /> Visit Channel
+            </a>
           </div>
 
-          <div class="media-card">
-            <div class="media-meta">
-              <div class="media-title">Rahu & Ketu — Shadows of the Cosmos</div>
-              <div class="media-desc">Eclipses, karma and mythic symbolism — short doc.</div>
-              <div class="media-tags"><span class="tag">Cosmic</span><span class="tag">Explainer</span></div>
-            </div>
-          </div>
-
-          <div class="media-card">
-            <div class="media-meta">
-              <div class="media-title">Asura Raja Bali — The King Who Gave Everything</div>
-              <div class="media-desc">Honor, sacrifice and legacy beyond labels.</div>
-              <div class="media-tags"><span class="tag">Epic</span><span class="tag">Character Arc</span></div>
-            </div>
-          </div>
-
-          <div class="media-card">
-            <div class="media-meta">
-              <div class="media-title">Shiva — Dance of Destruction</div>
-              <div class="media-desc">Visual exploration of Tandava & transformation.</div>
-              <div class="media-tags"><span class="tag">Philosophy</span><span class="tag">Cinematic</span></div>
-            </div>
+          {/* Stats Bar - Fully Systematic */}
+          <div className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto border-t border-white/10 pt-8">
+            {personalDetails.stats.map((stat, i) => (
+              <div key={i} className="text-center group hover:-translate-y-1 transition-transform duration-300">
+                <div className="text-3xl font-bold text-white mb-1 group-hover:text-yellow-400 transition-colors">{stat.value}</div>
+                <div className="text-xs text-gray-500 uppercase tracking-widest font-semibold group-hover:text-gray-300">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <!-- PORTFOLIO (requested: sample media + filters + lightbox) -->
-      <section id="portfolio" aria-labelledby="portfolio-title">
-        <div class="section-head">
-          <h2 class="section-title" id="portfolio-title">Editing Portfolio</h2>
-        </div>
-        <p class="section-sub">Sample edits, showreels and demo clips. Click any item to preview (YouTube embed or image).</p>
-
-        <!-- filters -->
-        <div class="filters" role="toolbar" aria-label="Filter portfolio">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="reel">Reels</button>
-          <button class="filter-btn" data-filter="trailer">Trailers</button>
-          <button class="filter-btn" data-filter="doc">Documentaries</button>
-        </div>
-
-        <!-- grid -->
-        <div class="portfolio-grid" id="portfolioGrid">
-          <!-- Card 1: YouTube embed preview (sample) -->
-          <article class="media-card" data-type="reel" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Reel 1">
-            <img src="sample-thumb-1.jpg" alt="Reel: Cinematic Mythology Reel" class="media-thumb" loading="lazy">
-            <div class="media-meta">
-              <div class="media-title">Cinematic Mythology Reel</div>
-              <div class="media-desc">Short-form reel — dramatic cuts & sound design.</div>
-              <div class="media-tags"><span class="tag">Reel</span><span class="tag">Sound Design</span></div>
-            </div>
-          </article>
-
-          <!-- Card 2: Trailer (YouTube) -->
-          <article class="media-card" data-type="trailer" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Trailer 1">
-            <img src="sample-thumb-2.jpg" alt="Trailer: Indra Trailer" class="media-thumb" loading="lazy">
-            <div class="media-meta">
-              <div class="media-title">Indra — Trailer</div>
-              <div class="media-desc">High-energy trailer for long-form episode.</div>
-              <div class="media-tags"><span class="tag">Trailer</span><span class="tag">Cinematic</span></div>
-            </div>
-          </article>
-
-          <!-- Card 3: Image preview (before/after) -->
-          <article class="media-card" data-type="doc" data-image="sample-thumb-3.jpg" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Image 1">
-            <img src="sample-thumb-3.jpg" alt="Before/After color grade" class="media-thumb" loading="lazy">
-            <div class="media-meta">
-              <div class="media-title">Before / After — Color Grade</div>
-              <div class="media-desc">Color grading demo: neutral to cinematic 8K look.</div>
-              <div class="media-tags"><span class="tag">Color Grade</span><span class="tag">8K</span></div>
-            </div>
-          </article>
-
-          <!-- Card 4: Trailer 2 -->
-          <article class="media-card" data-type="reel" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ" tabindex="0" role="button" aria-pressed="false" aria-label="Preview Reel 2">
-            <img src="sample-thumb-4.jpg" alt="Character Visuals — Devraj Indra" class="media-thumb" loading="lazy">
-            <div class="media-meta">
-              <div class="media-title">Devraj Indra Visuals</div>
-              <div class="media-desc">Character visuals & VFX integration examples.</div>
-              <div class="media-tags"><span class="tag">Character</span><span class="tag">VFX</span></div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SERVICES -->
-      <section id="services" aria-labelledby="services-title">
-        <div class="section-head">
-          <h2 class="section-title" id="services-title">Services</h2>
-        </div>
-        <p class="section-sub">Editing, VFX, thumbnails, voice-over & consultation.</p>
-
-        <div class="portfolio-grid" style="margin-top:12px">
-          <div class="media-card"><h4 style="color:var(--white)">Video Editing</h4><p style="color:var(--muted)">Long-form & short-form narrative edits.</p></div>
-          <div class="media-card"><h4 style="color:var(--white)">VFX & Compositing</h4><p style="color:var(--muted)">Particles, lightning, 2D/3D comp.</p></div>
-          <div class="media-card"><h4 style="color:var(--white)">Thumbnails</h4><p style="color:var(--muted)">High-CTR cinematic thumbnails.</p></div>
-          <div class="media-card"><h4 style="color:var(--white)">Script & VO</h4><p style="color:var(--muted)">Hindi scripting & voice direction.</p></div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section id="contact" aria-labelledby="contact-title">
-        <div class="section-head">
-          <h2 class="section-title" id="contact-title">Contact & Hire</h2>
-        </div>
-        <p class="section-sub">For collaborations, client work or documentary proposals — reach out.</p>
-
-        <div class="contact-grid" style="margin-top:12px">
-          <div class="contact-card">
-            <form id="contactForm">
-              <div class="field"><label>Your name</label><input name="name" type="text" required></div>
-              <div class="field"><label>Your email</label><input name="email" type="email" required></div>
-              <div class="field"><label>Message</label><textarea name="message" required></textarea></div>
-              <!-- For production use, replace with Formspree action or your server endpoint -->
-              <button class="btn btn-primary" type="submit">Send message</button>
-              <p style="font-size:12px;color:var(--muted);margin-top:8px">Or email: <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold)">astrakavyam@gmail.com</a></p>
-            </form>
+      {/* Services Section */}
+      <section id="services" className="py-24 relative z-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Expertise & Services</h2>
+            <div className="h-1.5 w-24 bg-gradient-to-r from-yellow-500 to-amber-500 mx-auto rounded-full shadow-[0_0_20px_rgba(245,158,11,0.5)]"></div>
+            <p className="mt-6 text-gray-400 max-w-2xl mx-auto text-lg">
+              A comprehensive suite of creative services designed to elevate your brand authority.
+            </p>
           </div>
 
-          <aside class="contact-card">
-            <div class="phone">+91-835XX-57XXX</div>
-            <p style="color:var(--muted);margin-top:8px">Business email: <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold)">astrakavyam@gmail.com</a></p>
-            <div style="margin-top:10px" class="social-row">
-              <a class="navlink" href="https://www.youtube.com/@astrakavyam" target="_blank">YouTube</a>
-              <a class="navlink" href="https://instagram.com/astrakavyam" target="_blank">Instagram</a>
-            </div>
-          </aside>
+          <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white/5 backdrop-blur-sm p-6 rounded-2xl border border-white/5 hover:border-yellow-500/50 hover:bg-white/[0.07] transition-all duration-300 group hover:-translate-y-2">
+                <div className="w-14 h-14 bg-gradient-to-br from-gray-800 to-black rounded-xl flex items-center justify-center mb-6 group-hover:from-yellow-600 group-hover:to-amber-600 transition-all shadow-lg group-hover:shadow-yellow-500/25 border border-white/10">
+                  <service.icon size={26} className="text-gray-300 group-hover:text-white" />
+                </div>
+                <h3 className="text-lg font-bold mb-3 text-white group-hover:text-yellow-300 transition-colors">{service.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-    </main>
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-24 bg-black relative z-10">
+        {/* Glow effect */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-3xl h-full bg-indigo-900/10 blur-[100px] pointer-events-none"></div>
 
-    <footer>
-      © <strong style="color:var(--gold)">Astra Kavyam</strong> • Cinematic Documentaries & Editing Portfolio
-    </footer>
-  </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-2">Selected Works</h2>
+              <p className="text-gray-400 text-lg">Curated projects that drove real results.</p>
+            </div>
+            
+            {/* Filter Tabs */}
+            <div className="flex flex-wrap gap-2 justify-end">
+              {[
+                { id: 'all', label: 'All' },
+                { id: 'video', label: 'Video Editing' },
+                { id: 'photo', label: 'Photography' },
+                { id: 'thumbnails', label: 'Design' },
+                { id: 'reels', label: 'Shorts/Reels' },
+                { id: 'client-work', label: 'Client Work' },
+              ].map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all border ${
+                    activeTab === tab.id 
+                      ? 'bg-white text-black border-white shadow-[0_0_20px_rgba(255,255,255,0.2)]' 
+                      : 'bg-transparent text-gray-400 border-white/10 hover:border-white/30 hover:text-white'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+          </div>
 
-  <!-- LIGHTBOX / MODAL -->
-  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-label="Preview">
-    <div class="lightbox" role="document">
-      <button class="close" aria-label="Close preview" onclick="closeModal()">✕</button>
-      <div id="lightboxContent" style="min-height:200px"></div>
+          {/* Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredItems.map((item) => (
+              <div key={item.id} className="group relative bg-white/5 rounded-2xl overflow-hidden border border-white/5 hover:border-yellow-500/30 transition-all hover:translate-y-[-6px] hover:shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+                <div className="aspect-video w-full overflow-hidden relative">
+                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col items-center justify-center backdrop-blur-sm gap-4">
+                      <button className="px-6 py-2 bg-yellow-600 rounded-full text-white font-bold text-sm hover:bg-yellow-500 transition-colors flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 duration-300">
+                        <Play size={14} fill="currentColor" /> View Project
+                      </button>
+                   </div>
+                   <img 
+                    src={item.image} 
+                    alt={item.title}
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 ease-out"
+                   />
+                   <div className="absolute top-4 left-4 z-20">
+                     <span className="px-3 py-1.5 rounded-lg bg-black/80 backdrop-blur-md text-xs font-bold uppercase tracking-wider text-white border border-white/10 shadow-lg">
+                       {item.category}
+                     </span>
+                   </div>
+                </div>
+
+                <div className="p-6">
+                  <div className="flex justify-between items-start mb-2">
+                     <h3 className="text-xl font-bold text-white group-hover:text-yellow-400 transition-colors">{item.title}</h3>
+                     <ArrowUpRightIcon />
+                  </div>
+                  <p className="text-yellow-500 text-xs font-bold uppercase tracking-wider mb-3">{item.client}</p>
+                  <p className="text-gray-400 text-sm line-clamp-2 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section id="testimonials" className="py-24 relative z-10 border-t border-white/5 bg-black/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold mb-6">Client Endorsements</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">
+              Trusted by content creators, brands, and agencies worldwide.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Testimonial Cards */}
+            {[
+               {
+                 text: "The best editor we've worked with. Our retention rate went up by 40% immediately.",
+                 author: "Sarah Jenkins",
+                 role: "Marketing Director, TechFlow",
+                 image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200"
+               },
+               {
+                 text: "His thumbnail designs are absolute click-magnets. He understands the psychology perfectly.",
+                 author: "Mike Ross",
+                 role: "YouTuber (1.2M Subs)",
+                 image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+               },
+               {
+                 text: "Insane turnaround times without sacrificing quality. A true professional partner.",
+                 author: "Elena Rodriguez",
+                 role: "CEO, Glow Up Agency",
+                 image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200"
+               }
+            ].map((t, i) => (
+              <div key={i} className="bg-gradient-to-b from-white/10 to-white/5 p-8 rounded-2xl border border-white/10 relative hover:border-yellow-500/30 transition-colors">
+                <div className="flex gap-1 mb-6">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} className="text-yellow-500 fill-yellow-500" />
+                  ))}
+                </div>
+                <p className="text-gray-300 text-lg italic mb-8 relative z-10 leading-relaxed">"{t.text}"</p>
+                <div className="flex items-center gap-4 mt-auto">
+                  <div className="w-12 h-12 rounded-full p-0.5 bg-gradient-to-tr from-yellow-500 to-amber-500">
+                    <img src={t.image} alt={t.author} className="w-full h-full rounded-full object-cover border-2 border-black" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white text-sm">{t.author}</h4>
+                    <p className="text-gray-500 text-xs uppercase tracking-wide font-medium">{t.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact" className="py-24 relative bg-black overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-indigo-900/20 to-transparent pointer-events-none"></div>
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-[#0A0A0A] rounded-[2rem] p-8 md:p-14 border border-white/10 shadow-2xl shadow-indigo-900/20 backdrop-blur-sm">
+            
+            <div className="grid md:grid-cols-2 gap-16">
+              
+              {/* Left Column: Info */}
+              <div>
+                 <div className="inline-block px-4 py-1.5 rounded-full border border-yellow-500/30 bg-yellow-500/10 text-yellow-400 text-xs font-bold uppercase tracking-wider mb-6">
+                    Contact Info
+                 </div>
+                 <h2 className="text-4xl font-bold mb-6 text-white">Let's Create <br/>Something <span className="text-yellow-500">Epic.</span></h2>
+                 <p className="text-gray-400 mb-8 leading-relaxed">
+                   Ready to take your content to the next level? Whether you need a full rebrand or consistent video edits, I'm here to help you scale.
+                 </p>
+                 
+                 <div className="space-y-6">
+                    {/* WhatsApp */}
+                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-green-500/50 transition-all hover:-translate-x-[-5px]">
+                      <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center text-green-500">
+                        <MessageCircle size={24} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-bold">Fastest Response (WhatsApp)</p>
+                        <a href={`https://wa.me/${personalDetails.phoneLink}`} target="_blank" rel="noopener noreferrer" className="text-white text-lg font-bold hover:text-green-400 transition-colors">
+                          {personalDetails.phoneDisplay}
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* Email */}
+                    <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/5 hover:border-yellow-500/50 transition-all hover:-translate-x-[-5px]">
+                      <div className="w-12 h-12 bg-yellow-600/20 rounded-lg flex items-center justify-center text-yellow-500">
+                        <Mail size={24} />
+                      </div>
+                      <div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider font-bold">Email Me</p>
+                        <a href={`mailto:${personalDetails.email}`} className="text-white text-lg font-bold hover:text-yellow-400 transition-colors">
+                          {personalDetails.email}
+                        </a>
+                      </div>
+                    </div>
+                 </div>
+
+                 {/* Social Media Row */}
+                 <div className="mt-10 pt-8 border-t border-white/10">
+                   <p className="text-gray-500 text-sm mb-4 font-medium uppercase tracking-wider">Connect on Socials:</p>
+                   <div className="flex gap-4">
+                     {/* YouTube */}
+                     <a href={personalDetails.socials.youtube} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-red-600 hover:text-white hover:border-red-600 transition-all hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(220,38,38,0.4)]">
+                       <Youtube size={20} />
+                     </a>
+                     
+                     {/* Instagram */}
+                     <a href={personalDetails.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-gradient-to-tr hover:from-yellow-500 hover:via-pink-500 hover:to-purple-500 hover:text-white hover:border-transparent transition-all hover:-translate-y-2 hover:shadow-[0_10px_20px_rgba(236,72,153,0.4)]">
+                       <Instagram size={20} />
+                     </a>
+
+                     {/* LinkedIn */}
+                     <a href={personalDetails.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all hover:-translate-y-2">
+                       <Linkedin size={20} />
+                     </a>
+
+                     {/* Twitter */}
+                     <a href={personalDetails.socials.twitter} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:bg-sky-500 hover:text-white hover:border-sky-500 transition-all hover:-translate-y-2">
+                       <Twitter size={20} />
+                     </a>
+                   </div>
+                 </div>
+              </div>
+
+              {/* Right Column: Form */}
+              <div className="bg-white/[0.02] p-8 rounded-3xl border border-white/5 shadow-inner">
+                <form className="space-y-5">
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">First Name</label>
+                        <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all placeholder:text-gray-700" placeholder="John" />
+                    </div>
+                    <div>
+                        <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Last Name</label>
+                        <input type="text" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all placeholder:text-gray-700" placeholder="Doe" />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Email</label>
+                    <input type="email" className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all placeholder:text-gray-700" placeholder="john@example.com" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Service Needed</label>
+                    <select className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all appearance-none text-gray-400 cursor-pointer">
+                      <option>Video Editing</option>
+                      <option>Graphic Design</option>
+                      <option>Social Strategy</option>
+                      <option>Full Channel Management</option>
+                      <option>Photography & Videography</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Message</label>
+                    <textarea rows={4} className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3.5 text-white focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500 transition-all placeholder:text-gray-700 resize-none" placeholder="Tell me about your goals..."></textarea>
+                  </div>
+                  <button className="w-full bg-white text-black font-bold py-4 rounded-xl flex items-center justify-center gap-2 hover:bg-yellow-50 transition-colors shadow-lg shadow-white/10 group transform active:scale-95 duration-150">
+                    Send Message <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="py-8 bg-black border-t border-white/10 text-center relative z-10">
+        <p className="text-gray-600 text-sm">
+          © {new Date().getFullYear()} {personalDetails.name}. All Rights Reserved.
+        </p>
+      </footer>
     </div>
-  </div>
+  );
+}
 
-  <!-- Structured data (Organization + sample VideoObject for SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"Astra Kavyam",
-    "url":"https://astrakavyam.github.io",
-    "logo":"https://astrakavyam.github.io/logo.png",
-    "sameAs":["https://www.youtube.com/@astrakavyam","https://instagram.com/astrakavyam"],
-    "contactPoint":[{"@type":"ContactPoint","telephone":"+91-835XX-57XXX","contactType":"customer service","email":"astrakavyam@gmail.com"}]
-  }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"VideoObject",
-    "name":"Astra Kavyam — Cinematic Mythology Reel (Sample)",
-    "description":"Short-form reel demonstrating cinematic cuts and sound design.",
-    "thumbnailUrl":["https://astrakavyam.github.io/sample-thumb-1.jpg"],
-    "uploadDate":"2025-01-01",
-    "contentUrl":"https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    "embedUrl":"https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "publisher":{"@type":"Organization","name":"Astra Kavyam","logo":{"@type":"ImageObject","url":"https://astrakavyam.github.io/logo.png"}}
-  }
-  </script>
-
-  <script>
-    // Portfolio filters + lightbox + small form demo
-    document.addEventListener('DOMContentLoaded', () => {
-      const filters = document.querySelectorAll('.filter-btn');
-      const cards = Array.from(document.querySelectorAll('.portfolio-grid .media-card'));
-
-      filters.forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          filters.forEach(b=>b.classList.remove('active'));
-          btn.classList.add('active');
-          const f = btn.dataset.filter;
-          cards.forEach(c=>{
-            if(f==='all') c.style.display = '';
-            else c.style.display = (c.dataset.type === f) ? '' : 'none';
-          });
-        });
-      });
-
-      // click / keyboard handler to open lightbox
-      const modal = document.getElementById('modal');
-      const lbContent = document.getElementById('lightboxContent');
-
-      function openModalHTML(html){
-        lbContent.innerHTML = html;
-        modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
-        document.body.style.overflow = 'hidden';
-      }
-      window.closeModal = function(){
-        modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
-        lbContent.innerHTML = ''; document.body.style.overflow = '';
-      };
-
-      // click card to preview
-      cards.forEach(card=>{
-        card.addEventListener('click', ()=>{
-          if(card.dataset.video){
-            openModalHTML(`<iframe src="${card.dataset.video}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:70vh;border-radius:8px"></iframe>`);
-          } else if(card.dataset.image){
-            openModalHTML(`<img src="${card.dataset.image}" alt="Preview" style="width:100%;height:auto;border-radius:8px">`);
-          }
-        });
-        // keyboard support (Enter)
-        card.addEventListener('keydown', (e)=>{ if(e.key==='Enter') card.click(); });
-      });
-
-      // close modal on Esc
-      document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') window.closeModal(); });
-      // click outside closes
-      modal.addEventListener('click', (ev)=>{ if(ev.target===modal) window.closeModal(); });
-
-      // simple contact form demo (no backend)
-      const form = document.getElementById('contactForm');
-      if(form){
-        form.addEventListener('submit', (e)=>{
-          e.preventDefault();
-          alert('This demo form is static. For real contact configure Formspree or server endpoint.');
-          form.reset();
-        });
-      }
-    });
-  </script>
-</body>
-</html>
+// Simple Helper Icon
+function ArrowUpRightIcon() {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover:text-white transition-colors">
+      <line x1="7" y1="17" x2="17" y2="7"></line>
+      <polyline points="7 7 17 7 17 17"></polyline>
+    </svg>
+  );
+}
