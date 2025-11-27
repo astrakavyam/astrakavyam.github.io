@@ -1,430 +1,507 @@
-<!doctype html>
-<html lang="hi">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Astra Kavyam — Cinematic Mythology Portfolio</title>
-<meta name="description" content="Astra Kavyam — Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries"/>
-<style>
-/* ----------------- THEME ----------------- */
-:root{
-  --bg-1:#030205;
-  --bg-2:#07060a;
-  --gold-light:#fff6d9;
-  --gold-mid:#ffd07a;
-  --gold-dark:#b07a22;
-  --muted:#c7c7c7;
-  --panel: rgba(255,255,255,0.02);
-  --accent: rgba(255,200,60,0.06);
-  --maxw:1200px;
-  --glass: rgba(255,255,255,0.02);
-  --radius:14px;
-  --ease: cubic-bezier(.2,.9,.2,1);
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astra Kavyam | Cinematic Content Creators</title>
+    <meta name="description" content="Portfolio of Astra Kavyam - Cinematic Content Creator, Video Editor, and Graphic Designer.">
+    
+    <!-- Tailwind CSS (via CDN for instant usage) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Cinzel (Mythology/Epic) and Montserrat (Modern) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 
-/* Reset */
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%}
-body{
-  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  background:
-    radial-gradient(800px 420px at 12% 12%, rgba(120,20,60,0.10), transparent),
-    radial-gradient(700px 360px at 88% 78%, rgba(20,60,120,0.06), transparent),
-    linear-gradient(180deg,var(--bg-1),var(--bg-2));
-  color:#eee;
-  line-height:1.45;
-}
+    <!-- Custom Styles for Golden Effects -->
+    <style>
+        :root {
+            --gold-light: #FBF5B7;
+            --gold-main: #BF953F;
+            --gold-dark: #AA771C;
+            --bg-dark: #050505;
+            --bg-card: #0F0F0F;
+        }
 
-/* Decorative noise for luxury texture */
-.noise {
-  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.06;
-  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02) 0 1px, transparent 2px),
-                    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.01) 0 1px, transparent 2px);
-  mix-blend-mode:overlay;
-  filter: blur(.3px) contrast(.95);
-}
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+        }
 
-/* Nebula subtle movement */
-.nebula{position:fixed;inset:-10% -20% -10% -20%;z-index: -1;opacity:0.9;mix-blend-mode:screen;
-  background:
-    radial-gradient(900px 460px at 20% 18%, rgba(160,40,90,0.13), transparent),
-    radial-gradient(700px 360px at 80% 82%, rgba(20,70,120,0.11), transparent);
-  animation: floatNeb 20s ease-in-out infinite;
-}
-@keyframes floatNeb{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+        h1, h2, h3, .brand-font {
+            font-family: 'Cinzel', serif;
+        }
 
-/* Layout */
-.wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:3;padding:28px}
-.topnav{position:sticky;top:14px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.24));backdrop-filter: blur(6px);border:1px solid rgba(255,200,60,0.04)}
-.brand{display:flex;gap:12px;align-items:center}
-.brand .logo{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,245,200,0.03), rgba(0,0,0,0.12));border:1px solid rgba(255,200,60,0.06)}
-.brand h3{color:var(--gold-mid);font-size:18px;margin:0}
-.brand p{color:var(--muted);font-size:12px;margin:0}
+        /* Golden Text Gradient */
+        .text-gold-gradient {
+            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            background-size: 200% auto;
+            animation: shine 4s linear infinite;
+        }
 
-/* Sticky CTA */
-.top-actions{display:flex;gap:8px;align-items:center}
-.btn{padding:9px 14px;border-radius:10px;border:1px solid rgba(255,200,60,0.06);background:linear-gradient(180deg, rgba(255,235,160,0.03), rgba(0,0,0,0.06));color:var(--gold-mid);font-weight:700;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
-.btn.primary{background:linear-gradient(180deg,var(--gold-mid),var(--gold-dark));color:#071012;border:none}
-.btn:hover{transform:translateY(-6px);box-shadow:0 22px 54px rgba(0,0,0,0.6)}
+        /* Golden Border Gradient */
+        .border-gold {
+            border: 1px solid transparent;
+            background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
+                        linear-gradient(45deg, #BF953F, #FCF6BA, #AA771C) border-box;
+        }
 
-/* HERO */
-.hero{margin:22px auto;padding:44px;border-radius:var(--radius);text-align:center;position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.26));border:1px solid rgba(255,200,60,0.04);box-shadow:0 30px 80px rgba(0,0,0,0.6)}
-.hero .logo-large{display:inline-grid;place-items:center;margin:0 auto 12px;width:120px;height:120px;border-radius:20px;background:linear-gradient(180deg, rgba(255,245,200,0.02), rgba(0,0,0,0.12));border:1px solid rgba(255,200,60,0.06);box-shadow:0 16px 40px rgba(0,0,0,0.6)}
+        /* Glowpure Effect */
+        .glow-pure {
+            box-shadow: 0 0 10px rgba(191, 149, 63, 0.1);
+            transition: all 0.4s ease;
+        }
+        .glow-pure:hover {
+            box-shadow: 0 0 25px rgba(191, 149, 63, 0.4), inset 0 0 10px rgba(191, 149, 63, 0.1);
+            transform: translateY(-5px);
+        }
 
-/* GOLD HEADLINE (3D embossed) */
-.title-wrap{display:block;margin:8px auto 12px;max-width:920px}
-.title-3d{width:100%;height:auto;display:block;filter: drop-shadow(0 30px 48px rgba(0,0,0,0.7));transition:transform .4s var(--ease)}
-.title-3d .shine{animation:lightMove 6s linear infinite}
-@keyframes lightMove{0%{opacity:0.12;transform:translateX(-40%)}50%{opacity:0.25;transform:translateX(40%)}100%{opacity:0.12;transform:translateX(-40%)}}
+        /* Animation Keyframes */
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
 
-/* subtitle */
-.subtitle{color:var(--muted);margin-top:8px;font-size:15px;max-width:880px;margin-left:auto;margin-right:auto}
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
-/* CTA cluster */
-.cta{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
 
-/* SECTIONS */
-section{margin:20px auto;padding:28px 22px;border-radius:12px}
-.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 12px 40px rgba(0,0,0,0.55)}
-h2{color:var(--gold-mid);font-size:20px;margin-bottom:10px}
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #BF953F;
+            border-radius: 4px;
+        }
 
-/* two-column layout */
-.two-col{display:grid;grid-template-columns:1fr 360px;gap:18px}
-@media (max-width:960px){.two-col{grid-template-columns:1fr} .title-3d svg{height:170px}}
-
-/* services grid */
-.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:10px}
-.service{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.008), rgba(0,0,0,0.08));border:1px solid rgba(255,200,60,0.04);text-align:center;font-weight:800;transition:transform .22s var(--ease)}
-.service:hover{transform:translateY(-8px)}
-
-/* Gallery */
-.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
-.thumb{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .28s,var(--ease)}
-.thumb:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.6)}
-.thumb .placeholder{height:160px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));color:var(--gold-mid);font-weight:900}
-
-/* Featured video block */
-.video-block{display:flex;gap:12px;flex-wrap:wrap;align-items:stretch}
-.video-cta{flex:1;min-width:260px}
-.video-cta .btn{width:160px}
-
-/* contact grid */
-.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-@media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
-
-/* footer */
-footer{padding:24px;text-align:center;color:var(--muted);margin-top:18px}
-.socials{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px}
-.socials a{color:var(--gold-mid);font-weight:700;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,200,60,0.04)}
-
-/* entrance animation */
-[data-anim]{opacity:0;transform:translateY(14px);transition:all .7s var(--ease)}
-[data-anim].in{opacity:1;transform:translateY(0)}
-
-/* focus outlines for keyboard users */
-:focus{outline:3px solid rgba(255,200,60,0.12);outline-offset:3px}
-
-/* small screens */
-@media (max-width:640px){
-  .brand p{display:none}
-  .brand h3{font-size:16px}
-  .hero{padding:28px}
-  .title-3d svg{height:160px}
-  .logo-large{width:96px;height:96px}
-}
-</style>
+        /* Background Particle/Texture Effect */
+        .bg-texture {
+            background-image: radial-gradient(circle at 50% 50%, rgba(191, 149, 63, 0.05) 0%, transparent 50%),
+                              url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23bf953f' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
 </head>
-<body>
+<body class="antialiased relative">
 
-<div class="nebula" aria-hidden="true"></div>
-<div class="noise" aria-hidden="true"></div>
-
-<div class="wrap">
-
-  <!-- top nav -->
-  <div class="topnav" data-anim>
-    <div class="brand">
-      <div class="logo" aria-hidden="true">
-        <!-- inline circular logo -->
-        <svg viewBox="0 0 120 120" width="46" height="46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra logo">
-          <defs>
-            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#fff6d9"/>
-              <stop offset="0.45" stop-color="#ffd07a"/>
-              <stop offset="1" stop-color="#b07a22"/>
-            </linearGradient>
-            <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-          </defs>
-          <circle cx="60" cy="60" r="54" fill="#07080a" stroke="rgba(255,200,60,0.06)" stroke-width="1.6"/>
-          <g transform="translate(60,60)" filter="url(#glow)">
-            <path d="M0 -26 L4 -8 L0 26 L-4 -8 Z" fill="url(#g1)"/>
-            <rect x="-2.4" y="-8" width="4.8" height="44" rx="1.4" fill="url(#g1)"/>
-            <path d="M-8 28 C-4 20 4 20 8 28" fill="none" stroke="url(#g1)" stroke-width="2.9" stroke-linecap="round"/>
-          </g>
-        </svg>
-      </div>
-      <div>
-        <h3>Astra Kavyam</h3>
-        <p>“Cinematic Mythology Documentaries”</p>
-      </div>
-    </div>
-
-    <div class="top-actions">
-      <a class="btn" href="#about">About</a>
-      <a class="btn" href="#portfolio">Portfolio</a>
-      <a class="btn" href="#contact">Contact</a>
-      <a class="btn primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Subscribe</a>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Astra Kavyam">
-    <div class="logo-large" aria-hidden="true">
-      <!-- larger logo variant -->
-      <svg viewBox="0 0 160 160" width="96" height="96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra large logo">
-        <defs>
-          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#fff6d9"/><stop offset="0.45" stop-color="#ffd07a"/><stop offset="1" stop-color="#b07a22"/>
-          </linearGradient>
-          <filter id="glo2" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
-        </defs>
-        <rect x="8" y="8" width="144" height="144" rx="22" fill="#07080a" stroke="rgba(255,200,60,0.06)" stroke-width="1.8"/>
-        <g transform="translate(80,80)" filter="url(#glo2)">
-          <path d="M0 -36 L6 -10 L0 36 L-6 -10 Z" fill="url(#g2)"/>
-          <rect x="-3.8" y="-12" width="7.6" height="64" rx="1.6" fill="url(#g2)"/>
-          <path d="M-12 40 C-6 28 6 28 12 40" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="title-wrap" data-anim>
-      <!-- big metallic SVG title with shine animation -->
-      <svg class="title-3d" viewBox="0 0 1400 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra Kavyam title">
-        <defs>
-          <linearGradient id="goldL" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#fff8dd"/>
-            <stop offset="0.35" stop-color="#ffd97a"/>
-            <stop offset="0.68" stop-color="#d39a2b"/>
-            <stop offset="1" stop-color="#6f4f18"/>
-          </linearGradient>
-
-          <filter id="bevel" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="0.8" result="b"/>
-            <feSpecularLighting result="spec" specularConstant="1.2" specularExponent="18" lighting-color="#fff">
-              <fePointLight x="-10000" y="-10000" z="70000"/>
-            </feSpecularLighting>
-            <feComposite operator="in" in="spec" in2="b"/>
-            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-          </filter>
-
-          <linearGradient id="shine" x1="0" x2="1">
-            <stop offset="0" stop-color="rgba(255,255,255,0.06)"/>
-            <stop offset="0.5" stop-color="rgba(255,255,255,0.18)"/>
-            <stop offset="1" stop-color="rgba(255,255,255,0.03)"/>
-          </linearGradient>
-
-          <pattern id="grain2" width="3" height="3" patternUnits="userSpaceOnUse">
-            <circle cx="1.5" cy="1.5" r="0.5" fill="rgba(0,0,0,0.04)"/>
-          </pattern>
-        </defs>
-
-        <!-- Background subtle overlay -->
-        <rect width="1400" height="420" fill="transparent"/>
-
-        <g transform="translate(60,70)">
-          <text x="0" y="110" font-family="Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#goldL)" stroke="rgba(0,0,0,0.28)" stroke-width="2.6">ASTRA</text>
-          <text x="0" y="258" font-family="Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#goldL)" stroke="rgba(0,0,0,0.28)" stroke-width="2.6">KAVYAM</text>
-
-          <!-- grain overlay -->
-          <rect x="-10" y="6" width="1280" height="300" fill="url(#grain2)" opacity="0.12"></rect>
-
-          <!-- animated shine bar -->
-          <rect class="shine" x="-300" y="0" width="420" height="320" fill="url(#shine)" opacity="0.14" />
-        </g>
-      </svg>
-
-      <p class="subtitle">Cinematic Content Creator • Video Editor • Videography • Photography • Mythology Documentaries</p>
-    </div>
-
-    <div class="cta" data-anim>
-      <a class="btn primary" href="#portfolio">View Portfolio</a>
-      <a class="btn" href="#contact">Hire Us</a>
-      <a class="btn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
-    </div>
-  </header>
-
-  <!-- ABOUT -->
-  <section id="about" class="card two-col" data-anim>
-    <div>
-      <h2>About — Team Astra Kavyam</h2>
-      <p style="color:var(--muted);margin-top:8px">
-        We are <strong>Team Astra Kavyam</strong> — professional cinematic storytellers crafting mythic documentaries, cinematic edits, photography, and brand films.
-        From script to final grade, hum cinematic narrative aur visual depth dono laate hain.
-      </p>
-
-      <div class="services" style="margin-top:14px">
-        <div class="service">🎬 Video Editing</div>
-        <div class="service">🎨 Graphic Design</div>
-        <div class="service">📸 Photography</div>
-        <div class="service">🎥 Videography</div>
-        <div class="service">📱 Social Media Marketing</div>
-        <div class="service">📺 YouTube Content Creation</div>
-        <div class="service">🖼 Thumbnail & Branding</div>
-        <div class="service">📜 Documentary Scriptwriting</div>
-      </div>
-    </div>
-
-    <aside>
-      <div class="card" style="text-align:center">
-        <div style="font-weight:800;color:var(--gold-mid);margin-bottom:8px">Consultation</div>
-        <p style="color:var(--muted);margin-bottom:12px">Project planning, estimates, timelines. Professional packages available.</p>
-        <a class="btn" href="mailto:astrakavyam@gmail.com">Email Consultation</a>
-      </div>
-    </aside>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio" class="card" data-anim>
-    <h2>Portfolio — Selected Works</h2>
-    <p style="color:var(--muted);margin-top:6px">Click any tile to open our YouTube channel (or project link).</p>
-
-    <div class="gallery">
-      <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="placeholder">ASTRA KAVYAM • EPISODE</div>
-        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Cinematic Documentary • Watch</div>
-      </a>
-
-      <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="placeholder">EPIC TRAILER</div>
-        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Trailer • Watch</div>
-      </a>
-
-      <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="placeholder">PHOTOGRAPHY</div>
-        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Ritual Photography • View</div>
-      </a>
-
-      <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="placeholder">BRAND FILM</div>
-        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Brand Film • Watch</div>
-      </a>
-    </div>
-  </section>
-
-  <!-- FEATURED -->
-  <section id="featured" class="card" data-anim>
-    <h2>Featured — Latest Episode</h2>
-    <p style="color:var(--muted);margin-top:6px">Open the channel to watch full cinematic episodes and playlists.</p>
-
-    <div class="video-block" style="margin-top:12px">
-      <div class="video-cta card">
-        <div style="font-weight:800;color:var(--gold-mid);">Open Channel</div>
-        <p style="color:var(--muted);margin:8px 0">Latest releases, trailers and documentary series available on YouTube.</p>
-        <a class="btn primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Open Channel</a>
-      </div>
-
-      <div style="flex:0 0 320px">
-        <div class="card" style="text-align:center;padding:12px">
-          <div style="font-weight:700;color:var(--gold-mid)">Support & Subscribe</div>
-          <p style="color:var(--muted);margin:6px 0">Subscribe to follow episodic mythology documentaries.</p>
-          <a class="btn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Subscribe</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="card" data-anim>
-    <h2>Contact & Booking</h2>
-    <p style="color:var(--muted);margin-top:6px">Hire Team Astra Kavyam for cinematic documentaries, editing, photography & brand films.</p>
-
-    <div class="contact-grid" style="margin-top:12px">
-      <div>
-        <div class="card" style="padding:14px">
-          <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+91835XXXX57XX" style="color:var(--gold-mid)">+91-835XX-57XXX</a></p>
-          <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold-mid)">astrakavyam@gmail.com</a></p>
-          <p style="margin:6px 0"><strong>Instagram:</strong> <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">@astrakavyam</a></p>
-          <p style="margin:6px 0"><strong>Discord:</strong> astrakavyam</p>
-          <p style="margin:6px 0"><strong>YouTube:</strong> <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Astra Kavyam</a></p>
-        </div>
-
-        <div style="margin-top:12px" class="card">
-          <form action="mailto:astrakavyam@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:8px">
-            <input name="name" required placeholder="Your name" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
-            <input name="email" type="email" required placeholder="Your email" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
-            <textarea name="message" rows="4" required placeholder="Project brief / message" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff"></textarea>
-            <div style="display:flex;gap:8px;flex-wrap:wrap">
-              <button class="btn primary" type="submit" style="border:none">Send Email</button>
-              <a class="btn" href="https://wa.me/91835XXXX57XX" target="_blank" rel="noopener">WhatsApp</a>
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold tracking-widest brand-font text-gold-gradient uppercase">
+                        Astra Kavyam
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#home" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">About Team</a>
+                        <a href="#services" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Services</a>
+                        <a href="#portfolio" class="text-gray-300 hover:text-[#FCF6BA] transition px-3 py-2 text-sm font-medium uppercase tracking-wider">Portfolio</a>
+                        <a href="#contact" class="px-6 py-2 border border-[#BF953F] text-[#BF953F] hover:bg-[#BF953F] hover:text-black transition duration-300 text-sm font-medium uppercase tracking-wider rounded-sm">Contact</a>
+                    </div>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" onclick="toggleMobileMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-[#BF953F] hover:text-white hover:bg-gray-800 focus:outline-none">
+                        <i data-lucide="menu" class="h-8 w-8"></i>
+                    </button>
+                </div>
             </div>
-            <small style="color:var(--muted)">If form doesn't send, email directly: astrakavyam@gmail.com</small>
-          </form>
         </div>
-      </div>
-
-      <aside>
-        <div class="card" style="text-align:center;padding:18px">
-          <div style="font-weight:800;color:var(--gold-mid)">Quick Contact</div>
-          <p style="color:var(--muted);margin:8px 0">Call or WhatsApp for quick quotes & scheduling.</p>
-          <a class="btn" href="tel:+91835XXXX57XX">Call</a>
-          <div style="height:8px"></div>
-          <a class="btn" href="https://wa.me/91835XXXX57XX" target="_blank" rel="noopener">WhatsApp</a>
+        <!-- Mobile Menu -->
+        <div class="hidden md:hidden bg-black/95 backdrop-blur-xl border-b border-[#BF953F]/30 absolute w-full" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="#home" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">HOME</a>
+                <a href="#about" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">ABOUT</a>
+                <a href="#services" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">SERVICES</a>
+                <a href="#portfolio" onclick="toggleMobileMenu()" class="text-gray-300 hover:text-[#FCF6BA] block px-3 py-2 rounded-md text-base font-medium">PORTFOLIO</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="text-[#BF953F] block px-3 py-2 rounded-md text-base font-medium">CONTACT</a>
+            </div>
         </div>
-      </aside>
-    </div>
-  </section>
+    </nav>
 
-  <footer class="card" style="text-align:center">
-    <div style="font-weight:800;color:var(--gold-mid)">© Astra Kavyam · Cinematic Mythology & Visual Storytelling</div>
-    <div style="color:var(--muted);margin-top:6px">“Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries”</div>
-    <div class="socials" style="margin-top:10px">
-      <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Instagram</a>
-      <a href="mailto:astrakavyam@gmail.com">Email</a>
-    </div>
-  </footer>
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-texture">
+        <!-- Background Overlay -->
+        <div class="absolute inset-0 bg-black/60 z-0"></div>
+        
+        <!-- Video/Image Background Placeholder -->
+        <div class="absolute inset-0 z-[-1] overflow-hidden">
+             <!-- Using a high quality dark cinematic placeholder -->
+            <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Background" class="w-full h-full object-cover opacity-40">
+        </div>
 
-</div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <div class="mb-4 inline-block px-4 py-1 border border-[#BF953F]/50 rounded-full bg-black/50 backdrop-blur-sm animate-float">
+                <span class="text-[#BF953F] text-xs uppercase tracking-[0.2em] font-semibold">We Are Professionals</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 brand-font leading-tight">
+                ASTRA <span class="text-gold-gradient">KAVYAM</span>
+            </h1>
+            
+            <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#BF953F] to-transparent mx-auto mb-8"></div>
 
-<!-- scripts -->
-<script>
-  // entrance animations
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting) e.target.classList.add('in');
-    });
-  },{threshold:0.16});
-  document.querySelectorAll('[data-anim]').forEach(el=>io.observe(el));
+            <p class="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 font-light">
+                Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries | Editing Works | Youtuber | Voice Over Artist | Script Writer | Graphic Designer
+            </p>
 
-  // animate shine by moving rect inside SVG
-  (function animateShine(){
-    const svgs = document.querySelectorAll('.title-3d svg .shine');
-    svgs.forEach(s => {
-      let pos = -420, dir = 1;
-      setInterval(()=> {
-        pos += 6*dir;
-        s.setAttribute('x', pos);
-        if(pos > 920) { pos = -420; }
-      }, 40);
-    });
-  })();
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
+                    View Our Work
+                </a>
+                <a href="#contact" class="px-8 py-3 border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-wider rounded-sm hover:bg-[#BF953F]/10 transition duration-300">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[#BF953F]">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </section>
 
-  // smooth anchor scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', function(e){
-      const id = this.getAttribute('href');
-      if(id && id.length>1){
-        e.preventDefault();
-        const el = document.querySelector(id);
-        if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-      }
-    });
-  });
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 relative bg-[#050505]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="relative group">
+                    <!-- Decorative Frame -->
+                    <div class="absolute -inset-4 border border-[#BF953F]/30 rounded-sm transform translate-x-2 translate-y-2 group-hover:translate-x-1 group-hover:translate-y-1 transition duration-500"></div>
+                    <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=1000&auto=format&fit=crop" alt="Team Astra Kavyam" class="relative rounded-sm shadow-2xl w-full h-[500px] object-cover filter grayscale group-hover:grayscale-0 transition duration-500">
+                </div>
+                
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 brand-font">
+                        About <span class="text-gold-gradient">The Team</span>
+                    </h2>
+                    <p class="text-[#BF953F] text-lg mb-6 uppercase tracking-widest font-semibold">Creating Myth & Magic</p>
+                    
+                    <p class="text-gray-300 leading-relaxed mb-6 text-justify">
+                        Welcome to the universe of <strong>Astra Kavyam</strong>. We are a passionate collective of professional creators dedicated to the art of visual storytelling. Blending modern cinematic techniques with the profound depth of mythology, we turn raw ideas into golden masterpieces.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed mb-8 text-justify">
+                        Whether it is a high-paced promotional video, a deep-dive documentary, or striking graphic design, we bring a unique "Pure Glow" aesthetic to every frame. Our mission is to elevate your brand with content that is 100% genuine, unique, and visually stunning.
+                    </p>
 
-  // accessibility focus ring
-  document.addEventListener('keydown', ev => { if(ev.key === 'Tab') document.documentElement.classList.add('user-tabbing'); });
-</script>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 border border-[#BF953F]/20 rounded bg-[#0F0F0F]">
+                            <i data-lucide="film" class="text-[#BF953F] mb-2"></i>
+                            <h4 class="font-bold text-white">Cinematography</h4>
+                        </div>
+                        <div class="p-4 border border-[#BF953F]/20 rounded bg-[#0F0F0F]">
+                            <i data-lucide="feather" class="text-[#BF953F] mb-2"></i>
+                            <h4 class="font-bold text-white">Storytelling</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-texture">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 brand-font text-white">Our <span class="text-gold-gradient">Services</span></h2>
+                <div class="h-1 w-20 bg-[#BF953F] mx-auto"></div>
+                <p class="mt-4 text-gray-400">Professional Solutions for Digital Growth</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service Card Template -->
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="video" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="scissors" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Video Editing</h3>
+                        <p class="text-gray-400 text-sm">Professional cuts, color grading, and transitions for YouTube, Reels, and Documentaries.</p>
+                    </div>
+                </div>
+
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="palette" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="pen-tool" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Graphic Designing</h3>
+                        <p class="text-gray-400 text-sm">Unique logos, branding kits, posters, and social media creative assets.</p>
+                    </div>
+                </div>
+
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="camera" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="aperture" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Photography & Videography</h3>
+                        <p class="text-gray-400 text-sm">High-quality shoots capturing the perfect angle, lighting, and cinematic feel.</p>
+                    </div>
+                </div>
+
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="trending-up" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="share-2" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Social Media Marketing</h3>
+                        <p class="text-gray-400 text-sm">Strategy, growth hacking, and management to boost your digital presence.</p>
+                    </div>
+                </div>
+
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="youtube" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="play-circle" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">YouTube Content</h3>
+                        <p class="text-gray-400 text-sm">Full channel management, thumbnails, SEO, and content strategy.</p>
+                    </div>
+                </div>
+
+                <div class="group glow-pure border-gold p-8 rounded-sm bg-[#0F0F0F] relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i data-lucide="file-text" class="w-24 h-24 text-[#BF953F]"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 bg-[#BF953F]/10 rounded-full flex items-center justify-center mb-6">
+                            <i data-lucide="mic" class="text-[#BF953F] w-6 h-6"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-3 brand-font">Script & Voice Over</h3>
+                        <p class="text-gray-400 text-sm">Engaging documentary scripts and professional voice-over services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Stats/Counter -->
+    <section class="py-10 border-y border-[#BF953F]/20 bg-[#0a0a0a]">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div>
+                <h3 class="text-3xl font-bold text-[#BF953F]">5+</h3>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Years Experience</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-[#BF953F]">100+</h3>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Projects Done</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-[#BF953F]">50k+</h3>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Subscribers</p>
+            </div>
+            <div>
+                <h3 class="text-3xl font-bold text-[#BF953F]">100%</h3>
+                <p class="text-xs uppercase tracking-widest text-gray-400 mt-2">Client Satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-[#050505]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 brand-font text-white">Recent <span class="text-gold-gradient">Works</span></h2>
+                <div class="h-1 w-20 bg-[#BF953F] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Portfolio Item 1 (YouTube Style) -->
+                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800&auto=format&fit=crop" alt="Mythology Doc" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Mythology Documentary</h4>
+                        <span class="text-[#BF953F] text-sm uppercase">Video Editing / Script</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 2 -->
+                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1542038784456-1ea8e935640e?q=80&w=800&auto=format&fit=crop" alt="Cinematic Edit" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Cinematic Vlog</h4>
+                        <span class="text-[#BF953F] text-sm uppercase">Shooting / Editing</span>
+                    </div>
+                </div>
+
+                <!-- Portfolio Item 3 -->
+                <div class="group relative aspect-video overflow-hidden rounded-sm cursor-pointer border border-[#333] hover:border-[#BF953F] transition duration-300">
+                    <img src="https://images.unsplash.com/photo-1626785774573-4b799312c95d?q=80&w=800&auto=format&fit=crop" alt="Branding" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex flex-col items-center justify-center">
+                        <h4 class="text-white font-bold text-lg mb-2 brand-font">Channel Branding</h4>
+                        <span class="text-[#BF953F] text-sm uppercase">Graphic Design</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white font-bold uppercase tracking-wider rounded-sm hover:bg-red-800 transition duration-300 shadow-lg">
+                    <i data-lucide="youtube"></i> Watch on YouTube
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-texture relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-[#0F0F0F]/90 backdrop-blur-md border-gold p-8 md:p-12 rounded-sm shadow-2xl relative">
+                <!-- Golden corner accents -->
+                <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-[#BF953F]"></div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-[#BF953F]"></div>
+
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-2 brand-font text-white">Contact <span class="text-gold-gradient">Astra Kavyam</span></h2>
+                    <p class="text-gray-400">Let's create something legendary together.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4 group cursor-pointer">
+                            <div class="w-10 h-10 rounded-full bg-[#BF953F]/20 flex items-center justify-center group-hover:bg-[#BF953F] transition duration-300">
+                                <i data-lucide="phone" class="text-[#BF953F] group-hover:text-black w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Phone</p>
+                                <a href="tel:+918350057000" class="text-white font-medium hover:text-[#BF953F] transition">+91-835XX-57XXX</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center space-x-4 group cursor-pointer">
+                            <div class="w-10 h-10 rounded-full bg-[#BF953F]/20 flex items-center justify-center group-hover:bg-[#BF953F] transition duration-300">
+                                <i data-lucide="mail" class="text-[#BF953F] group-hover:text-black w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 uppercase tracking-wider">Email</p>
+                                <a href="mailto:astrakavyam@gmail.com" class="text-white font-medium hover:text-[#BF953F] transition">astrakavyam@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <!-- Social Icons Row -->
+                        <div class="pt-6">
+                            <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Follow Us</p>
+                            <div class="flex space-x-4">
+                                <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition">
+                                    <i data-lucide="youtube" class="w-5 h-5"></i>
+                                </a>
+                                <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+                                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover:border-indigo-500 transition">
+                                    <i data-lucide="gamepad-2" class="w-5 h-5"></i> <!-- Used generic icon for Discord -->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Simple Form -->
+                    <form onsubmit="event.preventDefault(); alert('Thank you! Team Astra Kavyam will contact you shortly.');" class="space-y-4">
+                        <div>
+                            <input type="text" placeholder="Your Name" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600">
+                        </div>
+                        <div>
+                            <input type="email" placeholder="Your Email" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600">
+                        </div>
+                        <div>
+                            <textarea rows="3" placeholder="Project Details" class="w-full bg-black/50 border border-gray-700 text-white px-4 py-3 rounded-sm focus:outline-none focus:border-[#BF953F] transition placeholder-gray-600"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-gradient-to-r from-[#BF953F] to-[#AA771C] text-black font-bold uppercase tracking-wider py-3 rounded-sm hover:opacity-90 transition shadow-lg">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-black border-t border-gray-900 py-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="brand-font text-2xl text-white mb-2">ASTRA KAVYAM</p>
+            <p class="text-gray-600 text-sm">© 2024 Astra Kavyam. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black', 'shadow-lg');
+                navbar.classList.remove('bg-black/80');
+            } else {
+                navbar.classList.remove('bg-black', 'shadow-lg');
+                navbar.classList.add('bg-black/80');
+            }
+        });
+
+        // Simple Intersection Observer for Fade-in effects
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Add animation classes to sections
+        document.querySelectorAll('section > div').forEach((el) => {
+            el.classList.add('transition', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
