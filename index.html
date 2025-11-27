@@ -6,6 +6,16 @@
     <title>Astra Kavyam | Cinematic Content Creators</title>
     <meta name="description" content="Portfolio of Astra Kavyam - Cinematic Content Creator, Video Editor, and Graphic Designer.">
     
+    <!-- FAVICON & OPEN GRAPH (LOGO) - ADDED -->
+    <link rel="icon" href="assets/logo.png" />
+    <link rel="apple-touch-icon" href="assets/logo-192.png" />
+    <meta property="og:title" content="Astra Kavyam — Cinematic Mythology Documentaries" />
+    <meta property="og:description" content="Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries" />
+    <meta property="og:image" content="https://astrakavyam.github.io/assets/logo-512.png" />
+    <meta property="og:url" content="https://astrakavyam.github.io" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- END LOGO META -->
+
     <!-- Tailwind CSS (via CDN for instant usage) -->
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -106,8 +116,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
-                    <a href="#" class="text-2xl font-bold tracking-widest brand-font text-gold-gradient uppercase">
-                        Astra Kavyam
+                    <!-- LOGO ADDED: replaced text brand with image -->
+                    <a href="#home" class="flex items-center gap-3">
+                        <img src="assets/logo.png" alt="Astra Kavyam Logo" class="w-12 h-12 object-contain" />
+                        <span class="sr-only">Astra Kavyam</span>
+                        <span class="hidden md:inline-block font-bold brand-font text-gold-gradient uppercase tracking-widest">Astra Kavyam</span>
                     </a>
                 </div>
                 <div class="hidden md:block">
