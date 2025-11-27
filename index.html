@@ -1,243 +1,256 @@
 <!doctype html>
-<html lang="en">
+<html lang="hi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Astra Kavyam — Cinematic Mythology Portfolio</title>
-<meta name="description" content="Astra Kavyam — Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries" />
-<meta name="theme-color" content="#071018">
+<meta name="description" content="Astra Kavyam — Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries"/>
 <style>
-  /* ================== THEME COLORS ================== */
-  :root{
-    --bg1: #030309;
-    --bg2: #070812;
-    --gold-a: #fff3c4;
-    --gold-b: #ffd07a;
-    --gold-c: #b88422;
-    --muted: #c7c7c7;
-    --card: rgba(255,255,255,0.02);
-    --accent: rgba(255,200,60,0.06);
-    --maxw: 1180px;
-    --glass: rgba(255,255,255,0.02);
-  }
+/* ----------------- THEME ----------------- */
+:root{
+  --bg-1:#030205;
+  --bg-2:#07060a;
+  --gold-light:#fff6d9;
+  --gold-mid:#ffd07a;
+  --gold-dark:#b07a22;
+  --muted:#c7c7c7;
+  --panel: rgba(255,255,255,0.02);
+  --accent: rgba(255,200,60,0.06);
+  --maxw:1200px;
+  --glass: rgba(255,255,255,0.02);
+  --radius:14px;
+  --ease: cubic-bezier(.2,.9,.2,1);
+}
 
-  /* ========== BASE RESET ========== */
-  *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
-  body{
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: linear-gradient(180deg,var(--bg1), var(--bg2));
-    color:#eaeaea;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-    line-height:1.45;
-    overflow-y:auto;
-  }
-  a{color:inherit;text-decoration:none}
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  background:
+    radial-gradient(800px 420px at 12% 12%, rgba(120,20,60,0.10), transparent),
+    radial-gradient(700px 360px at 88% 78%, rgba(20,60,120,0.06), transparent),
+    linear-gradient(180deg,var(--bg-1),var(--bg-2));
+  color:#eee;
+  line-height:1.45;
+}
 
-  /* ========== STARS + NEBULA (procedural) ========== */
-  .stage {
-    position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;
-    background:
-      radial-gradient(800px 350px at 12% 18%, rgba(255,200,120,0.05), transparent),
-      radial-gradient(700px 300px at 88% 78%, rgba(80,160,220,0.03), transparent),
-      radial-gradient(600px 260px at 50% 45%, rgba(255,190,120,0.02), transparent);
-  }
-  .starfield {
-    position:absolute;inset:0;z-index:0;mix-blend-mode:screen;opacity:0.9;
-    background-image:
-      radial-gradient(circle at 10% 10%, rgba(255,240,200,0.08) 0 1px, transparent 2px),
-      radial-gradient(circle at 40% 30%, rgba(255,240,200,0.06) 0 1px, transparent 2px),
-      radial-gradient(circle at 70% 80%, rgba(255,240,200,0.04) 0 1px, transparent 2px),
-      radial-gradient(circle at 85% 40%, rgba(255,240,200,0.03) 0 1px, transparent 2px);
-    filter: blur(0.8px) saturate(1.05);
-    animation: twinkle 7s linear infinite;
-  }
-  @keyframes twinkle { 0%{opacity:0.85}50%{opacity:1}100%{opacity:0.85} }
+/* Decorative noise for luxury texture */
+.noise {
+  position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.06;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02) 0 1px, transparent 2px),
+                    radial-gradient(circle at 70% 80%, rgba(255,255,255,0.01) 0 1px, transparent 2px);
+  mix-blend-mode:overlay;
+  filter: blur(.3px) contrast(.95);
+}
 
-  /* subtle slow parallax movement for nebula */
-  .nebula {
-    position:absolute;inset:-20% -10% -20% -10%;z-index: -1;opacity:0.9;
-    background:
-      radial-gradient(700px 380px at 20% 20%, rgba(60,12,60,0.18), transparent),
-      radial-gradient(600px 320px at 80% 80%, rgba(6,30,60,0.12), transparent);
-    transform: translateZ(0);
-    animation: nebMove 16s ease-in-out infinite;
-  }
-  @keyframes nebMove { 0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)} }
+/* Nebula subtle movement */
+.nebula{position:fixed;inset:-10% -20% -10% -20%;z-index: -1;opacity:0.9;mix-blend-mode:screen;
+  background:
+    radial-gradient(900px 460px at 20% 18%, rgba(160,40,90,0.13), transparent),
+    radial-gradient(700px 360px at 80% 82%, rgba(20,70,120,0.11), transparent);
+  animation: floatNeb 20s ease-in-out infinite;
+}
+@keyframes floatNeb{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
 
-  /* ================== LAYOUT ================== */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px;position:relative;z-index:3}
-  header.hero{
-    margin:20px auto 12px;padding:40px 24px;border-radius:14px;position:relative;overflow:hidden;
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.26));
-    border: 1px solid rgba(255,200,60,0.04);
-    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-    text-align:center;
-  }
+/* Layout */
+.wrap{max-width:var(--maxw);margin:0 auto;position:relative;z-index:3;padding:28px}
+.topnav{position:sticky;top:14px;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.18), rgba(0,0,0,0.24));backdrop-filter: blur(6px);border:1px solid rgba(255,200,60,0.04)}
+.brand{display:flex;gap:12px;align-items:center}
+.brand .logo{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,245,200,0.03), rgba(0,0,0,0.12));border:1px solid rgba(255,200,60,0.06)}
+.brand h3{color:var(--gold-mid);font-size:18px;margin:0}
+.brand p{color:var(--muted);font-size:12px;margin:0}
 
-  /* ========== BRAND ROW ========== */
-  .brand-row{display:flex;gap:16px;align-items:center;justify-content:center;margin-bottom:8px}
-  .logo-circle{width:88px;height:88px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(180deg, rgba(255,245,210,0.03), rgba(0,0,0,0.12));border:1px solid rgba(255,200,60,0.06);box-shadow: 0 12px 36px rgba(0,0,0,0.6)}
-  .brand-meta{text-align:left}
-  .brand-meta h1{font-size:26px;color:var(--gold-b);letter-spacing:0.8px;margin-bottom:4px}
-  .brand-meta p{font-size:13px;color:var(--muted);margin-top:2px}
+/* Sticky CTA */
+.top-actions{display:flex;gap:8px;align-items:center}
+.btn{padding:9px 14px;border-radius:10px;border:1px solid rgba(255,200,60,0.06);background:linear-gradient(180deg, rgba(255,235,160,0.03), rgba(0,0,0,0.06));color:var(--gold-mid);font-weight:700;transition:transform .22s var(--ease),box-shadow .22s var(--ease)}
+.btn.primary{background:linear-gradient(180deg,var(--gold-mid),var(--gold-dark));color:#071012;border:none}
+.btn:hover{transform:translateY(-6px);box-shadow:0 22px 54px rgba(0,0,0,0.6)}
 
-  /* ========== GOLDEN HEADLINE (SVG) ========== */
-  .hero-title{
-    margin-top:6px;margin-bottom:8px;
-    display:flex;align-items:center;flex-direction:column;gap:10px;
-  }
-  .title-svg { width: min(880px, 92%); height: auto; display:block; margin: 0 auto; filter: drop-shadow(0 26px 44px rgba(0,0,0,0.65)); }
-  .subtitle { color:var(--muted);max-width:820px;margin:0 auto;font-size:16px }
+/* HERO */
+.hero{margin:22px auto;padding:44px;border-radius:var(--radius);text-align:center;position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.26));border:1px solid rgba(255,200,60,0.04);box-shadow:0 30px 80px rgba(0,0,0,0.6)}
+.hero .logo-large{display:inline-grid;place-items:center;margin:0 auto 12px;width:120px;height:120px;border-radius:20px;background:linear-gradient(180deg, rgba(255,245,200,0.02), rgba(0,0,0,0.12));border:1px solid rgba(255,200,60,0.06);box-shadow:0 16px 40px rgba(0,0,0,0.6)}
 
-  /* CTA */
-  .cta { margin-top:18px; display:flex;gap:12px;justify-content:center;flex-wrap:wrap; }
-  .btn {
-    background: linear-gradient(180deg, rgba(255,215,120,0.06), rgba(0,0,0,0.06));
-    border:1px solid rgba(255,200,60,0.06);
-    color:var(--gold-b); padding:11px 16px; border-radius:10px; font-weight:700; transition: transform .22s, box-shadow .22s;
-  }
-  .btn.primary { background: linear-gradient(180deg, #d7a84a, #b88727); color:#071012; border:none; }
-  .btn:hover{ transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.6); }
+/* GOLD HEADLINE (3D embossed) */
+.title-wrap{display:block;margin:8px auto 12px;max-width:920px}
+.title-3d{width:100%;height:auto;display:block;filter: drop-shadow(0 30px 48px rgba(0,0,0,0.7));transition:transform .4s var(--ease)}
+.title-3d .shine{animation:lightMove 6s linear infinite}
+@keyframes lightMove{0%{opacity:0.12;transform:translateX(-40%)}50%{opacity:0.25;transform:translateX(40%)}100%{opacity:0.12;transform:translateX(-40%)}}
 
-  /* ========== SECTIONS ========== */
-  section{padding:36px 12px;max-width:var(--maxw);margin:18px auto;position:relative;z-index:3}
-  .card{background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005)); border-radius:12px; padding:18px; border:1px solid rgba(255,255,255,0.02); box-shadow:0 12px 40px rgba(0,0,0,0.55)}
-  h2{color:var(--gold-b);margin-bottom:12px;font-size:20px}
+/* subtitle */
+.subtitle{color:var(--muted);margin-top:8px;font-size:15px;max-width:880px;margin-left:auto;margin-right:auto}
 
-  .two-col{display:grid;grid-template-columns:1fr 360px;gap:18px}
-  @media (max-width:960px){ .two-col{grid-template-columns:1fr} .brand-row{flex-direction:row;justify-content:center} }
+/* CTA cluster */
+.cta{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
 
-  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
-  .service{background:var(--card);padding:14px;border-radius:10px;border:1px solid rgba(255,200,60,0.04);text-align:center;font-weight:700;transition:transform .2s}
-  .service:hover{transform:translateY(-8px)}
+/* SECTIONS */
+section{margin:20px auto;padding:28px 22px;border-radius:12px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.06));border-radius:12px;padding:18px;border:1px solid rgba(255,255,255,0.02);box-shadow:0 12px 40px rgba(0,0,0,0.55)}
+h2{color:var(--gold-mid);font-size:20px;margin-bottom:10px}
 
-  /* ========== GALLERY ========== */
-  .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:12px}
-  .thumb{border-radius:10px;overflow:hidden;cursor:pointer;border:1px solid rgba(255,255,255,0.03);transition:transform .28s, box-shadow .28s}
-  .thumb:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.6)}
-  .thumb .svgwrap{display:grid;place-items:center;height:160px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.18));color:var(--gold-b);font-weight:800}
+/* two-column layout */
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:18px}
+@media (max-width:960px){.two-col{grid-template-columns:1fr} .title-3d svg{height:170px}}
 
-  /* ========== VIDEO / FEATURED ========== */
-  .video-wrap{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden}
-  .video-wrap iframe{position:absolute;inset:0;border:0;width:100%;height:100%}
+/* services grid */
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin-top:10px}
+.service{padding:14px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.008), rgba(0,0,0,0.08));border:1px solid rgba(255,200,60,0.04);text-align:center;font-weight:800;transition:transform .22s var(--ease)}
+.service:hover{transform:translateY(-8px)}
 
-  /* ========== CONTACT ========== */
-  .contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
-  @media (max-width:980px){ .contact-grid{grid-template-columns:1fr} }
+/* Gallery */
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:12px}
+.thumb{border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,0.03);cursor:pointer;transition:transform .28s,var(--ease)}
+.thumb:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,0.6)}
+.thumb .placeholder{height:160px;display:grid;place-items:center;background:linear-gradient(180deg, rgba(0,0,0,0.28), rgba(0,0,0,0.48));color:var(--gold-mid);font-weight:900}
 
-  footer{padding:28px;text-align:center;color:var(--muted);margin-top:20px}
-  .socials{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:10px}
-  .socials a{color:var(--gold-b);font-weight:700;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,200,60,0.04)}
+/* Featured video block */
+.video-block{display:flex;gap:12px;flex-wrap:wrap;align-items:stretch}
+.video-cta{flex:1;min-width:260px}
+.video-cta .btn{width:160px}
 
-  /* ========== ANIMATIONS ========== */
-  [data-anim]{opacity:0;transform:translateY(12px);transition:all .7s cubic-bezier(.2,.9,.2,1)}
-  [data-anim].in{opacity:1;transform:translateY(0)}
+/* contact grid */
+.contact-grid{display:grid;grid-template-columns:1fr 320px;gap:18px}
+@media (max-width:980px){.contact-grid{grid-template-columns:1fr}}
 
-  /* focus visible */
-  :focus{outline: 3px solid rgba(255,200,60,0.14);outline-offset:2px}
+/* footer */
+footer{padding:24px;text-align:center;color:var(--muted);margin-top:18px}
+.socials{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:12px}
+.socials a{color:var(--gold-mid);font-weight:700;padding:8px 12px;border-radius:8px;border:1px solid rgba(255,200,60,0.04)}
 
-  /* small responsive tweaks */
-  @media (max-width:640px){
-    .title-svg{width:92%}
-    .brand-meta h1{font-size:18px}
-    .logo-circle{width:68px;height:68px}
-  }
+/* entrance animation */
+[data-anim]{opacity:0;transform:translateY(14px);transition:all .7s var(--ease)}
+[data-anim].in{opacity:1;transform:translateY(0)}
+
+/* focus outlines for keyboard users */
+:focus{outline:3px solid rgba(255,200,60,0.12);outline-offset:3px}
+
+/* small screens */
+@media (max-width:640px){
+  .brand p{display:none}
+  .brand h3{font-size:16px}
+  .hero{padding:28px}
+  .title-3d svg{height:160px}
+  .logo-large{width:96px;height:96px}
+}
 </style>
 </head>
 <body>
 
-<!-- background layers -->
-<div class="stage" aria-hidden="true">
-  <div class="nebula" aria-hidden="true"></div>
-  <div class="starfield" aria-hidden="true"></div>
-</div>
+<div class="nebula" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
 
-<!-- main content -->
-<div class="wrap" role="main">
+<div class="wrap">
 
-  <header class="hero" role="banner" aria-label="Astra Kavyam header">
-    <div class="brand-row" data-anim>
-      <div class="logo-circle" aria-hidden="true">
-        <!-- Inline golden circular SVG logo (spear + arch) -->
-        <svg xmlns="http://www.w3.org/2000/svg" width="68" height="68" viewBox="0 0 120 120" role="img" aria-label="Astra Kavyam logo">
+  <!-- top nav -->
+  <div class="topnav" data-anim>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <!-- inline circular logo -->
+        <svg viewBox="0 0 120 120" width="46" height="46" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra logo">
           <defs>
-            <linearGradient id="lg" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0" stop-color="#fff3c4"/>
+            <linearGradient id="g1" x1="0" x2="0" y1="0" y2="1">
+              <stop offset="0" stop-color="#fff6d9"/>
               <stop offset="0.45" stop-color="#ffd07a"/>
-              <stop offset="1" stop-color="#b88422"/>
+              <stop offset="1" stop-color="#b07a22"/>
             </linearGradient>
-            <filter id="glo" x="-60%" y="-60%" width="220%" height="220%">
-              <feGaussianBlur stdDeviation="3.2" result="b"/>
-              <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
+            <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
           </defs>
-          <circle cx="60" cy="60" r="54" fill="#08090b" stroke="rgba(255,200,60,0.06)" stroke-width="1.6"/>
-          <g transform="translate(60,60)" filter="url(#glo)">
-            <path d="M0 -30 L6 -10 L0 30 L-6 -10 Z" fill="url(#lg)"></path>
-            <rect x="-3.5" y="-10" width="7" height="48" rx="1.5" fill="url(#lg)"></rect>
-            <path d="M-10 32 C-6 24 6 24 10 32" fill="none" stroke="url(#lg)" stroke-width="3" stroke-linecap="round"></path>
+          <circle cx="60" cy="60" r="54" fill="#07080a" stroke="rgba(255,200,60,0.06)" stroke-width="1.6"/>
+          <g transform="translate(60,60)" filter="url(#glow)">
+            <path d="M0 -26 L4 -8 L0 26 L-4 -8 Z" fill="url(#g1)"/>
+            <rect x="-2.4" y="-8" width="4.8" height="44" rx="1.4" fill="url(#g1)"/>
+            <path d="M-8 28 C-4 20 4 20 8 28" fill="none" stroke="url(#g1)" stroke-width="2.9" stroke-linecap="round"/>
           </g>
         </svg>
       </div>
-
-      <div class="brand-meta">
-        <h1>Astra Kavyam</h1>
-        <p>“Cinematic Content Creator | Video Editor | Videography | Mythology Documentaries”</p>
+      <div>
+        <h3>Astra Kavyam</h3>
+        <p>“Cinematic Mythology Documentaries”</p>
       </div>
     </div>
 
-    <!-- GOLDEN HEADLINE: inline SVG for crisp metallic look -->
-    <div class="hero-title" data-anim>
-      <svg class="title-svg" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra Kavyam">
+    <div class="top-actions">
+      <a class="btn" href="#about">About</a>
+      <a class="btn" href="#portfolio">Portfolio</a>
+      <a class="btn" href="#contact">Contact</a>
+      <a class="btn primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Subscribe</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Astra Kavyam">
+    <div class="logo-large" aria-hidden="true">
+      <!-- larger logo variant -->
+      <svg viewBox="0 0 160 160" width="96" height="96" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra large logo">
         <defs>
-          <linearGradient id="gold-grad" x1="0" x2="0" y1="0" y2="1">
-            <stop offset="0" stop-color="#fff7d9"/>
-            <stop offset="0.38" stop-color="#ffd97a"/>
-            <stop offset="0.72" stop-color="#d19a27"/>
-            <stop offset="1" stop-color="#7a5a20"/>
+          <linearGradient id="g2" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#fff6d9"/><stop offset="0.45" stop-color="#ffd07a"/><stop offset="1" stop-color="#b07a22"/>
+          </linearGradient>
+          <filter id="glo2" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <rect x="8" y="8" width="144" height="144" rx="22" fill="#07080a" stroke="rgba(255,200,60,0.06)" stroke-width="1.8"/>
+        <g transform="translate(80,80)" filter="url(#glo2)">
+          <path d="M0 -36 L6 -10 L0 36 L-6 -10 Z" fill="url(#g2)"/>
+          <rect x="-3.8" y="-12" width="7.6" height="64" rx="1.6" fill="url(#g2)"/>
+          <path d="M-12 40 C-6 28 6 28 12 40" fill="none" stroke="url(#g2)" stroke-width="3" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+
+    <div class="title-wrap" data-anim>
+      <!-- big metallic SVG title with shine animation -->
+      <svg class="title-3d" viewBox="0 0 1400 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Astra Kavyam title">
+        <defs>
+          <linearGradient id="goldL" x1="0" x2="0" y1="0" y2="1">
+            <stop offset="0" stop-color="#fff8dd"/>
+            <stop offset="0.35" stop-color="#ffd97a"/>
+            <stop offset="0.68" stop-color="#d39a2b"/>
+            <stop offset="1" stop-color="#6f4f18"/>
           </linearGradient>
 
-          <!-- subtle grain -->
-          <pattern id="grain" patternUnits="userSpaceOnUse" width="4" height="4">
-            <rect width="4" height="4" fill="transparent"/>
-            <circle cx="1.8" cy="1.5" r="0.5" fill="rgba(0,0,0,0.04)"/>
-          </pattern>
-
-          <filter id="emboss" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="0.6" result="b"/>
-            <feSpecularLighting result="spec" specularConstant="0.6" specularExponent="8" lighting-color="#fff">
-              <fePointLight x="-5000" y="-10000" z="20000"/>
+          <filter id="bevel" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="0.8" result="b"/>
+            <feSpecularLighting result="spec" specularConstant="1.2" specularExponent="18" lighting-color="#fff">
+              <fePointLight x="-10000" y="-10000" z="70000"/>
             </feSpecularLighting>
             <feComposite operator="in" in="spec" in2="b"/>
             <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
           </filter>
+
+          <linearGradient id="shine" x1="0" x2="1">
+            <stop offset="0" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="0.5" stop-color="rgba(255,255,255,0.18)"/>
+            <stop offset="1" stop-color="rgba(255,255,255,0.03)"/>
+          </linearGradient>
+
+          <pattern id="grain2" width="3" height="3" patternUnits="userSpaceOnUse">
+            <circle cx="1.5" cy="1.5" r="0.5" fill="rgba(0,0,0,0.04)"/>
+          </pattern>
         </defs>
 
-        <!-- background glow -->
-        <rect x="0" y="0" width="1200" height="300" fill="transparent"></rect>
+        <!-- Background subtle overlay -->
+        <rect width="1400" height="420" fill="transparent"/>
 
-        <!-- text: ASTRA KAVYAM -->
-        <g transform="translate(40,80)">
-          <text x="0" y="110" font-family="Trajan, Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#gold-grad)" stroke="rgba(0,0,0,0.26)" stroke-width="2.2">
-            ASTRA
-          </text>
-          <text x="0" y="240" font-family="Trajan, Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#gold-grad)" stroke="rgba(0,0,0,0.26)" stroke-width="2.2">
-            KAVYAM
-          </text>
+        <g transform="translate(60,70)">
+          <text x="0" y="110" font-family="Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#goldL)" stroke="rgba(0,0,0,0.28)" stroke-width="2.6">ASTRA</text>
+          <text x="0" y="258" font-family="Georgia, serif" font-size="120" font-weight="800" letter-spacing="6" fill="url(#goldL)" stroke="rgba(0,0,0,0.28)" stroke-width="2.6">KAVYAM</text>
 
-          <!-- overlaid grain -->
-          <rect x="-6" y="12" width="1100" height="260" fill="url(#grain)" opacity="0.12"></rect>
+          <!-- grain overlay -->
+          <rect x="-10" y="6" width="1280" height="300" fill="url(#grain2)" opacity="0.12"></rect>
+
+          <!-- animated shine bar -->
+          <rect class="shine" x="-300" y="0" width="420" height="320" fill="url(#shine)" opacity="0.14" />
         </g>
       </svg>
 
-      <p class="subtitle">Cinematic Content Creator • Video Editing • Videography • Photography • Documentary Scriptwriting</p>
+      <p class="subtitle">Cinematic Content Creator • Video Editor • Videography • Photography • Mythology Documentaries</p>
     </div>
 
     <div class="cta" data-anim>
-      <a class="btn primary" href="#portfolio">View Work</a>
-      <a class="btn" href="#contact">Contact</a>
-      <a class="btn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Subscribe</a>
+      <a class="btn primary" href="#portfolio">View Portfolio</a>
+      <a class="btn" href="#contact">Hire Us</a>
+      <a class="btn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
     </div>
   </header>
 
@@ -246,86 +259,75 @@
     <div>
       <h2>About — Team Astra Kavyam</h2>
       <p style="color:var(--muted);margin-top:8px">
-        We are <strong>Team Astra Kavyam</strong> — professional cinematic storytellers specializing in mythology documentaries,
-        cinematic editing, videography, photography, branding, voice-over narration and scriptwriting. We craft emotion, scale and cinematic visuals that connect.
+        We are <strong>Team Astra Kavyam</strong> — professional cinematic storytellers crafting mythic documentaries, cinematic edits, photography, and brand films.
+        From script to final grade, hum cinematic narrative aur visual depth dono laate hain.
       </p>
 
-      <div style="margin-top:14px" class="services-grid" aria-hidden="false">
+      <div class="services" style="margin-top:14px">
         <div class="service">🎬 Video Editing</div>
-        <div class="service">🎨 Graphic Designing</div>
+        <div class="service">🎨 Graphic Design</div>
         <div class="service">📸 Photography</div>
         <div class="service">🎥 Videography</div>
         <div class="service">📱 Social Media Marketing</div>
         <div class="service">📺 YouTube Content Creation</div>
-        <div class="service">🖼️ Thumbnail & Branding</div>
+        <div class="service">🖼 Thumbnail & Branding</div>
         <div class="service">📜 Documentary Scriptwriting</div>
       </div>
     </div>
 
     <aside>
       <div class="card" style="text-align:center">
-        <div style="font-weight:800;color:var(--gold-b);margin-bottom:10px">Book a Consultation</div>
-        <p style="color:var(--muted);margin-bottom:12px">Discuss projects, pricing & timelines — professional packages available.</p>
-        <a class="btn" href="mailto:astrakavyam@gmail.com">Email Us</a>
+        <div style="font-weight:800;color:var(--gold-mid);margin-bottom:8px">Consultation</div>
+        <p style="color:var(--muted);margin-bottom:12px">Project planning, estimates, timelines. Professional packages available.</p>
+        <a class="btn" href="mailto:astrakavyam@gmail.com">Email Consultation</a>
       </div>
     </aside>
   </section>
 
   <!-- PORTFOLIO -->
   <section id="portfolio" class="card" data-anim>
-    <h2>Portfolio / Projects</h2>
-    <p style="color:var(--muted);margin-top:6px">Selected cinematic projects, thumbnails and photography. Click to open on YouTube.</p>
+    <h2>Portfolio — Selected Works</h2>
+    <p style="color:var(--muted);margin-top:6px">Click any tile to open our YouTube channel (or project link).</p>
 
-    <div class="gallery" style="margin-top:12px">
+    <div class="gallery">
       <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="svgwrap" aria-hidden="true">
-          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="xMidYMid slice">
-            <rect width="100%" height="100%" rx="8" fill="url(#)" />
-            <g transform="translate(40,40)">
-              <rect x="0" y="0" width="320" height="160" rx="10" fill="rgba(0,0,0,0.4)"/>
-              <text x="160" y="92" font-family="Georgia, serif" font-size="22" text-anchor="middle" fill="#ffd97a">Astra Kavyam • EPISODE</text>
-              <polygon points="140,72 140,108 180,90" fill="#fff" opacity="0.92"></polygon>
-            </g>
-          </svg>
-        </div>
-        <div class="cap">Cinematic Documentary • Watch</div>
+        <div class="placeholder">ASTRA KAVYAM • EPISODE</div>
+        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Cinematic Documentary • Watch</div>
       </a>
 
       <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="svgwrap"><div style="text-align:center;font-weight:800">EPIC TRAILER</div></div>
-        <div class="cap">Short Epic • Watch</div>
+        <div class="placeholder">EPIC TRAILER</div>
+        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Trailer • Watch</div>
       </a>
 
       <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="svgwrap"><div style="text-align:center;font-weight:800">PHOTOGRAPHY</div></div>
-        <div class="cap">Ritual Photography • Watch</div>
+        <div class="placeholder">PHOTOGRAPHY</div>
+        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Ritual Photography • View</div>
       </a>
 
       <a class="thumb" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">
-        <div class="svgwrap"><div style="text-align:center;font-weight:800">BRAND FILM</div></div>
-        <div class="cap">Brand Film • Watch</div>
+        <div class="placeholder">BRAND FILM</div>
+        <div style="padding:10px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55));color:#fff;font-weight:800">Brand Film • Watch</div>
       </a>
     </div>
   </section>
 
   <!-- FEATURED -->
   <section id="featured" class="card" data-anim>
-    <h2>Featured / Latest</h2>
-    <p style="color:var(--muted);margin-top:6px">Latest cinematic release — open channel to watch full videos & playlists on YouTube.</p>
+    <h2>Featured — Latest Episode</h2>
+    <p style="color:var(--muted);margin-top:6px">Open the channel to watch full cinematic episodes and playlists.</p>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;align-items:stretch">
-      <div style="flex:1;min-width:260px" class="card">
-        <div style="padding:18px;text-align:center">
-          <div style="font-weight:800;color:var(--gold-b);font-size:16px">Open Channel</div>
-          <p style="color:var(--muted);margin:8px 0">New episodes, playlists & trailers live on YouTube.</p>
-          <a class="btn primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Open Channel</a>
-        </div>
+    <div class="video-block" style="margin-top:12px">
+      <div class="video-cta card">
+        <div style="font-weight:800;color:var(--gold-mid);">Open Channel</div>
+        <p style="color:var(--muted);margin:8px 0">Latest releases, trailers and documentary series available on YouTube.</p>
+        <a class="btn primary" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Open Channel</a>
       </div>
 
       <div style="flex:0 0 320px">
-        <div class="card" style="padding:12px;text-align:center">
-          <div style="font-weight:700;color:var(--gold-b)">Subscribe & Support</div>
-          <p style="color:var(--muted);margin:6px 0">Subscribe for episodic documentaries & cinematic releases.</p>
+        <div class="card" style="text-align:center;padding:12px">
+          <div style="font-weight:700;color:var(--gold-mid)">Support & Subscribe</div>
+          <p style="color:var(--muted);margin:6px 0">Subscribe to follow episodic mythology documentaries.</p>
           <a class="btn" href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Subscribe</a>
         </div>
       </div>
@@ -334,14 +336,14 @@
 
   <!-- CONTACT -->
   <section id="contact" class="card" data-anim>
-    <h2>Contact</h2>
+    <h2>Contact & Booking</h2>
     <p style="color:var(--muted);margin-top:6px">Hire Team Astra Kavyam for cinematic documentaries, editing, photography & brand films.</p>
 
     <div class="contact-grid" style="margin-top:12px">
       <div>
         <div class="card" style="padding:14px">
-          <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+91835XXXX57XX" style="color:var(--gold-b)">+91-835XX-57XXX</a></p>
-          <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold-b)">astrakavyam@gmail.com</a></p>
+          <p style="margin:6px 0"><strong>Phone:</strong> <a href="tel:+91835XXXX57XX" style="color:var(--gold-mid)">+91-835XX-57XXX</a></p>
+          <p style="margin:6px 0"><strong>Email:</strong> <a href="mailto:astrakavyam@gmail.com" style="color:var(--gold-mid)">astrakavyam@gmail.com</a></p>
           <p style="margin:6px 0"><strong>Instagram:</strong> <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">@astrakavyam</a></p>
           <p style="margin:6px 0"><strong>Discord:</strong> astrakavyam</p>
           <p style="margin:6px 0"><strong>YouTube:</strong> <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">Astra Kavyam</a></p>
@@ -349,23 +351,23 @@
 
         <div style="margin-top:12px" class="card">
           <form action="mailto:astrakavyam@gmail.com" method="post" enctype="text/plain" style="display:grid;gap:8px">
-            <input name="name" required placeholder="Your name" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
-            <input name="email" type="email" required placeholder="Your email" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
-            <textarea name="message" rows="4" required placeholder="Project brief / message" style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff"></textarea>
+            <input name="name" required placeholder="Your name" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
+            <input name="email" type="email" required placeholder="Your email" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff" />
+            <textarea name="message" rows="4" required placeholder="Project brief / message" style="padding:11px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:#071018;color:#fff"></textarea>
             <div style="display:flex;gap:8px;flex-wrap:wrap">
               <button class="btn primary" type="submit" style="border:none">Send Email</button>
               <a class="btn" href="https://wa.me/91835XXXX57XX" target="_blank" rel="noopener">WhatsApp</a>
             </div>
-            <small style="color:var(--muted)">If the form doesn't send, email directly: astrakavyam@gmail.com</small>
+            <small style="color:var(--muted)">If form doesn't send, email directly: astrakavyam@gmail.com</small>
           </form>
         </div>
       </div>
 
       <aside>
         <div class="card" style="text-align:center;padding:18px">
-          <div style="font-weight:800;color:var(--gold-b)">Fast Contact</div>
-          <p style="color:var(--muted);margin:8px 0">Call or WhatsApp for quick quotes & availability.</p>
-          <a class="btn" href="tel:+91835XXXX57XX">Call Now</a>
+          <div style="font-weight:800;color:var(--gold-mid)">Quick Contact</div>
+          <p style="color:var(--muted);margin:8px 0">Call or WhatsApp for quick quotes & scheduling.</p>
+          <a class="btn" href="tel:+91835XXXX57XX">Call</a>
           <div style="height:8px"></div>
           <a class="btn" href="https://wa.me/91835XXXX57XX" target="_blank" rel="noopener">WhatsApp</a>
         </div>
@@ -373,33 +375,46 @@
     </div>
   </section>
 
-  <footer role="contentinfo" aria-label="Footer">
-    <div style="font-weight:700;color:var(--gold-b)">© Astra Kavyam · Cinematic Mythology & Visual Storytelling</div>
+  <footer class="card" style="text-align:center">
+    <div style="font-weight:800;color:var(--gold-mid)">© Astra Kavyam · Cinematic Mythology & Visual Storytelling</div>
     <div style="color:var(--muted);margin-top:6px">“Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries”</div>
-    <div class="socials">
+    <div class="socials" style="margin-top:10px">
       <a href="https://www.youtube.com/@astrakavyam" target="_blank" rel="noopener">YouTube</a>
       <a href="https://instagram.com/astrakavyam" target="_blank" rel="noopener">Instagram</a>
       <a href="mailto:astrakavyam@gmail.com">Email</a>
     </div>
   </footer>
 
-</div> <!-- wrap -->
+</div>
 
-<!-- ========== SCRIPTS ========== -->
+<!-- scripts -->
 <script>
-  // entrance animation
+  // entrance animations
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting) e.target.classList.add('in');
     });
-  }, {threshold: 0.18});
-  document.querySelectorAll('[data-anim]').forEach(el => io.observe(el));
+  },{threshold:0.16});
+  document.querySelectorAll('[data-anim]').forEach(el=>io.observe(el));
 
-  // smooth anchor scrolling
+  // animate shine by moving rect inside SVG
+  (function animateShine(){
+    const svgs = document.querySelectorAll('.title-3d svg .shine');
+    svgs.forEach(s => {
+      let pos = -420, dir = 1;
+      setInterval(()=> {
+        pos += 6*dir;
+        s.setAttribute('x', pos);
+        if(pos > 920) { pos = -420; }
+      }, 40);
+    });
+  })();
+
+  // smooth anchor scroll
   document.querySelectorAll('a[href^="#"]').forEach(a=>{
     a.addEventListener('click', function(e){
       const id = this.getAttribute('href');
-      if(id.length > 1){
+      if(id && id.length>1){
         e.preventDefault();
         const el = document.querySelector(id);
         if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
@@ -407,12 +422,8 @@
     });
   });
 
-  // accessibility: show focus ring if keyboard used
-  document.addEventListener('keydown', (ev) => {
-    if(ev.key === 'Tab') document.documentElement.classList.add('user-tabbing');
-  });
-
-  // ensure external links open in new tab with rel attributes already set in HTML
+  // accessibility focus ring
+  document.addEventListener('keydown', ev => { if(ev.key === 'Tab') document.documentElement.classList.add('user-tabbing'); });
 </script>
 
 </body>
