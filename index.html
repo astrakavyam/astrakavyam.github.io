@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>   
+<head>   <style>
+:root {
+    --bg-image: url("assets/background-main.png");
+}
+
+/* PURE WEBSITE BACKGROUND */
+body {
+    background: 
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),
+        var(--bg-image) no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* All Sections Transparent */
+section {
+    background: transparent !important;
+}
+
+/* Navbar Background Adjustment */
+nav {
+    background-color: rgba(0,0,0,0.65) !important;
+    backdrop-filter: blur(6px);
+}
+
+/* Dark Overlay for Better Text Visibility */
+.bg-texture {
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(2px);
+}
+</style>
+
    <!-- ========== BASIC META ========== -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
