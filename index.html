@@ -127,10 +127,18 @@
 
         /* If navbar height overlaps and you want hero to account for it, use min-height */
         #home { min-height: calc(100vh); }   /* or calc(100vh - 80px) if you want visible gap for navbar */
+    
+        /* Full website background */
+        .bg-main-bg {
+          background-image: url('/mnt/data/background-main-bg.jpg');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
     </style>
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-main-bg">
 
 <!-- NAVBAR (LOGO FIXED + RIGHT SIDE) -->
 <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
