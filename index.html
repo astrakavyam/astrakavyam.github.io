@@ -108,6 +108,25 @@
             animation: shine 4s linear infinite;
         }
         @keyframes shine { to { background-position: 200% center; } }
+
+        /* User-requested hero/background CSS */
+        /* Ensure html/body stretch correctly */
+        html, body { height: 100%; margin: 0; }
+
+        /* Hero background full-cover */
+        .bg-hero-image {
+          background-image: url("https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop");
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: cover;            /* IMPORTANT — prevents gaps */
+          filter: brightness(.35);           /* adjust darkness */
+          opacity: 0.95;                     /* tweak if you want it faded */
+          width: 100%;
+          height: 100%;
+        }
+
+        /* If navbar height overlaps and you want hero to account for it, use min-height */
+        #home { min-height: calc(100vh); }   /* or calc(100vh - 80px) if you want visible gap for navbar */
     </style>
 </head>
 
@@ -168,21 +187,15 @@
     <a href="#contact" onclick="toggleMobileMenu()" class="text-[#BF953F] block">Contact</a>
   </div>
 </nav>
-
-  <!-- ====== HERO SECTION (Cinematic, full-screen background) ====== -->
-<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-texture">
-
-  <!-- Background Image (uses uploaded asset) -->
-  <div class="absolute inset-0 z-[-1]"
-       style="background-image: url('/assets/background-main.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-  </div>
-
-  <!-- Dark overlay for readable text -->
+<!-- ====== HERO SECTION ====== -->
+<section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-texture">
   <div class="absolute inset-0 bg-black/60 z-0"></div>
 
-  <!-- Content wrapper -->
-  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+  <!-- Background as CSS (recommended) -->
+  <div class="absolute inset-0 z-[-1] bg-hero-image"></div>
 
+
+  <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
     <div class="mb-4 inline-block px-4 py-1 border border-[#BF953F]/50 rounded-full bg-black/50 backdrop-blur-sm animate-float">
       <span class="text-[#BF953F] text-xs uppercase tracking-[0.2em] font-semibold">We Are Professionals</span>
     </div>
@@ -196,25 +209,6 @@
     <p class="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 font-light">
       Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries | Editing Works | Youtuber | Voice Over Artist | Script Writer | Graphic Designer
     </p>
-
-    <div class="flex flex-col md:flex-row justify-center gap-4">
-      <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
-        View Our Work
-      </a>
-      <a href="#contact" class="px-8 py-3 border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-wider rounded-sm hover:bg-[#BF953F]/10 transition duration-300">
-        Get In Touch
-      </a>
-    </div>
-
-  </div>
-
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[#BF953F]">
-    <i data-lucide="chevron-down" class="w-8 h-8"></i>
-  </div>
-
-</section>
-<!-- ====== END HERO SECTION ====== -->
-
 
     <div class="flex flex-col md:flex-row justify-center gap-4">
       <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
@@ -437,7 +431,7 @@
     (function(){
       const folder = 'assets/';
       function webSafe(name){
-        let s = name.replace(/^.*[\\/]/, '').trim();
+        let s = name.replace(/^.*[\\\/]/, '').trim();
         s = s.replace(/[\s_]+/g, '-');
         s = s.replace(/[^a-zA-Z0-9.\-]/g, '');
         return encodeURI(s.toLowerCase());
@@ -542,13 +536,13 @@
           <div class="pt-6">
             <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Follow Us</p>
             <div class="flex space-x-4">
-              <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition">
+              <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover;border-red-500 transition">
                 <i data-lucide="youtube" class="w-5 h-5"></i>
               </a>
-              <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+              <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover;border-pink-500 transition">
                 <i data-lucide="instagram" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover:border-indigo-500 transition">
+              <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover;border-indigo-500 transition">
                 <i data-lucide="gamepad-2" class="w-5 h-5"></i>
               </a>
             </div>
