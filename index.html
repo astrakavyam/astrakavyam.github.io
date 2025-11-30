@@ -168,31 +168,56 @@
     <a href="#contact" onclick="toggleMobileMenu()" class="text-[#BF953F] block">Contact</a>
   </div>
 </nav>
-<!-- ====== HERO SECTION ====== -->
-<section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-texture">
+<!-- ====== HERO SECTION (Cinematic, full-screen background) ====== -->
+<section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-texture">
+
+  <!-- Background Image (uses uploaded asset) -->
+  <div class="absolute inset-0 z-[-1]" 
+       style="background-image: url('/assets/background-main.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  </div>
+
+  <!-- Dark overlay for readable text -->
   <div class="absolute inset-0 bg-black/60 z-0"></div>
 
-<div class="absolute inset-0 z-[-1] overflow-hidden"
-     style="background-image: url('/assets/background-main.png'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;">
-</div>
-
+  <!-- Content wrapper -->
   <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+
+    <!-- small badge -->
     <div class="mb-4 inline-block px-4 py-1 border border-[#BF953F]/50 rounded-full bg-black/50 backdrop-blur-sm animate-float">
       <span class="text-[#BF953F] text-xs uppercase tracking-[0.2em] font-semibold">We Are Professionals</span>
     </div>
 
+    <!-- Main heading -->
     <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white mb-6 brand-font leading-tight">
       ASTRA <span class="text-gold-gradient">KAVYAM</span>
     </h1>
 
     <div class="h-px w-24 bg-gradient-to-r from-transparent via-[#BF953F] to-transparent mx-auto mb-8"></div>
 
+    <!-- subtext -->
     <p class="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10 font-light">
       Cinematic Content Creator | Video Editor | Video Photography | Mythology Documentaries | Editing Works | Youtuber | Voice Over Artist | Script Writer | Graphic Designer
     </p>
+
+    <!-- CTA buttons -->
+    <div class="flex flex-col md:flex-row justify-center gap-4">
+      <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
+        View Our Work
+      </a>
+      <a href="#contact" class="px-8 py-3 border border-[#BF953F] text-[#BF953F] font-bold uppercase tracking-wider rounded-sm hover:bg-[#BF953F]/10 transition duration-300">
+        Get In Touch
+      </a>
+    </div>
+
+  </div>
+
+  <!-- down chevron -->
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-[#BF953F]">
+    <i data-lucide="chevron-down" class="w-8 h-8"></i>
+  </div>
+
+</section>
+<!-- ====== END HERO SECTION ====== -->
 
     <div class="flex flex-col md:flex-row justify-center gap-4">
       <a href="#portfolio" class="px-8 py-3 bg-[#BF953F] text-black font-bold uppercase tracking-wider rounded-sm hover:bg-[#FBF5B7] transition duration-300 shadow-[0_0_15px_rgba(191,149,63,0.5)]">
