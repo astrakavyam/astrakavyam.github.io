@@ -96,7 +96,86 @@
             --bg-dark: #050505;
             --bg-card: #0F0F0F;
         }
-        body { background: var(--bg-dark); color: white; font-family: 'Montserrat', sans-serif; }
+        /* ===== SITE-WIDE CINEMATIC BACKGROUND =====
+           Primary file:   assets/background-main-bg.jpg  (your uploaded file)
+           Fallback path:  assets/assets/background-main-bg.jpg (in case your repo uses assets/assets/)
+           Final fallback: Unsplash original image used previously
+        ======================================================== */
+        html, body {
+            height: 100%;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            /* layered background: primary, fallback, then a neutral fallback image */
+            background-image:
+              url("assets/background-main-bg.jpg"),
+              url("assets/assets/background-main-bg.jpg"),
+              url("https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop");
+            background-repeat: no-repeat, no-repeat, no-repeat;
+            background-position: center center, center center, center center;
+            background-size: cover, cover, cover;
+            background-attachment: fixed, fixed, fixed; /* parallax-like feel */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* gentle animated golden glow moving across the site */
+        .site-glow {
+          pointer-events: none;
+          position: fixed;
+          inset: -20% -20% auto -20%;
+          height: 140vh;
+          z-index: 0;
+          background: radial-gradient(40% 30% at 15% 20%, rgba(191,149,63,0.06), transparent 6%),
+                      radial-gradient(30% 20% at 80% 75%, rgba(255,214,140,0.04), transparent 6%);
+          mix-blend-mode: screen;
+          animation: glow-slow 18s linear infinite;
+        }
+        @keyframes glow-slow {
+          0% { transform: translate3d(0,0,0) scale(1); opacity: 1; }
+          50% { transform: translate3d(-3%,1%,0) scale(1.02); opacity: 0.95; }
+          100% { transform: translate3d(0,0,0) scale(1); opacity: 1; }
+        }
+
+        /* grain overlay for cinematic texture */
+        .site-grain {
+          pointer-events: none;
+          position: fixed;
+          inset: 0;
+          z-index: 1;
+          background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900"><filter id="g"><feTurbulence baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter><rect width="100%" height="100%" filter="url(%23g)"/></svg>');
+          opacity: 0.04;
+          mix-blend-mode: overlay;
+          backdrop-filter: none;
+        }
+
+        /* subtle vignette */
+        .site-vignette {
+          pointer-events: none;
+          position: fixed;
+          inset: 0;
+          z-index: 2;
+          background: radial-gradient(ellipse at center, rgba(0,0,0,0) 40%, rgba(0,0,0,0.22) 100%);
+        }
+
+        /* ensure site content sits above decorative layers */
+        main, nav, section, footer, .max-w-7xl { position: relative; z-index: 3; }
+
+        /* small adjustments so sections using .bg-texture don't override the site background */
+        .bg-texture {
+          /* keep backgrounds transparent so body background shows */
+          background: transparent !important;
+        }
+
+        /* hero: ensure text contrast and subtle soft overlay */
+        .hero-overlay {
+          position: absolute; inset: 0; z-index: 1;
+          background: linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,0.75) 100%);
+        }
 
         h1, h2, h3, .brand-font { font-family: 'Cinzel', serif; }
 
@@ -108,10 +187,24 @@
             animation: shine 4s linear infinite;
         }
         @keyframes shine { to { background-position: 200% center; } }
+
+        /* ensure hero background img (if present) is fully transparent so we don't get double visuals */
+        .hero-bg-fallback {
+          opacity: 0.02; /* near invisible; kept as fallback but non-distracting */
+          filter: blur(2px) saturate(.9);
+        }
+
+        /* keep svc-card bg-layers working normally (they use assets/ processed filenames) */
+        .svc-card .bg-layer { transition: transform 6s cubic-bezier(.2,.8,.2,1), filter .45s ease; will-change: transform; z-index: 0; filter: brightness(.6) contrast(1.02) saturate(1.05); }
     </style>
 </head>
 
 <body class="antialiased">
+
+  <!-- Decorative layers for cinematic effect -->
+  <div class="site-glow" aria-hidden="true"></div>
+  <div class="site-grain" aria-hidden="true"></div>
+  <div class="site-vignette" aria-hidden="true"></div>
 
 <!-- NAVBAR (LOGO FIXED + RIGHT SIDE) -->
 <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
@@ -170,11 +263,11 @@
 </nav>
 <!-- ====== HERO SECTION ====== -->
 <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden bg-texture">
-  <div class="absolute inset-0 bg-black/60 z-0"></div>
+  <div class="hero-overlay"></div>
 
-  <!-- Background image (replace later if needed) -->
+  <!-- Background fallback image (kept almost invisible because body background is primary) -->
   <div class="absolute inset-0 z-[-1] overflow-hidden">
-    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop" alt="Cinematic Background" class="w-full h-full object-cover opacity-40">
+    <img src="assets/background-main-bg.jpg" alt="Cinematic Background" class="w-full h-full object-cover hero-bg-fallback">
   </div>
 
   <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
@@ -518,13 +611,13 @@
           <div class="pt-6">
             <p class="text-xs text-gray-500 uppercase tracking-wider mb-4">Follow Us</p>
             <div class="flex space-x-4">
-              <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover:border-red-500 transition">
+              <a href="https://www.youtube.com/@astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-red-500 hover;border-red-500 transition">
                 <i data-lucide="youtube" class="w-5 h-5"></i>
               </a>
-              <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover:border-pink-500 transition">
+              <a href="https://instagram.com/astrakavyam" target="_blank" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-pink-500 hover;border-pink-500 transition">
                 <i data-lucide="instagram" class="w-5 h-5"></i>
               </a>
-              <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover:border-indigo-500 transition">
+              <a href="#" class="w-10 h-10 border border-gray-700 rounded flex items-center justify-center text-gray-400 hover:text-indigo-500 hover;border-indigo-500 transition">
                 <i data-lucide="gamepad-2" class="w-5 h-5"></i>
               </a>
             </div>
