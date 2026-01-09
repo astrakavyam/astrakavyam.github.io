@@ -12,7 +12,7 @@
 <meta property="og:title" content="Divya Epic Films – Cinematic Mythology Content & Professional Video Editing">
 <meta property="og:description" content="Cinematic Content Creator • Video Editor • Photographer • Mythology Documentaries • Graphic Designer">
 <meta property="og:image" content="assets/og-banner.png"> 
-<meta property="og:image:alt" content="Divya Epic Films Logo Banner">
+<meta property="og:image:alt" content="Astra Kavyam Logo Banner">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://divyaepicfilms.github.io/">
 
@@ -21,61 +21,68 @@
 <meta name="twitter:description" content="Cinematic storytelling, mythology documentaries, professional editing & graphics.">
 <meta name="twitter:image" content="assets/og-banner.png">
 
-<meta name="title" content="Divya Epic Films | Cinematic Content Creator & Mythology Documentaries">
-<meta name="keywords" content="Divya Epic Films, mythology documentaries, cinematic videos, video editing, Hindu mythology, graphic designing, photography, videography">
-<meta name="author" content="Divya Epic Films">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
-/* (YOUR ORIGINAL CSS UNCHANGED) */
+/* YOUR ORIGINAL CSS — UNCHANGED */
+:root {
+--gold-light:#FBF5B7;--gold-main:#BF953F;--gold-dark:#AA771C;
+--bg-dark:#050505;--bg-card:#0F0F0F;}
+html,body{height:100%}
+body{
+background-color:var(--bg-dark);color:white;font-family:'Montserrat',sans-serif;
+background-image:url("assets/background-main-bg.jpg"),
+url("assets/assets/background-main-bg.jpg"),
+url("https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=2000&auto=format&fit=crop");
+background-repeat:no-repeat;background-position:center;background-size:cover;background-attachment:fixed;}
+h1,h2,h3,.brand-font{font-family:'Cinzel',serif;}
+.text-gold-gradient{
+background:linear-gradient(to right,#BF953F,#FCF6BA,#B38728,#FBF5B7,#AA771C);
+-webkit-background-clip:text;color:transparent;background-size:200% auto;
+animation:shine 4s linear infinite;}
+@keyframes shine{to{background-position:200% center;}}
 </style>
 </head>
 
 <body class="antialiased">
 
-<!-- NAVBAR -->
 <nav class="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-[#BF953F]/30" id="navbar">
 <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
 
-<img src="assets/assets/logo.png" alt="Divya Epic Films Logo" class="h-20">
+<img src="assets/assets/logo.png" alt="Astra Kavyam Logo" class="h-20">
 
 <span class="brand-font text-gold-gradient text-xl tracking-wider">Divya Epic Films</span>
 
 </div>
 </nav>
 
-<!-- HERO -->
-<section id="home" class="h-screen flex items-center justify-center text-center">
-<h1 class="text-7xl brand-font text-white">
-DIVYA <span class="text-gold-gradient">EPIC FILMS</span>
+<section id="home" class="relative h-screen flex items-center justify-center">
+<h1 class="text-6xl md:text-8xl brand-font text-white">
+ASTRA <span class="text-gold-gradient">KAVYAM</span>
 </h1>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="py-20 text-center">
-<p>
+<p class="text-lg">
 Welcome to the universe of <strong>Divya Epic Films</strong>. We are a passionate collective of professional creators dedicated to the art of visual storytelling.
 </p>
 </section>
 
-<!-- PORTFOLIO BUTTON -->
-<div class="text-center mt-12">
-<a href="https://youtube.com/@divyaepicfilms" target="_blank" class="inline-flex items-center gap-2 px-8 py-3 bg-red-700 text-white font-bold uppercase tracking-wider rounded-sm hover:bg-red-800 transition">
-<i data-lucide="youtube"></i> Watch on YouTube
+<section id="portfolio" class="py-20 text-center">
+<a href="https://youtube.com/@divyaepicfilms" target="_blank" class="px-8 py-3 bg-red-700 text-white font-bold rounded">
+<i data-lucide="youtube"></i> WATCH ON YOUTUBE
 </a>
-</div>
+</section>
 
-<!-- CONTACT -->
 <section id="contact" class="py-20 text-center">
-<h2 class="text-3xl brand-font text-white">
-Contact <span class="text-gold-gradient">Divya Epic Films</span>
-</h2>
+<h2 class="brand-font text-3xl">Contact <span class="text-gold-gradient">Divya Epic Films</span></h2>
 
-<p class="text-gray-400">Let's create something legendary together.</p>
-
-<div class="flex justify-center space-x-4 mt-6">
+<div class="flex justify-center gap-4 mt-6">
 
 <a href="https://youtube.com/@divyaepicfilms" target="_blank"><i data-lucide="youtube"></i></a>
 <a href="https://instagram.com/divyaepicfilms" target="_blank"><i data-lucide="instagram"></i></a>
@@ -86,17 +93,19 @@ Contact <span class="text-gold-gradient">Divya Epic Films</span>
 <a href="#" target="_blank"><i data-lucide="gamepad-2"></i></a>
 
 </div>
+
+<form onsubmit="event.preventDefault(); alert('Thank you! Team Divya Epic Films will contact you shortly.');">
+</form>
 </section>
 
-<!-- FOOTER -->
 <footer class="bg-black py-8 text-center">
-<img src="assets/assets/logo.png" alt="Divya Epic Films" class="w-10 mx-auto">
+<img src="assets/assets/logo.png" alt="Astra Kavyam" class="w-10 mx-auto">
 <p class="brand-font text-2xl text-white">DIVYA EPIC FILMS</p>
 <p class="text-gray-600 text-sm">© 2025 Divya Epic Films. All Rights Reserved.</p>
 </footer>
 
 <script>
-if (typeof lucide !== 'undefined') lucide.createIcons();
+if(typeof lucide!=='undefined')lucide.createIcons();
 </script>
 
 </body>
